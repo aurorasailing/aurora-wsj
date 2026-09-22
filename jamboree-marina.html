@@ -90,22 +90,25 @@
   .wsj-wave{ display:block; width:100%; height:22px; line-height:0;
     background:#fff url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2795%27%20height%3D%2726%27%20viewBox%3D%270%200%2095%2026%27%3E%3Cpath%20d%3D%27M0%2016%20C16%207%2031%207%2047%2016%20S79%2025%2095%2016%20L95%2026%20L0%2026%20Z%27%20fill%3D%27%23D02C2F%27%2F%3E%3Cpath%20d%3D%27M0%2010%20C16%205%2031%205%2047%2010%20S79%2015%2095%2010%27%20fill%3D%27none%27%20stroke%3D%27%23D02C2F%27%20stroke-opacity%3D%270.4%27%20stroke-width%3D%271.6%27%2F%3E%3C%2Fsvg%3E") repeat-x center / auto 22px; }
   .wsj-bravely{ font-family:'Syne',sans-serif; font-weight:700; font-size:12px; letter-spacing:.02em; color:var(--wsj-ink); margin:0 0 6px; }
+  .langtog{ display:inline-flex; border:1px solid rgba(255,255,255,.55); border-radius:999px; overflow:hidden; margin-right:10px }
+  .langtog button{ font-family:'Syne',sans-serif; font-weight:700; font-size:11px; letter-spacing:.04em; color:#fff; background:transparent; border:none; padding:3px 9px; cursor:pointer; line-height:1 }
+  .langtog button.on{ background:#fff; color:var(--wsj) }
 </style>
 </head>
 <body>
 
 <header>
   <div class="brand"><span class="a">Aurora</span><span class="b">WSJ2027 Wind</span></div>
-  <div class="upd"><span class="live" id="live"></span></div>
+  <div class="upd"><div class="langtog" id="langtog" role="group" aria-label="Language / Język"><button type="button" data-lang="en">EN</button><button type="button" data-lang="pl">PL</button></div><span class="live" id="live"></span></div>
 </header>
 <div class="wsj-wave" aria-hidden="true"></div>
 
 <main>
-  <div class="place">Jamboree Marina · Is it a Sailing Day? <span class="beta">beta</span></div>
+  <div class="place" data-pl="Marina Jamboree · Czy to dzień na żeglowanie? <span class=&quot;beta&quot;>beta</span>">Jamboree Marina · Is it a Sailing Day? <span class="beta">beta</span></div>
   <div class="modeToggle" id="modeToggle" role="group" aria-label="View">
-    <button type="button" data-mode="easy">Easy</button>
-    <button type="button" data-mode="pro">Pro</button>
-    <button type="button" data-mode="puck">Puck</button>
+    <button type="button" data-mode="easy" data-pl="Prosty">Easy</button>
+    <button type="button" data-mode="pro" data-pl="Pro">Pro</button>
+    <button type="button" data-mode="puck" data-pl="Puck">Puck</button>
   </div>
   <div class="hero" id="hero"></div>
   <div class="banner" id="banner"></div>
@@ -113,61 +116,78 @@
 
 <footer>
   <div class="foot-in">
-    <div class="wsj-bravely">Sail bravely.</div>
+    <div class="wsj-bravely" data-pl="Żegluj odważnie.">Sail bravely.</div>
     <div class="keybox generic">
-    <h2>What the pictures mean</h2>
+    <h2 data-pl="Co oznaczają obrazki">What the pictures mean</h2>
     <ul class="key">
-      <li><span class="e">🚣</span><span><b>Too calm</b> <span class="rng">under 5 kt</span> — not much wind.</span></li>
-      <li><span class="e">⛵️</span><span><b>Sail!</b> <span class="rng">5–16 kt</span> — a good sailing breeze.</span></li>
-      <li><span class="e">🛟</span><span><b>Careful</b> <span class="rng">17–21 kt</span> — reef and take care.</span></li>
-      <li><span class="e">🌪️</span><span><b>Too windy</b> <span class="rng">22–27 kt</span> — experienced crews only.</span></li>
-      <li><span class="e">☠️</span><span><b>Stay ashore</b> <span class="rng">28+ kt</span> — don't launch.</span></li>
+      <li><span class="e">🚣</span><span data-pl="<b>Za mało wiatru</b> <span class=&quot;rng&quot;>poniżej 5 w.</span> — mało wiatru."><b>Too calm</b> <span class="rng">under 5 kt</span> — not much wind.</span></li>
+      <li><span class="e">⛵️</span><span data-pl="<b>Żegluj!</b> <span class=&quot;rng&quot;>5–16 w.</span> — dobry wiatr do żeglugi."><b>Sail!</b> <span class="rng">5–16 kt</span> — a good sailing breeze.</span></li>
+      <li><span class="e">🛟</span><span data-pl="<b>Uwaga</b> <span class=&quot;rng&quot;>17–21 w.</span> — weź ref i uważaj."><b>Careful</b> <span class="rng">17–21 kt</span> — reef and take care.</span></li>
+      <li><span class="e">🌪️</span><span data-pl="<b>Za mocno</b> <span class=&quot;rng&quot;>22–27 w.</span> — tylko doświadczone załogi."><b>Too windy</b> <span class="rng">22–27 kt</span> — experienced crews only.</span></li>
+      <li><span class="e">☠️</span><span data-pl="<b>Zostań na brzegu</b> <span class=&quot;rng&quot;>28+ w.</span> — nie wypływaj."><b>Stay ashore</b> <span class="rng">28+ kt</span> — don't launch.</span></li>
     </ul>
     </div>
     <div class="keybox puck">
-    <h2>What the pictures mean · Puck</h2>
+    <h2 data-pl="Co oznaczają obrazki · Puck">What the pictures mean · Puck</h2>
     <ul class="key">
-      <li><span class="qthumb"><img src="quest-calm.jpg" alt=""></span><span><b>Calm</b> <span class="rng">under 5 kt</span> — not enough to sail.</span></li>
-      <li><span class="qthumb"><img src="quest-smooth.jpg" alt=""></span><span><b>Light</b> <span class="rng">5–10 kt</span> — full main and jib, gentle; ideal for learning.</span></li>
-      <li><span class="qthumb"><img src="quest-cruisy.jpg" alt=""></span><span><b>Cruisy</b> <span class="rng">11–16 kt</span> — a working breeze; the boat's happy zone (Force 4).</span></li>
-      <li><span class="qthumb"><img src="quest-sporty.jpg" alt=""></span><span><b>Fresh</b> <span class="rng">17–21 kt</span> — put the reef in; youth crews ashore (Force 5).</span></li>
-      <li><span class="qthumb"><img src="quest-reef.jpg" alt=""></span><span><b>Reefed</b> <span class="rng">22–27 kt</span> — reefed, experienced crews only — the edge (Force 6).</span></li>
-      <li><span class="qthumb"><img src="quest-mainonly.jpg" alt=""></span><span><b>Over the limit</b> <span class="rng">28–35 kt</span> — beyond the Puck's limit; don't launch.</span></li>
-      <li><span class="qthumb"><img src="quest-shore.jpg" alt=""></span><span><b>Stay ashore</b> <span class="rng">36+ kt</span> — far too windy.</span></li>
+      <li><span class="qthumb"><img src="quest-calm.jpg" alt=""></span><span data-pl="<b>Cisza</b> <span class=&quot;rng&quot;>poniżej 5 w.</span> — za mało wiatru na żeglowanie."><b>Calm</b> <span class="rng">under 5 kt</span> — not enough to sail.</span></li>
+      <li><span class="qthumb"><img src="quest-smooth.jpg" alt=""></span><span data-pl="<b>Lekko</b> <span class=&quot;rng&quot;>5–10 w.</span> — pełny grot i fok, spokojnie; idealne do nauki."><b>Light</b> <span class="rng">5–10 kt</span> — full main and jib, gentle; ideal for learning.</span></li>
+      <li><span class="qthumb"><img src="quest-cruisy.jpg" alt=""></span><span data-pl="<b>Przyjemnie</b> <span class=&quot;rng&quot;>11–16 w.</span> — dobry wiatr roboczy; ulubione warunki łodzi (4°B)."><b>Cruisy</b> <span class="rng">11–16 kt</span> — a working breeze; the boat's happy zone (Force 4).</span></li>
+      <li><span class="qthumb"><img src="quest-sporty.jpg" alt=""></span><span data-pl="<b>Świeżo</b> <span class=&quot;rng&quot;>17–21 w.</span> — weź ref; młodsze załogi na brzeg (5°B)."><b>Fresh</b> <span class="rng">17–21 kt</span> — put the reef in; youth crews ashore (Force 5).</span></li>
+      <li><span class="qthumb"><img src="quest-reef.jpg" alt=""></span><span data-pl="<b>Na refie</b> <span class=&quot;rng&quot;>22–27 w.</span> — na refie, tylko doświadczone załogi — granica (6°B)."><b>Reefed</b> <span class="rng">22–27 kt</span> — reefed, experienced crews only — the edge (Force 6).</span></li>
+      <li><span class="qthumb"><img src="quest-mainonly.jpg" alt=""></span><span data-pl="<b>Poza limitem</b> <span class=&quot;rng&quot;>28–35 w.</span> — poza limitem Pucka; nie wypływaj."><b>Over the limit</b> <span class="rng">28–35 kt</span> — beyond the Puck's limit; don't launch.</span></li>
+      <li><span class="qthumb"><img src="quest-shore.jpg" alt=""></span><span data-pl="<b>Zostań na brzegu</b> <span class=&quot;rng&quot;>36+ w.</span> — o wiele za mocno."><b>Stay ashore</b> <span class="rng">36+ kt</span> — far too windy.</span></li>
     </ul>
-    <p style="margin:8px 0 0">These levels follow the Puck's <b>CE Category D</b> limits — the boat is designed for sheltered water up to Force 4. For a young or light crew, play it safer — reef earlier and come in sooner. <a href="puck-limits.html">Full wind limits &amp; reefing →</a></p>
-    <p style="margin:10px 0 0"><b>Why so stable?</b> the Puck heels very little even at Force 5 and is unsinkable — keep it flat, reef early, and head in if it builds. New to the boat? <a href="puck.html">What is a Puck?</a></p>
+    <p style="margin:8px 0 0" data-pl="Poziomy odpowiadają limitom Pucka (<b>kategoria CE D</b>) — łódź jest przeznaczona na wody osłonięte do 4°B. Dla młodszej lub lżejszej załogi zachowaj większą ostrożność — refuj wcześniej i wracaj szybciej. <a href=&quot;puck-limits.html&quot;>Pełne limity wiatru i refowanie →</a>">These levels follow the Puck's <b>CE Category D</b> limits — the boat is designed for sheltered water up to Force 4. For a young or light crew, play it safer — reef earlier and come in sooner. <a href="puck-limits.html">Full wind limits &amp; reefing →</a></p>
+    <p style="margin:10px 0 0" data-pl="<b>Dlaczego taki stabilny?</b> Puck przechyla się bardzo mało nawet przy 5°B i jest niezatapialny — trzymaj go płasko, refuj wcześnie i wracaj, gdy się wzmaga. Nie znasz łodzi? <a href=&quot;puck.html&quot;>Czym jest Puck?</a>"><b>Why so stable?</b> the Puck heels very little even at Force 5 and is unsinkable — keep it flat, reef early, and head in if it builds. New to the boat? <a href="puck.html">What is a Puck?</a></p>
     </div>
-    <h2>The three views</h2>
-    Tap the buttons up top to switch: <b>Easy</b> shows a simple picture; <b>Pro</b> a compass rose and wind barb
+    <h2 data-pl="Trzy widoki">The three views</h2>
+    <span data-pl="Przełączaj przyciskami u góry: <b>Prosty</b> pokazuje prosty obrazek; <b>Pro</b> różę wiatrów i znak wiatru (<a href=&quot;wind-barbs.html&quot;>jak to czytać →</a>); <b>Puck</b> pokazuje łódź w dzisiejszych warunkach z instrukcją refowania.">Tap the buttons up top to switch: <b>Easy</b> shows a simple picture; <b>Pro</b> a compass rose and wind barb
     (<a href="wind-barbs.html">how to read it →</a>); <b>Puck</b> shows the boat in today's conditions with reefing
-    guidance for the Pucks sailed here.
-    <h2 style="margin-top:16px">Where's this from?</h2>
-    The reading is the real on-water anemometer at the <b>Jamboree Marina</b> — Górki Zachodnie (NCŻ), the sailing
+    guidance for the Pucks sailed here.</span>
+    <h2 style="margin-top:16px" data-pl="Skąd to pochodzi?">Where's this from?</h2>
+    <span data-pl="Odczyt pochodzi z prawdziwego wiatromierza na wodzie przy <b>Marinie Jamboree</b> — Górki Zachodnie (NCŻ), ośrodek żeglarski przy ujściu rzeki. Gdy tam cicho, przełącza się na modelowany wiatr w punkcie <b>Marina Błotnik</b> (oznaczony <b>model</b>). Plakietka pod odczytem mówi, który to.">The reading is the real on-water anemometer at the <b>Jamboree Marina</b> — Górki Zachodnie (NCŻ), the sailing
     centre at the river mouth. If that's quiet, it falls back to the modelled wind at the <b>Marina Błotnik</b> point
-    (marked <b>modelled</b>). The badge under the reading tells you which.
-    <p style="margin:12px 0 0">We keep the wind direction simple — one of eight main points: North, North-East,
+    (marked <b>modelled</b>). The badge under the reading tells you which.</span>
+    <p style="margin:12px 0 0" data-pl="Kierunek wiatru podajemy prosto — jeden z ośmiu głównych: północny, północno-wschodni, wschodni, południowo-wschodni, południowy, południowo-zachodni, zachodni i północno-zachodni.">We keep the wind direction simple — one of eight main points: North, North-East,
     East, South-East, South, South-West, West and North-West.</p>
-    <p style="margin:12px 0 0">The time shows when the station last reported — treat it as a live snapshot, and
+    <p style="margin:12px 0 0" data-pl="Czas pokazuje, kiedy stacja ostatnio nadała odczyt — traktuj to jak migawkę na żywo i zawsze patrz też na wodę.">The time shows when the station last reported — treat it as a live snapshot, and
     always look at the water too.</p>
-    <p style="margin:12px 0 0">Wind from the on-water widget at
+    <p style="margin:12px 0 0" data-pl="Wiatr z widżetu na wodzie w <a href=&quot;https://holfuy.com/en/weather/1441&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Górkach Zachodnich (Holfuy&nbsp;#1441)</a>, z modelem <a href=&quot;https://open-meteo.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Open-Meteo</a> dla mariny jako rezerwą. Zawsze sprawdź warunki na wodzie przed wypłynięciem.">Wind from the on-water widget at
     <a href="https://holfuy.com/en/weather/1441" target="_blank" rel="noopener">Górki Zachodnie (Holfuy&nbsp;#1441)</a>,
     with the <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a> marina model as a fallback.
     Always check conditions on the water before you sail.</p>
-    <p class="fb" style="margin:14px 0 2px"><a href="mailto:wind@aurorasailing.com.au">Spotted something off, or have a suggestion? Tell us →</a></p>
+    <p class="fb" style="margin:14px 0 2px"><a href="mailto:wind@aurorasailing.com.au" data-pl="Coś nie gra albo masz sugestię? Napisz →">Spotted something off, or have a suggestion? Tell us →</a></p>
     <script>(function(){var a=document.querySelector('.fb a');if(!a)return;var spot=document.title.replace(/\s*·.*$/,'').trim();a.href='mailto:wind@aurorasailing.com.au?subject='+encodeURIComponent('Aurora WSJ feedback — '+spot)+'&body='+encodeURIComponent('\n\n\n(About '+spot+' — '+location.href+')');})();</script>
     <nav class="pagenav" aria-label="Aurora WSJ Wind pages">
-      <a href="index.html">Board</a>
-      <a href="wsj-map.html">River map</a>
-      <a href="sailing-day.html">Is it a sailing day?</a>
-      <span class="cur" aria-current="page">Jamboree Marina</span>
-      <a href="puck.html">What is a Puck?</a>
-      <a href="wind-barbs.html">Wind barbs</a>
+      <a href="index.html" data-pl="Tablica">Board</a>
+      <a href="wsj-map.html" data-pl="Mapa rzeki">River map</a>
+      <span class="cur" aria-current="page" data-pl="Marina Jamboree — czy to dzień na żeglowanie?">Jamboree Marina — is it a sailing day?</span>
+      <a href="puck.html" data-pl="Czym jest Puck?">What is a Puck?</a>
+      <a href="wind-barbs.html" data-pl="Znaki wiatru">Wind barbs</a>
     </nav>
     <div class="ver">jamboree-marina.html · v0.5</div>
   </div>
 </footer>
 
+<script>
+(function(){
+  function detect(){ try{ var v=localStorage.getItem('aurora-lang'); if(v==='pl'||v==='en') return v; }catch(e){} return ((navigator.language||navigator.userLanguage||'').toLowerCase().indexOf('pl')===0)?'pl':'en'; }
+  var lang=detect(); window.__lang=lang;
+  function apply(l){
+    window.__lang=l; document.documentElement.setAttribute('lang', l);
+    var els=document.querySelectorAll('[data-pl]');
+    for(var i=0;i<els.length;i++){ var el=els[i]; if(el.__en==null) el.__en=el.innerHTML; el.innerHTML=(l==='pl')?el.getAttribute('data-pl'):el.__en; }
+    var bs=document.querySelectorAll('#langtog button');
+    for(var j=0;j<bs.length;j++){ bs[j].classList.toggle('on', bs[j].getAttribute('data-lang')===l); }
+    try{ localStorage.setItem('aurora-lang', l); }catch(e){}
+    if(typeof window.__onlang==='function') window.__onlang(l);
+  }
+  window.setLang=apply;
+  function init(){ var bs=document.querySelectorAll('#langtog button'); for(var i=0;i<bs.length;i++){ (function(b){ b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); }); })(bs[i]); } apply(lang); }
+  if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
+})();
+</script>
 <script>
 const DATA_BASE = "https://aurora-wsj.gregor-fea.workers.dev";  // deploy the WSJ Worker + set this
 const CHAIN = ["gorki", "blotnik"];   // real on-water anemometer (Górki, Holfuy) → Open-Meteo model fallback
@@ -175,28 +195,30 @@ const REFRESH_MS = 2 * 60 * 1000;
 
 // EASY / PRO share the simple emoji bands; PUCK uses the boat pictures with the Category-D reef bands.
 const LEVELS = [
-  {max:4,   emoji:"🚣", word:"Too calm",    c:"#C4C9C5", t:"#586059"},
-  {max:16,  emoji:"⛵️", word:"Sail!",       c:"#7BD877", t:"#3B9743"},
-  {max:21,  emoji:"🛟", word:"Careful",     c:"#FFBB44", t:"#B37400"},
-  {max:27,  emoji:"🌪️", word:"Too windy",   c:"#F0792E", t:"#C2521A"},
-  {max:999, emoji:"☠️", word:"Stay ashore", c:"#F90D24", t:"#C21020"},
+  {max:4,   emoji:"🚣", word:"Too calm",    word_pl:"Za mało wiatru", c:"#C4C9C5", t:"#586059"},
+  {max:16,  emoji:"⛵️", word:"Sail!",       word_pl:"Żegluj!",        c:"#7BD877", t:"#3B9743"},
+  {max:21,  emoji:"🛟", word:"Careful",     word_pl:"Uwaga",          c:"#FFBB44", t:"#B37400"},
+  {max:27,  emoji:"🌪️", word:"Too windy",   word_pl:"Za mocno",       c:"#F0792E", t:"#C2521A"},
+  {max:999, emoji:"☠️", word:"Stay ashore", word_pl:"Zostań na brzegu", c:"#F90D24", t:"#C21020"},
 ];
 const PLEVELS = [
-  {max:4,   img:"quest-calm.jpg",     word:"Calm",          sub:"not enough to sail",                                 c:"#C4C9C5", t:"#586059"},
-  {max:10,  img:"quest-smooth.jpg",   word:"Light",         sub:"full main and jib — gentle, ideal for learning",     c:"#7BD877", t:"#3B9743"},
-  {max:16,  img:"quest-cruisy.jpg",   word:"Cruisy",        sub:"a working breeze — the boat's happy zone (Force 4)", c:"#5BC94A", t:"#227A2E"},
-  {max:21,  img:"quest-sporty.jpg",   word:"Fresh",         sub:"put the reef in — youth crews ashore (Force 5)",     c:"#FFBB44", t:"#B37400"},
-  {max:27,  img:"quest-reef.jpg",     word:"Reefed",        sub:"reefed, experienced crews only — the edge (Force 6)",c:"#F0792E", t:"#C2521A"},
-  {max:35,  img:"quest-mainonly.jpg", word:"Over the limit",sub:"beyond the Puck's limit — don't launch; if caught out, reefed and get in", c:"#E0451C", t:"#B0231A"},
-  {max:999, img:"quest-shore.jpg",    word:"Stay ashore",   sub:"far too windy — stay in port",                       c:"#F90D24", t:"#C21020"},
+  {max:4,   img:"quest-calm.jpg",     word:"Calm",          word_pl:"Cisza",       sub:"not enough to sail",                                 sub_pl:"za mało wiatru na żeglowanie",                       c:"#C4C9C5", t:"#586059"},
+  {max:10,  img:"quest-smooth.jpg",   word:"Light",         word_pl:"Lekko",       sub:"full main and jib — gentle, ideal for learning",     sub_pl:"pełny grot i fok — spokojnie, idealne do nauki",     c:"#7BD877", t:"#3B9743"},
+  {max:16,  img:"quest-cruisy.jpg",   word:"Cruisy",        word_pl:"Przyjemnie",  sub:"a working breeze — the boat's happy zone (Force 4)", sub_pl:"dobry wiatr roboczy — ulubione warunki łodzi (4°B)", c:"#5BC94A", t:"#227A2E"},
+  {max:21,  img:"quest-sporty.jpg",   word:"Fresh",         word_pl:"Świeżo",      sub:"put the reef in — youth crews ashore (Force 5)",     sub_pl:"weź ref — młodsze załogi na brzeg (5°B)",            c:"#FFBB44", t:"#B37400"},
+  {max:27,  img:"quest-reef.jpg",     word:"Reefed",        word_pl:"Na refie",    sub:"reefed, experienced crews only — the edge (Force 6)",sub_pl:"na refie, tylko doświadczone załogi — granica (6°B)",c:"#F0792E", t:"#C2521A"},
+  {max:35,  img:"quest-mainonly.jpg", word:"Over the limit",word_pl:"Poza limitem",sub:"beyond the Puck's limit — don't launch; if caught out, reefed and get in", sub_pl:"poza limitem Pucka — nie wypływaj; jeśli jesteś na wodzie, ref i wracaj", c:"#E0451C", t:"#B0231A"},
+  {max:999, img:"quest-shore.jpg",    word:"Stay ashore",   word_pl:"Zostań na brzegu", sub:"far too windy — stay in port",                  sub_pl:"o wiele za mocno — zostań w porcie",                 c:"#F90D24", t:"#C21020"},
 ];
 function pick(arr,kt){ kt=Math.round(kt); for(const l of arr){ if(kt<=l.max) return l; } return arr[arr.length-1]; }
 
 function beaufort(kt){ const b=[1,4,7,11,17,22,28,34,41,48,56,64]; let f=0; for(let i=0;i<b.length;i++){ if(kt>=b[i]) f=i+1; } return f; }
 const BEAUFORT_NAME=["calm","light air","light breeze","gentle breeze","moderate breeze","fresh breeze","strong breeze","near gale","gale","strong gale","storm","violent storm","hurricane force"];
+const BEAUFORT_NAME_PL=["cisza","powiew","słaby wiatr","łagodny wiatr","umiarkowany wiatr","dość silny wiatr","silny wiatr","bardzo silny wiatr","wichura","silna wichura","sztorm","gwałtowny sztorm","huragan"];
 const DIR_DEG={N:0,NNE:22.5,NE:45,ENE:67.5,E:90,ESE:112.5,SE:135,SSE:157.5,S:180,SSW:202.5,SW:225,WSW:247.5,W:270,WNW:292.5,NW:315,NNW:337.5};
 const PTS8=["N","NE","E","SE","S","SW","W","NW"];
 const DIR_NAME={N:"North",NE:"North-East",E:"East",SE:"South-East",S:"South",SW:"South-West",W:"West",NW:"North-West"};
+const DIR_NAME_PL={N:"północy",NE:"północnego wschodu",E:"wschodu",SE:"południowego wschodu",S:"południa",SW:"południowego zachodu",W:"zachodu",NW:"północnego zachodu"};
 function dir8(wd){ if(!wd || !(wd in DIR_DEG)) return null; return PTS8[Math.round(DIR_DEG[wd]/45)%8]; }
 
 const VENUE_TZ = "Europe/Warsaw";
@@ -256,10 +278,12 @@ function compassRose(deg,kt,color){
   return '<svg viewBox="0 0 100 100" role="img" aria-label="Wind direction and strength on a compass">'+s+'</svg>';
 }
 function render(){
+  const lang = (window.__lang==='pl')?'pl':'en';
   const o = rows&&rows.length ? rows[0] : null;
   const kt = o ? Math.round(o.wind_spd_kt) : null;
   const usingPuck = mode==="puck";
   const L  = kt==null ? (usingPuck?PLEVELS[0]:LEVELS[0]) : pick(usingPuck?PLEVELS:LEVELS, kt);
+  const word = lang==='pl' ? (L.word_pl||L.word) : L.word;
   const f  = kt==null ? null : beaufort(kt);
   const dir = o ? dir8(o.wind_dir) : null;
   airTemp = (o && o.air_temp!=null && isFinite(o.air_temp)) ? Math.round(o.air_temp) : null;
@@ -269,37 +293,45 @@ function render(){
   const deg = o ? (o.wind_dir_deg!=null&&isFinite(o.wind_dir_deg) ? Math.round(o.wind_dir_deg) : (o.wind_dir in DIR_DEG ? Math.round(DIR_DEG[o.wind_dir]) : null)) : null;
   let pic, extra="";
   if(mode==="pro"){ pic = '<div class="emoji pro">'+compassRose(deg,kt,L.t)+'</div>'; }
-  else if(usingPuck){ pic = '<div class="qpic"><img src="'+L.img+'" alt="Puck in '+L.word+' conditions"></div>'; extra = '<div class="qsub" style="color:'+L.t+'">'+(L.sub||'')+'</div>'; }
+  else if(usingPuck){ pic = '<div class="qpic"><img src="'+L.img+'" alt="Puck '+word+'"></div>'; extra = '<div class="qsub" style="color:'+L.t+'">'+(lang==='pl'?(L.sub_pl||L.sub||''):(L.sub||''))+'</div>'; }
   else { pic = '<div class="emoji">'+L.emoji+'</div>'; }
+  const fromW = lang==='pl'?'z':'from the';
   const wdirHtml = mode==="pro"
-    ? ((o&&o.wind_dir&&(o.wind_dir in DIR_DEG)) ? 'from the <b>'+o.wind_dir+'</b>'+(deg!=null?' · '+deg+'°':'') : '')
-    : (dir ? 'from the <b>'+DIR_NAME[dir]+'</b>' : '');
+    ? ((o&&o.wind_dir&&(o.wind_dir in DIR_DEG)) ? fromW+' <b>'+o.wind_dir+'</b>'+(deg!=null?' · '+deg+'°':'') : '')
+    : (dir ? fromW+' <b>'+(lang==='pl'?DIR_NAME_PL[dir]:DIR_NAME[dir])+'</b>' : '');
+  const knotsLbl = lang==='pl'?'węzłów':'knots';
+  const bftHtml = f==null?"":(lang==='pl' ? f+"°B · "+BEAUFORT_NAME_PL[f] : "Force "+f+" · "+BEAUFORT_NAME[f]);
+  const airHtml = airTemp==null?"":'🌡️ <b>'+airTemp+'°</b> '+(lang==='pl'?'w powietrzu':'in the air');
   const modelled = srcId==="blotnik";
-  const srcline = usingSample ? '' : '<div class="src"><span class="srcpill '+(modelled?"modelled":"live")+'">'+(modelled?"modelled":"live")+'</span>reading <b>'+srcName+'</b></div>';
+  const pill = modelled ? (lang==='pl'?'model':'modelled') : (lang==='pl'?'na żywo':'live');
+  const readW = lang==='pl'?'odczyt':'reading';
+  const srcline = usingSample ? '' : '<div class="src"><span class="srcpill '+(modelled?"modelled":"live")+'">'+pill+'</span>'+readW+' <b>'+srcName+'</b></div>';
   hero.innerHTML =
     pic+
-    '<div class="word" style="color:'+L.t+'">'+L.word+'</div>'+
+    '<div class="word" style="color:'+L.t+'">'+word+'</div>'+
     extra+
-    '<div class="knots">'+(kt==null?"–":kt)+'<b>knots</b></div>'+
+    '<div class="knots">'+(kt==null?"–":kt)+'<b>'+knotsLbl+'</b></div>'+
     '<div class="wdir">'+wdirHtml+'</div>'+
-    '<div class="bft">'+(f==null?"":"Force "+f+" · "+BEAUFORT_NAME[f])+'</div>'+
-    '<div class="air">'+(airTemp==null?"":'🌡️ <b>'+airTemp+'°</b> in the air')+'</div>'+
+    '<div class="bft">'+bftHtml+'</div>'+
+    '<div class="air">'+airHtml+'</div>'+
     srcline+
     '<div class="hupd" id="hupd"></div>';
   newestFull = o ? o.local_date_time_full : null;
   document.getElementById("banner").classList.toggle("show", usingSample);
-  document.getElementById("banner").textContent = usingSample ? "Showing pretend wind — the WSJ Worker isn't connected yet." : "";
+  document.getElementById("banner").textContent = usingSample ? (lang==='pl'?"Pokazujemy wiatr testowy — Worker WSJ nie jest jeszcze podłączony.":"Showing pretend wind — the WSJ Worker isn't connected yet.") : "";
   document.getElementById("live").style.background = usingSample ? "rgba(255,255,255,.5)" : "#fff";
   stampAge();
 }
 function stampAge(){
   const el=document.getElementById("hupd"); if(!el) return;
-  if(usingSample){ el.textContent="Pretend wind"; return; }
+  const lang=(window.__lang==='pl')?'pl':'en';
+  if(usingSample){ el.textContent=lang==='pl'?"Wiatr testowy":"Pretend wind"; return; }
   if(!newestFull){ el.textContent="—"; return; }
   const m=Math.round((Date.now()-parseFull(newestFull).getTime())/60000);
-  el.textContent = m<1 ? "Updated just now" : "Updated "+m+" min ago";
+  el.textContent = lang==='pl' ? (m<1?"Zaktualizowano przed chwilą":"Zaktualizowano "+m+" min temu") : (m<1?"Updated just now":"Updated "+m+" min ago");
 }
 
+window.__onlang = function(){ if(rows) render(); };
 document.body.setAttribute("data-mode", mode);
 document.querySelectorAll("#modeToggle button").forEach(b=>{ b.classList.toggle("on", b.dataset.mode===mode); b.addEventListener("click",()=>setMode(b.dataset.mode)); });
 load(); setInterval(load, REFRESH_MS); setInterval(stampAge, 30*1000);

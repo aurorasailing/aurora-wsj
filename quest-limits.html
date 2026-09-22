@@ -61,73 +61,76 @@
   .pagenav .cur{color:var(--muted); font-weight:700}
   .wsj-wave{ display:block; width:100%; height:22px; line-height:0;
     background:#fff url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2795%27%20height%3D%2726%27%20viewBox%3D%270%200%2095%2026%27%3E%3Cpath%20d%3D%27M0%2016%20C16%207%2031%207%2047%2016%20S79%2025%2095%2016%20L95%2026%20L0%2026%20Z%27%20fill%3D%27%23D02C2F%27%2F%3E%3Cpath%20d%3D%27M0%2010%20C16%205%2031%205%2047%2010%20S79%2015%2095%2010%27%20fill%3D%27none%27%20stroke%3D%27%23D02C2F%27%20stroke-opacity%3D%270.4%27%20stroke-width%3D%271.6%27%2F%3E%3C%2Fsvg%3E") repeat-x center / auto 22px; }
+  .langtog{ display:inline-flex; border:1px solid rgba(255,255,255,.55); border-radius:999px; overflow:hidden; margin-right:10px; vertical-align:middle }
+  .langtog button{ font-family:'Syne',sans-serif; font-weight:700; font-size:11px; letter-spacing:.04em; color:#fff; background:transparent; border:none; padding:3px 9px; cursor:pointer; line-height:1 }
+  .langtog button.on{ background:#fff; color:var(--wsj) }
   .wsj-bravely{ font-family:'Syne','Helvetica Neue',sans-serif; font-weight:700; font-size:12px; letter-spacing:.02em; color:var(--wsj-ink); margin:0 0 6px; }
 </style>
 </head>
 <body>
 <header>
   <div class="brand"><span class="a">Aurora</span><span class="b">WSJ2027 Wind</span></div>
-  <a href="#" onclick="history.back();return false">← Back</a>
+  <div class="langtog" id="langtog" role="group" aria-label="Language / Język"><button type="button" data-lang="en">EN</button><button type="button" data-lang="pl">PL</button></div><a href="#" onclick="history.back();return false" data-pl="← Wróć">← Back</a>
 </header>
 <div class="wsj-wave" aria-hidden="true"></div>
 <main>
-  <span class="eyebrow">RS Quest · Marina Błotnik</span>
-  <h1>Wind limits &amp; reefing</h1>
+  <span class="eyebrow" data-pl="RS Quest · Marina Błotnik">RS Quest · Marina Błotnik</span>
+  <h1 data-pl="Limity wiatru i refowanie">Wind limits &amp; reefing</h1>
 
-  <p class="call"><b>Bottom line:</b> full main to about <b>15 knots</b> for a competent crew; <b>reef by 18</b>;
+  <p class="call" data-pl="<b>W skrócie:</b> pełny grot do około <b>15 węzłów</b> dla sprawnej załogi; <b>ref do 18</b>; powyżej zwiń fok i płyń na samym zarefowanym grocie. Traktuj <b>6°B — mniej więcej 27 węzłów</b> — jako granicę projektowego świata łodzi, nie cel."><b>Bottom line:</b> full main to about <b>15 knots</b> for a competent crew; <b>reef by 18</b>;
   furl the jib and sail on reefed main alone above that. Treat <b>Force 6 — roughly 27 knots</b> — as the edge
   of the boat's designed world, not a target.</p>
 
   <section>
-    <h2>Quick reference</h2>
+    <h2 data-pl="Skrót">Quick reference</h2>
     <table class="tbl">
-      <tr><th>Wind</th><th>Sail plan</th><th>Action</th></tr>
-      <tr class="g"><td class="wind">Up to ~15 kt</td><td>Full main + jib</td><td>Sail flat; weight outboard as it builds; spinnaker only within crew skill.</td></tr>
-      <tr class="a2"><td class="wind">15–18 kt</td><td>Full main, depowered</td><td>Ease the gnav, flatten the sails; <b>light or youth crews reef now.</b></td></tr>
-      <tr class="a2"><td class="wind">18 kt</td><td>Reef the main</td><td>First slab in before launching — the manufacturer's figure.</td></tr>
-      <tr class="o"><td class="wind">18–~22 kt</td><td>Reefed main; jib as needed</td><td>Furl the jib if overpowered; no spinnaker.</td></tr>
-      <tr class="o"><td class="wind">Force 6 (~22–27 kt)</td><td>Reefed main only</td><td>Experienced adult crew only; <b>youth crews ashore.</b></td></tr>
-      <tr class="r"><td class="wind">Above Force 6 (&gt;27 kt)</td><td>—</td><td>Outside the certified envelope; <b>do not launch.</b></td></tr>
+      <tr><th data-pl="Wiatr">Wind</th><th data-pl="Ożaglowanie">Sail plan</th><th data-pl="Działanie">Action</th></tr>
+      <tr class="g"><td class="wind" data-pl="Do ~15 w.">Up to ~15 kt</td><td data-pl="Pełny grot + fok">Full main + jib</td><td data-pl="Płyń płasko; ciężar na burtę, gdy rośnie; spinaker tylko w granicach umiejętności załogi.">Sail flat; weight outboard as it builds; spinnaker only within crew skill.</td></tr>
+      <tr class="a2"><td class="wind" data-pl="15–18 w.">15–18 kt</td><td data-pl="Pełny grot, z upuszczoną mocą">Full main, depowered</td><td data-pl="Poluzuj gnav, spłaszcz żagle; <b>lekkie lub młode załogi refują teraz.</b>">Ease the gnav, flatten the sails; <b>light or youth crews reef now.</b></td></tr>
+      <tr class="a2"><td class="wind" data-pl="18 w.">18 kt</td><td data-pl="Zarefuj grot">Reef the main</td><td data-pl="Pierwszy ref przed wypłynięciem — liczba od producenta.">First slab in before launching — the manufacturer's figure.</td></tr>
+      <tr class="o"><td class="wind" data-pl="18–~22 w.">18–~22 kt</td><td data-pl="Zarefowany grot; fok w miarę potrzeb">Reefed main; jib as needed</td><td data-pl="Zwiń fok przy przeciążeniu; bez spinakera.">Furl the jib if overpowered; no spinnaker.</td></tr>
+      <tr class="o"><td class="wind" data-pl="6°B (~22–27 w.)">Force 6 (~22–27 kt)</td><td data-pl="Tylko zarefowany grot">Reefed main only</td><td data-pl="Tylko doświadczona dorosła załoga; <b>młode załogi na brzeg.</b>">Experienced adult crew only; <b>youth crews ashore.</b></td></tr>
+      <tr class="r"><td class="wind" data-pl="Powyżej 6°B (&gt;27 w.)">Above Force 6 (&gt;27 kt)</td><td>—</td><td data-pl="Poza certyfikowaną kopertą; <b>nie wypływaj.</b>">Outside the certified envelope; <b>do not launch.</b></td></tr>
     </table>
-    <p class="note">Bands are indicative and assume open water. For a light or inexperienced crew, play it safer — reef earlier and come in sooner.</p>
+    <p class="note" data-pl="Progi są orientacyjne i zakładają otwartą wodę. Dla lekkiej lub niedoświadczonej załogi graj bezpieczniej — refuj wcześniej i wracaj szybciej.">Bands are indicative and assume open water. For a light or inexperienced crew, play it safer — reef earlier and come in sooner.</p>
   </section>
 
   <section>
-    <h2>The reef point</h2>
-    <p>RS Sailing's own Sailing Tips give one hard number: <b>reef the mainsail at 18 knots</b> before going to
+    <h2 data-pl="Punkt refowania">The reef point</h2>
+    <p data-pl="Wskazówki żeglarskie RS Sailing podają jedną twardą liczbę: <b>zarefuj grot przy 18 węzłach</b> przed wyjściem w morze. Doświadczone załogi mogą brać ref na wodzie, gdy wiatr rośnie, ale 18 węzłów to liczba, wokół której zaprojektowano łódź — poniżej pełny grot; przy niej lub powyżej pierwszy ref zakłada się przed wypłynięciem.">RS Sailing's own Sailing Tips give one hard number: <b>reef the mainsail at 18 knots</b> before going to
     sea. Experienced crews may take a reef in afloat as the breeze builds, but 18 knots is the figure the boat is
     designed around — below it, full main; at or above it, the first slab goes in before launching.</p>
   </section>
 
   <section>
-    <h2>Extra caution for youth &amp; light crews</h2>
-    <p>Maximum crew weight is <b>365 kg</b> — about four adults; no minimum is published. A light youth crew reaches
+    <h2 data-pl="Dodatkowa ostrożność dla młodych i lekkich załóg">Extra caution for youth &amp; light crews</h2>
+    <p data-pl="Maksymalna waga załogi to <b>365 kg</b> — mniej więcej czterech dorosłych; minimum nie podano. Lekka młodzieżowa załoga osiąga próg refowania <b>na długo przed 18 węzłami</b> i powinna refować wcześniej, bo nie potrafi obciążyć burty. Dobieraj żagiel do wagi załogi, a nie do stałej liczby.">Maximum crew weight is <b>365 kg</b> — about four adults; no minimum is published. A light youth crew reaches
     the reef threshold <b>well before 18 knots</b> and should reef earlier, because they cannot sit the boat down.
     Match sail to crew weight rather than to a fixed number.</p>
   </section>
 
   <section>
-    <h2>The de-power sequence</h2>
-    <p>RS gives a clear order for rising wind:</p>
+    <h2 data-pl="Kolejność upuszczania mocy">The de-power sequence</h2>
+    <p data-pl="RS podaje jasną kolejność na rosnący wiatr:">RS gives a clear order for rising wind:</p>
     <ul>
-      <li>Move crew weight outboard and ease the gnav to spill the top of the main.</li>
-      <li>Reef the mainsail at 18 knots.</li>
-      <li>In stronger conditions, furl the jib and progressively ease the gnav while keeping steerage.</li>
+      <li data-pl="Przenieś ciężar załogi na burtę i poluzuj gnav, by upuścić górę grota.">Move crew weight outboard and ease the gnav to spill the top of the main.</li>
+      <li data-pl="Zarefuj grot przy 18 węzłach.">Reef the mainsail at 18 knots.</li>
+      <li data-pl="W silniejszych warunkach zwiń fok i stopniowo luzuj gnav, zachowując sterowność.">In stronger conditions, furl the jib and progressively ease the gnav while keeping steerage.</li>
     </ul>
-    <p>RS is blunt about the boat: large, heavy, three sails, a high centre of effort. It wants an experienced
+    <p data-pl="RS mówi o łodzi wprost: duża, ciężka, trzy żagle, wysoki środek parcia. Wymaga doświadczonego sternika, a przeciążenie może skończyć się wywrotką.">RS is blunt about the boat: large, heavy, three sails, a high centre of effort. It wants an experienced
     skipper, and over-powering it may end in a capsize.</p>
   </section>
 
   <section>
-    <h2>Main only — never jib only</h2>
-    <p>Main alone is a proper reduced rig: the forestay is fixed and the jib removable, and the boat sails well
+    <h2 data-pl="Tylko grot — nigdy sam fok">Main only — never jib only</h2>
+    <p data-pl="Sam grot to prawidłowo zredukowane ożaglowanie: sztag jest stały, a fok zdejmowany, i łódź płynie dobrze wyważona na samym grocie. <b style=&quot;color:var(--wsj-ink)&quot;>Sam fok nie jest konfiguracją dla tej łodzi</b> — daje silną tendencję do odpadania i słabą kontrolę. W wietrze trzymasz zarefowany grot i zwijasz fok, nigdy odwrotnie.">Main alone is a proper reduced rig: the forestay is fixed and the jib removable, and the boat sails well
     balanced under main only. <b style="color:var(--wsj-ink)">Jib alone is not a configuration for this boat</b> — it gives a large lee helm and
     poor control. In a blow you keep a reefed main and furl the jib, never the reverse.</p>
   </section>
 
   <section>
-    <h2>Capsize &amp; recovery</h2>
-    <p>On capsize in strong wind, <b>furl the jib before righting</b> to give the boat weather helm. The foam-filled
+    <h2 data-pl="Wywrotka i podnoszenie">Capsize &amp; recovery</h2>
+    <p data-pl="Po wywrotce w silnym wietrze <b>zwiń fok przed postawieniem</b>, by nadać łodzi tendencję do ostrzenia. Wypełniony pianką szczyt masztu opiera się odwróceniu, a dla załóg pływających blisko limitu dostępny jest pływak masztowy. Dwie cechy pomagają lżejszym załogom: uchwyty wtopione w kadłub oraz odpływy pod ławkami, które nabierają wody, gdy łódź leży na burcie, dzięki czemu leży niżej i łatwiej sięgnąć miecza — woda wypływa z powrotem, gdy łódź jest postawiona.">On capsize in strong wind, <b>furl the jib before righting</b> to give the boat weather helm. The foam-filled
     masthead section resists inversion, and a masthead float kit is available for crews sailing near the limit.
     Two features help lighter crews recover: handles moulded into the hull, and scuppers under the bench seats that
     take on water when the boat is over, so it sits lower on its side and the centreboard is easier to reach — the
@@ -135,16 +138,16 @@
   </section>
 
   <section>
-    <h2>The fragile end is the rudder</h2>
-    <p>The one repeated field warning: <b>do not load the tiller sideways</b> — it damages the lift-and-lock
+    <h2 data-pl="Najsłabszym ogniwem jest ster">The fragile end is the rudder</h2>
+    <p data-pl="Jedno powtarzane ostrzeżenie z praktyki: <b>nie obciążaj rumpla bocznie</b> — uszkadza to mechanizm podnoszenia i blokady. Płetwa podnosi się przy najechaniu na dno (co chroni ją przy slipie); uważać trzeba na pływanie z przeciążeniem i silną tendencją do ostrzenia, co obciąża trzon i rumpel. Trzymaj łódź płasko, a obciążenie zniknie. Sam kadłub — rotomoulding Comptec PE3 — przetrwa dłużej niż zdolność załogi do utrzymania go w pionie.">The one repeated field warning: <b>do not load the tiller sideways</b> — it damages the lift-and-lock
     mechanism. The blade kicks up on grounding (which protects it at the slipway); the strain to watch is sailing
     overpowered with heavy weather helm, which loads the stock and tiller. Keep the boat flat and the load stays off
     it. The hull itself — rotomoulded Comptec PE3 — outlasts the crew's ability to keep it upright.</p>
   </section>
 
   <section>
-    <h2>The certified envelope</h2>
-    <p>The RS Quest is <b>CE design Category C</b>: <b style="color:var(--wsj-ink)">winds up to Force 6 (22–27 kt) and significant wave height up to
+    <h2 data-pl="Certyfikowana koperta">The certified envelope</h2>
+    <p data-pl="RS Quest ma <b>CE kategorię projektową C</b>: <b style=&quot;color:var(--wsj-ink)&quot;>wiatr do 6°B (22–27 w.) i znaczącą wysokość fali do 2 m</b>. Tyle znaczy „przetestowany”. Dla Questa — jak i dla łodzi szkoleniowych w ogóle — nie publikuje się danych o uszkodzeniu konstrukcji zależnym od prędkości wiatru, bo czynnikiem ograniczającym jest wywrotka i możliwości załogi, a nie kadłub. Każde twierdzenie o konkretnej prędkości wiatru, przy której puszcza okucie, traktuj jako rozsądną ostrożność, nie udokumentowaną liczbę.">The RS Quest is <b>CE design Category C</b>: <b style="color:var(--wsj-ink)">winds up to Force 6 (22–27 kt) and significant wave height up to
     2 m</b>. That is the extent of what "tested" means. No structural-failure-by-windspeed data is published for the
     Quest — or for training dinghies generally — because the limiting factor is capsize and crew capability, not the
     hull. Treat any claim of a specific windspeed at which a fitting fails as plausible caution, not a documented
@@ -152,8 +155,8 @@
   </section>
 
   <section>
-    <h2>From experience — the real-world edge</h2>
-    <p>The certified ~27 knots is a <b>launch and design</b> limit, not a breaking point. In practice a
+    <h2 data-pl="Z doświadczenia — granica w praktyce">From experience — the real-world edge</h2>
+    <p data-pl="Certyfikowane ~27 węzłów to limit <b>wypłynięcia i projektu</b>, nie punkt zniszczenia. W praktyce zarefowany Quest z obciążeniem — ciężką załogą i sprzętem — wytrzymywał w porywach powyżej <b>30 węzłów</b>, przy łodzi trzymanej płasko, poluzowanym gnav i zachowanej sterowności. To <b>przetrwanie wiatru, w który się złapało, nie powód do wypłynięcia.</b> Decyzja o wypłynięciu pozostaje zachowawcza — sami byśmy w to nie wyszli — ale jeśli już jesteś na wodzie i rośnie: refuj, luzuj gnav, trzymaj łódź płasko i wracaj.">The certified ~27 knots is a <b>launch and design</b> limit, not a breaking point. In practice a
     reefed Quest carrying weight — a heavy crew and gear — has held together in gusts past <b>30 knots</b>,
     keeping the boat flat, the gnav eased and steerage on. That is <b>surviving a blow you're caught in,
     not a reason to launch.</b> The launch call stays conservative — we wouldn't have gone out in it — but
@@ -161,7 +164,7 @@
   </section>
 
   <section class="refs">
-    <h2>References</h2>
+    <h2 data-pl="Źródła">References</h2>
     <ul>
       <li><a href="https://www.rssailing.com/wp-content/uploads/guides/RS_QUEST_RIGGING_MANUAL.pdf" target="_blank" rel="noopener">RS Quest Rigging Manual</a> — rig setup, sailing hints</li>
       <li><a href="https://www.rssailing.com/top-10-features-of-the-rs-quest/" target="_blank" rel="noopener">RS Sailing — "Top 10 Features of the RS Quest"</a> — scupper ballast, kick-up rudder, masthead float</li>
@@ -170,22 +173,33 @@
       <li><a href="https://ubcsailing.org/fleet/sail/rs_quest_rigging_guide" target="_blank" rel="noopener">UBC Sailing rigging guide</a> — rudder sideload warning, jib-furl-before-righting</li>
       <li><a href="https://www.rssailing.com/project/rs-quest/" target="_blank" rel="noopener">RS Sailing product page</a> — design intent, three-sail handling</li>
     </ul>
-    <p class="note">Certification and manufacturer figures as published at September 2026. Verify against current RS
+    <p class="note" data-pl="Dane certyfikacyjne i producenckie wg stanu na wrzesień 2026. Zanim na nich polegniesz, sprawdź je z aktualną dokumentacją RS, a granice w praktyce — z własnym rejestrem zdarzeń floty.">Certification and manufacturer figures as published at September 2026. Verify against current RS
     documentation before relying on them, and against your own fleet incident log for real-world limits.</p>
   </section>
 
-  <p class="back"><a href="#" onclick="history.back();return false">← Back to the Quest</a></p>
-  <p class="fbrow"><a class="fbbtn" href="mailto:wind@aurorasailing.com.au">Suggest a change, or share your experience →</a></p>
+  <p class="back"><a href="#" onclick="history.back();return false" data-pl="← Wróć do Questa">← Back to the Quest</a></p>
+  <p class="fbrow"><a class="fbbtn" href="mailto:wind@aurorasailing.com.au" data-pl="Zaproponuj zmianę lub podziel się doświadczeniem →">Suggest a change, or share your experience →</a></p>
   <script>(function(){var a=document.querySelector('.fbbtn');if(!a)return;a.href='mailto:wind@aurorasailing.com.au?subject='+encodeURIComponent('RS Quest wind limits — feedback')+'&body='+encodeURIComponent('\n\n— My correction, question, or real-world experience:\n\n\n(Aurora RS Quest wind-limits page — '+location.href+')');})();</script>
   <nav class="pagenav" aria-label="Aurora WSJ Wind pages">
-    <a href="index.html">Board</a>
-    <a href="wsj-map.html">River map</a>
-    <a href="sailing-day.html">Is it a sailing day?</a>
-    <a href="jamboree-marina.html">Jamboree Marina</a>
-    <a href="puck.html">What is a Puck?</a>
-    <a href="wind-barbs.html">Wind barbs</a>
+    <a href="index.html" data-pl="Tablica">Board</a>
+    <a href="wsj-map.html" data-pl="Mapa rzeki">River map</a>
+    <a href="jamboree-marina.html" data-pl="Marina Jamboree — czy to dzień na żeglowanie?">Jamboree Marina — is it a sailing day?</a>
+    <a href="puck.html" data-pl="Czym jest Puck?">What is a Puck?</a>
+    <a href="wind-barbs.html" data-pl="Znaki wiatru">Wind barbs</a>
   </nav>
 </main>
 <footer><div class="wsj-bravely" style="margin-bottom:4px">Sail bravely.</div><b style="font-weight:700;color:var(--slate)">Aurora · WSJ2027 Wind.</b> Wind limits for the RS Quest at Marina Błotnik, from RS Sailing's guidance.</footer>
+<script>
+(function(){ function detect(){ try{ var v=localStorage.getItem("aurora-lang"); if(v==="pl"||v==="en") return v; }catch(e){} return ((navigator.language||navigator.userLanguage||"").toLowerCase().indexOf("pl")===0)?"pl":"en"; }
+  var lang=detect(); window.__lang=lang;
+  function apply(l){ window.__lang=l; document.documentElement.setAttribute("lang", l);
+    var els=document.querySelectorAll("[data-pl]"); for(var i=0;i<els.length;i++){ var el=els[i]; if(el.__en==null) el.__en=el.innerHTML; el.innerHTML=(l==="pl")?el.getAttribute("data-pl"):el.__en; }
+    var bs=document.querySelectorAll("#langtog button"); for(var j=0;j<bs.length;j++){ bs[j].classList.toggle("on", bs[j].getAttribute("data-lang")===l); }
+    try{ localStorage.setItem("aurora-lang", l); }catch(e){} if(typeof window.__onlang==="function") window.__onlang(l); }
+  window.setLang=apply;
+  function init(){ var bs=document.querySelectorAll("#langtog button"); for(var i=0;i<bs.length;i++){ (function(b){ b.addEventListener("click", function(){ apply(b.getAttribute("data-lang")); }); })(bs[i]); } apply(lang); }
+  if(document.readyState!=="loading") init(); else document.addEventListener("DOMContentLoaded", init);
+})();
+</script>
 </body>
 </html>

@@ -96,7 +96,6 @@
   .beta{display:inline-block; font-family:'Syne',sans-serif; font-weight:700; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:#B37400; background:#FFF1D6; border:1px solid #FFCE73; border-radius:999px; padding:1px 7px; vertical-align:middle; margin-left:8px}
   .pc-d{font-size:12.5px; color:var(--muted); margin-top:3px; line-height:1.4}
   .pc-x{font-family:'Syne',sans-serif; font-weight:700; font-size:22px; color:var(--green-b); flex:none; line-height:1}
-</style>
   .src{font-family:'Syne',sans-serif; font-weight:700; font-size:8.5px; letter-spacing:.05em; text-transform:uppercase; padding:1px 6px; border-radius:999px; margin-left:6px; vertical-align:middle; white-space:nowrap}
   .src.live{background:#E4F5E6; color:#227A2E; border:1px solid #B6E3BD}
   .src.modelled{background:#FFF1D6; color:#B37400; border:1px solid #FFCE73}
@@ -130,6 +129,9 @@
   .wsj-wave{ display:block; width:100%; height:22px; line-height:0;
     background:#fff url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2795%27%20height%3D%2726%27%20viewBox%3D%270%200%2095%2026%27%3E%3Cpath%20d%3D%27M0%2016%20C16%207%2031%207%2047%2016%20S79%2025%2095%2016%20L95%2026%20L0%2026%20Z%27%20fill%3D%27%23D02C2F%27%2F%3E%3Cpath%20d%3D%27M0%2010%20C16%205%2031%205%2047%2010%20S79%2015%2095%2010%27%20fill%3D%27none%27%20stroke%3D%27%23D02C2F%27%20stroke-opacity%3D%270.4%27%20stroke-width%3D%271.6%27%2F%3E%3C%2Fsvg%3E") repeat-x center / auto 22px; }
   /* Bravely — the Jamboree theme line */
+  .langtog{ display:inline-flex; border:1px solid rgba(255,255,255,.55); border-radius:999px; overflow:hidden; margin-right:10px }
+  .langtog button{ font-family:'Syne',sans-serif; font-weight:700; font-size:11px; letter-spacing:.04em; color:#fff; background:transparent; border:none; padding:3px 9px; cursor:pointer; line-height:1 }
+  .langtog button.on{ background:#fff; color:var(--wsj) }
   .wsj-bravely{ font-family:'Syne','Helvetica Neue',sans-serif; font-weight:700;
     font-size:12px; letter-spacing:.02em; color:var(--wsj-ink); margin:0 0 6px; }
 </style>
@@ -138,53 +140,48 @@
 
 <header>
   <div class="brand"><span class="a">Aurora</span><span class="b">WSJ2027 Wind</span></div>
-  <div class="upd"><span class="live" id="live"></span><span id="upd">Loading…</span></div>
+  <div class="upd"><div class="langtog" id="langtog" role="group" aria-label="Language / Język"><button type="button" data-lang="en">EN</button><button type="button" data-lang="pl">PL</button></div><span class="live" id="live"></span><span id="upd" data-pl="Ładowanie…">Loading…</span></div>
 </header>
 <div class="wsj-wave" aria-hidden="true"></div>
 
 
 <div class="intro">
-  <span class="eyebrow">Jamboree River, right now</span>
-  <p class="subhead">Live wind for the Jamboree river-sailing on the <b>Martwa Wisła</b> at Marina Błotnik — the marina point, the IMGW coastal backbone, and the on-water anemometer at Górki Zachodnie.</p>
+  <span class="eyebrow" data-pl="Rzeka Jamboree, teraz">Jamboree River, right now</span>
+  <p class="subhead" data-pl="Wiatr na żywo dla żeglowania na Jamboree na <b>Martwej Wiśle</b> przy Marinie Błotnik — punkt mariny, nadmorska sieć IMGW i wiatromierz na wodzie w Górkach Zachodnich.">Live wind for the Jamboree river-sailing on the <b>Martwa Wisła</b> at Marina Błotnik — the marina point, the IMGW coastal backbone, and the on-water anemometer at Górki Zachodnie.</p>
   <div class="banner" id="banner"></div>
 </div>
 
 <div class="boxes" id="boxes"></div>
 <div class="legend" id="legend"></div>
-<p class="srcnote"><span class="src live">live</span> a real station reading &nbsp;·&nbsp; <span class="src modelled">modelled</span> computed for the marina point — no sensor there yet</p>
+<p class="srcnote" data-pl="<span class=&quot;src live&quot;>na żywo</span> odczyt z prawdziwej stacji &nbsp;·&nbsp; <span class=&quot;src modelled&quot;>model</span> obliczony dla punktu mariny — nie ma tam jeszcze czujnika"><span class="src live">live</span> a real station reading &nbsp;·&nbsp; <span class="src modelled">modelled</span> computed for the marina point — no sensor there yet</p>
 
 <section class="pages">
   <div class="pages-h">More from WSJ Wind</div>
   <a class="pcard" href="wsj-map.html">
-    <div class="pc-b"><div class="pc-t">River map <span class="beta">beta</span></div>
-      <div class="pc-d">The Martwa Wisła from Górki Zachodnie to the Błotnik basin, with a wind barb at every station and the Jamboree marinas and camp marked.</div></div>
-    <span class="pc-x" aria-hidden="true">›</span>
-  </a>
-  <a class="pcard" href="sailing-day.html">
-    <div class="pc-b"><div class="pc-t">Is it a sailing day? <span class="beta">beta</span></div>
-      <div class="pc-d">One big, simple wind picture for the crews — the breeze on the water at the sailing venue.</div></div>
+    <div class="pc-b"><div class="pc-t" data-pl="Mapa rzeki <span class=&quot;beta&quot;>beta</span>">River map <span class="beta">beta</span></div>
+      <div class="pc-d" data-pl="Martwa Wisła od Górek Zachodnich po basen Błotnik, ze znakiem wiatru przy każdej stacji oraz zaznaczonymi marinami i obozowiskiem Jamboree.">The Martwa Wisła from Górki Zachodnie to the Błotnik basin, with a wind barb at every station and the Jamboree marinas and camp marked.</div></div>
     <span class="pc-x" aria-hidden="true">›</span>
   </a>
   <a class="pcard" href="jamboree-marina.html">
-    <div class="pc-b"><div class="pc-t">Jamboree Marina <span class="beta">beta</span></div>
-      <div class="pc-d">Live Błotnik wind in today’s sailing conditions, with Easy / Standard / Pro crew limits.</div></div>
+    <div class="pc-b"><div class="pc-t" data-pl="Marina Jamboree — czy to dzień na żeglowanie? <span class=&quot;beta&quot;>beta</span>">Jamboree Marina — is it a sailing day? <span class="beta">beta</span></div>
+      <div class="pc-d" data-pl="Wiatr na żywo przy marinie na trzy sposoby — prosty obrazek, kompas albo Puck z instrukcją refowania.">Live wind at the marina shown three ways — a simple picture, a compass, or the Puck with reefing guidance.</div></div>
     <span class="pc-x" aria-hidden="true">›</span>
   </a>
   <a class="pcard" href="puck.html">
-    <div class="pc-b"><div class="pc-t">What is a Puck?</div>
-      <div class="pc-d">Never heard of a Puck? Meet the little Polish scouting boat the Jamboree sails.</div></div>
+    <div class="pc-b"><div class="pc-t" data-pl="Czym jest Puck?">What is a Puck?</div>
+      <div class="pc-d" data-pl="Nie znasz Pucka? Poznaj małą polską łódź harcerską, na której żegluje Jamboree.">Never heard of a Puck? Meet the little Polish scouting boat the Jamboree sails.</div></div>
     <span class="pc-x" aria-hidden="true">›</span>
   </a>
   <a class="pcard" href="wind-barbs.html">
-    <div class="pc-b"><div class="pc-t">How to read a wind barb</div>
-      <div class="pc-d">Direction and speed in one small symbol — a two-minute guide.</div></div>
+    <div class="pc-b"><div class="pc-t" data-pl="Jak czytać znak wiatru">How to read a wind barb</div>
+      <div class="pc-d" data-pl="Kierunek i prędkość w jednym małym symbolu — przewodnik na dwie minuty.">Direction and speed in one small symbol — a two-minute guide.</div></div>
     <span class="pc-x" aria-hidden="true">›</span>
   </a>
 </section>
 
 <footer>
   <b>Aurora Sailing · WSJ2027 Wind.</b>
-  Live wind for the river-sailing at the <b>26th World Scout Jamboree</b> (Poland 2027), Marina Błotnik.
+  <span data-pl="Wiatr na żywo dla żeglowania na <b>26. Światowym Jamboree Skautowym</b> (Polska 2027), Marina Błotnik.">Live wind for the river-sailing at the <b>26th World Scout Jamboree</b> (Poland 2027), Marina Błotnik.</span>
   Automatic observations from
   <a href="https://www.imgw.pl" target="_blank" rel="noopener">IMGW-PIB</a> (the Polish met service —
   Świbno, Gdynia, Hel and Gdańsk airport), a modelled reading at the marina point from
@@ -205,7 +202,7 @@
   </ul>
   Observations are automatic and not quality-checked — always confirm conditions
   on the water before you sail.
-  <div class="wsj-bravely">Sail bravely.</div>
+  <div class="wsj-bravely" data-pl="Żegluj odważnie.">Sail bravely.</div>
     <div class="ver">index.html · v0.1</div>
     <p class="fb" style="margin:14px 0 2px"><a href="mailto:wind@aurorasailing.com.au">Spotted something off, or have a suggestion? Tell us →</a></p>
     <script>(function(){var a=document.querySelector('.fb a');if(!a)return;var spot=document.title.replace(/\s*·.*$/,'').trim();a.href='mailto:wind@aurorasailing.com.au?subject='+encodeURIComponent('Aurora WSJ wind feedback — '+spot)+'&body='+encodeURIComponent('\n\n\n(About '+spot+' — '+location.href+')');})();</script>
@@ -221,12 +218,12 @@ const TREND_WINDOW_MIN = 120;   // building/easing over the last ~2h (compare re
 const TREND_KT = 2;             // change smaller than this reads as "steady"
 
 const BANDS = [
-  {max:4,   name:"Calm",       c:"#C4C9C5", t:"#586059"},
-  {max:10,  name:"Ideal",      c:"#7BD877", t:"#3B9743"},
-  {max:15,  name:"Fresh",      c:"#2E9E3D", t:"#1B7A29"},
-  {max:23,  name:"Breezy",     c:"#FFBB44", t:"#B37400"},
-  {max:30,  name:"Reconsider", c:"#F0792E", t:"#C2521A"},
-  {max:999, name:"Strong",     c:"#F90D24", t:"#C21020"},
+  {max:4,   name:"Calm",       name_pl:"Cisza",        c:"#C4C9C5", t:"#586059"},
+  {max:10,  name:"Ideal",      name_pl:"Idealnie",     c:"#7BD877", t:"#3B9743"},
+  {max:15,  name:"Fresh",      name_pl:"Świeżo",       c:"#2E9E3D", t:"#1B7A29"},
+  {max:23,  name:"Breezy",     name_pl:"Wietrznie",    c:"#FFBB44", t:"#B37400"},
+  {max:30,  name:"Reconsider", name_pl:"Zastanów się", c:"#F0792E", t:"#C2521A"},
+  {max:999, name:"Strong",     name_pl:"Mocno",        c:"#F90D24", t:"#C21020"},
 ];
 
 // String ids served by the WSJ Worker, in board order. sample:true = free backbone (shows demo
@@ -251,6 +248,8 @@ const store={}; let usingSample=false, newestFull=null;
 function bandFor(kt){ kt=Math.round(kt); for(const b of BANDS){ if(kt<=b.max) return b; } return BANDS[BANDS.length-1]; }
 function beaufort(kt){ const b=[1,4,7,11,17,22,28,34,41,48,56,64]; let f=0; for(let i=0;i<b.length;i++){ if(kt>=b[i]) f=i+1; } return f; }
 const BEAUFORT_NAME=["calm","light air","light breeze","gentle breeze","moderate breeze","fresh breeze","strong breeze","near gale","gale","strong gale","storm","violent storm","hurricane force"];
+const BEAUFORT_NAME_PL=["cisza","powiew","słaby wiatr","łagodny wiatr","umiarkowany wiatr","dość silny wiatr","silny wiatr","bardzo silny wiatr","wichura","silna wichura","sztorm","gwałtowny sztorm","huragan"];
+const SCOUT_PL={"Dutch Marina":"Marina Holenderska","Jamboree Marina":"Marina Jamboree"};
 function fmtTime(f){ if(!f) return ""; let h=+f.slice(8,10); const m=f.slice(10,12);
   const ap=h>=12?"pm":"am"; h=((h+11)%12)+1; return h+":"+m+ap; }
 const VENUE_TZ = "Europe/Warsaw";
@@ -321,19 +320,20 @@ function sampleSeries(s){
 }
 
 function render(){
+  const lang=(window.__lang==="pl")?"pl":"en";
   const el=document.getElementById("boxes"); el.innerHTML="";
   STATIONS.forEach(s=>{
     const o=latest(s.wmo), kt=o?Math.round(o.wind_spd_kt):null;
     const band=kt!=null?bandFor(kt):BANDS[0], g=o&&o.gust_kt!=null?Math.round(o.gust_kt):null, tr=trend(s.wmo);
     const brg=o&&(o.wind_dir in COMPASS)?COMPASS[o.wind_dir]:null;
     const dir=o&&(o.wind_dir in COMPASS)?o.wind_dir:(o&&o.wind_dir==="CALM"?"Calm":"–");
-    const trLbl = tr==null ? "" : (tr>0?' · <span class="up">▲ building</span>'
-                                 : tr<0?' · <span class="dn">▼ easing</span>'
-                                 :      ' · steady');
+    const trLbl = tr==null ? "" : (tr>0?' · <span class="up">▲ '+(lang==="pl"?"rośnie":"building")+'</span>'
+                                 : tr<0?' · <span class="dn">▼ '+(lang==="pl"?"słabnie":"easing")+'</span>'
+                                 :      ' · '+(lang==="pl"?"stały":"steady"));
     const bf = kt==null ? null : beaufort(kt);
-    const bft = bf==null ? "" : ' <span class="bft">F'+bf+' '+BEAUFORT_NAME[bf]+'</span>';
-    const scout = s.scout ? '<span class="scout">'+s.scout+'</span>' : '';
-    const srcb = s.modelled ? '<span class="src modelled">modelled</span>' : '<span class="src live">live</span>';
+    const bft = bf==null ? "" : ' <span class="bft">'+(lang==="pl"? bf+"°B "+BEAUFORT_NAME_PL[bf] : "F"+bf+" "+BEAUFORT_NAME[bf])+'</span>';
+    const scout = s.scout ? '<span class="scout">'+(lang==="pl"?(SCOUT_PL[s.scout]||s.scout):s.scout)+'</span>' : '';
+    const srcb = s.modelled ? '<span class="src modelled">'+(lang==="pl"?"model":"modelled")+'</span>' : '<span class="src live">'+(lang==="pl"?"na żywo":"live")+'</span>';
     const box=document.createElement("div");
     box.className="box"; box.style.borderLeftColor=band.c;
     box.innerHTML=
@@ -341,7 +341,7 @@ function render(){
       '<div class="bd"><div class="nm">'+s.name+srcb+scout+'</div>'+
       '<div class="val"><span class="kt" style="color:'+band.t+'">'+(kt==null?"–":kt)+'</span>'+
         '<span class="u">kt</span><span class="dir">'+dir+'</span></div>'+
-      '<div class="gst"><b style="color:'+band.t+'">'+band.name+'</b>'+bft+(g!=null?' · <span class="gval">Gust '+g+' kt</span>':'')+(o&&o.air_temp!=null?' · '+o.air_temp+'°':'')+trLbl+'</div></div>';
+      '<div class="gst"><b style="color:'+band.t+'">'+(lang==="pl"?band.name_pl:band.name)+'</b>'+bft+(g!=null?' · <span class="gval">'+(lang==="pl"?"Poryw ":"Gust ")+g+(lang==="pl"?" w.":" kt")+'</span>':'')+(o&&o.air_temp!=null?' · '+o.air_temp+'°':'')+trLbl+'</div></div>';
     el.appendChild(box);
   });
   renderLegend(); renderBanner();
@@ -352,24 +352,39 @@ function render(){
 
 // "Updated N min ago", from the newest reading time — ticks between fetches
 function stampAge(){
+  const lang=(window.__lang==="pl")?"pl":"en";
   const el=document.getElementById("upd");
-  if(usingSample){ el.textContent="Sample data"; return; }
+  if(usingSample){ el.textContent=lang==="pl"?"Dane testowe":"Sample data"; return; }
   if(!newestFull){ el.textContent="—"; return; }
   const mins=Math.round((Date.now()-parseFull(newestFull).getTime())/60000);
-  el.textContent = mins<1 ? "Updated just now" : "Updated "+mins+" min ago";
+  el.textContent = lang==="pl" ? (mins<1?"Zaktualizowano przed chwilą":"Zaktualizowano "+mins+" min temu") : (mins<1?"Updated just now":"Updated "+mins+" min ago");
 }
 
 function renderLegend(){
+  const lang=(window.__lang==="pl")?"pl":"en";
   const el=document.getElementById("legend");
   el.innerHTML=BANDS.map((b,i)=>{ const lo=i?BANDS[i-1].max+1:0, rng=b.max===999?lo+"+":lo+"–"+b.max;
-    return '<span class="sw"><span class="c" style="background:'+b.c+'"></span>'+b.name+' <span class="rng">'+rng+' kt</span></span>';
+    return '<span class="sw"><span class="c" style="background:'+b.c+'"></span>'+(lang==="pl"?b.name_pl:b.name)+' <span class="rng">'+rng+(lang==="pl"?" w.":" kt")+'</span></span>';
   }).join("")+'<span class="note">The arrow shows which way the wind is blowing; the label is the direction it comes from.</span>';
 }
-function renderBanner(){ const b=document.getElementById("banner");
-  if(usingSample){ b.classList.add("show"); b.innerHTML="<b>Showing sample data.</b> The WSJ Worker isn’t connected yet — deploy it and point <code>DATA_BASE</code> at it to go live."; }
+function renderBanner(){ const b=document.getElementById("banner"); const lang=(window.__lang==="pl")?"pl":"en";
+  if(usingSample){ b.classList.add("show"); b.innerHTML=lang==="pl"?"<b>Pokazujemy dane testowe.</b> Worker WSJ nie jest jeszcze podłączony — wdróż go i ustaw <code>DATA_BASE</code>, aby ruszyć na żywo.":"<b>Showing sample data.</b> The WSJ Worker isn’t connected yet — deploy it and point <code>DATA_BASE</code> at it to go live."; }
   else b.classList.remove("show"); }
 
+window.__onlang = function(){ render(); };
 loadAll(); setInterval(loadAll, REFRESH_MS); setInterval(stampAge, 30*1000);
+</script>
+<script>
+(function(){ function detect(){ try{ var v=localStorage.getItem("aurora-lang"); if(v==="pl"||v==="en") return v; }catch(e){} return ((navigator.language||navigator.userLanguage||"").toLowerCase().indexOf("pl")===0)?"pl":"en"; }
+  var lang=detect(); window.__lang=lang;
+  function apply(l){ window.__lang=l; document.documentElement.setAttribute("lang", l);
+    var els=document.querySelectorAll("[data-pl]"); for(var i=0;i<els.length;i++){ var el=els[i]; if(el.__en==null) el.__en=el.innerHTML; el.innerHTML=(l==="pl")?el.getAttribute("data-pl"):el.__en; }
+    var bs=document.querySelectorAll("#langtog button"); for(var j=0;j<bs.length;j++){ bs[j].classList.toggle("on", bs[j].getAttribute("data-lang")===l); }
+    try{ localStorage.setItem("aurora-lang", l); }catch(e){} if(typeof window.__onlang==="function") window.__onlang(l); }
+  window.setLang=apply;
+  function init(){ var bs=document.querySelectorAll("#langtog button"); for(var i=0;i<bs.length;i++){ (function(b){ b.addEventListener("click", function(){ apply(b.getAttribute("data-lang")); }); })(bs[i]); } apply(lang); }
+  if(document.readyState!=="loading") init(); else document.addEventListener("DOMContentLoaded", init);
+})();
 </script>
 </body>
 </html>

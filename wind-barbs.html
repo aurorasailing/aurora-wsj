@@ -62,6 +62,9 @@
   .wsj-wave{ display:block; width:100%; height:22px; line-height:0;
     background:#fff url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2795%27%20height%3D%2726%27%20viewBox%3D%270%200%2095%2026%27%3E%3Cpath%20d%3D%27M0%2016%20C16%207%2031%207%2047%2016%20S79%2025%2095%2016%20L95%2026%20L0%2026%20Z%27%20fill%3D%27%23D02C2F%27%2F%3E%3Cpath%20d%3D%27M0%2010%20C16%205%2031%205%2047%2010%20S79%2015%2095%2010%27%20fill%3D%27none%27%20stroke%3D%27%23D02C2F%27%20stroke-opacity%3D%270.4%27%20stroke-width%3D%271.6%27%2F%3E%3C%2Fsvg%3E") repeat-x center / auto 22px; }
   /* Bravely — the Jamboree theme line */
+  .langtog{ display:inline-flex; border:1px solid rgba(255,255,255,.55); border-radius:999px; overflow:hidden; margin-right:10px; vertical-align:middle }
+  .langtog button{ font-family:'Syne',sans-serif; font-weight:700; font-size:11px; letter-spacing:.04em; color:#fff; background:transparent; border:none; padding:3px 9px; cursor:pointer; line-height:1 }
+  .langtog button.on{ background:#fff; color:var(--wsj) }
   .wsj-bravely{ font-family:'Syne','Helvetica Neue',sans-serif; font-weight:700;
     font-size:12px; letter-spacing:.02em; color:var(--wsj-ink); margin:0 0 6px; }
 </style>
@@ -69,50 +72,61 @@
 <body>
 <header>
   <div class="brand"><span class="a">Aurora</span><span class="b">WSJ2027 Wind</span></div>
-  <a href="#" onclick="history.back();return false">← Back</a>
+  <div class="langtog" id="langtog" role="group" aria-label="Language / Język"><button type="button" data-lang="en">EN</button><button type="button" data-lang="pl">PL</button></div><a href="#" onclick="history.back();return false" data-pl="← Wróć">← Back</a>
 </header>
 <div class="wsj-wave" aria-hidden="true"></div>
 
 <main>
-  <span class="eyebrow">Reading the wind</span>
-  <h1>How to read a wind barb</h1>
-  <p class="intro">A wind barb shows <b>direction and speed in one small symbol</b> — the way sailors and forecasters read the wind. Once you can read it, it's faster than any words.</p>
+  <span class="eyebrow" data-pl="Czytanie wiatru">Reading the wind</span>
+  <h1 data-pl="Jak czytać znak wiatru">How to read a wind barb</h1>
+  <p class="intro" data-pl="Znak wiatru pokazuje <b>kierunek i prędkość w jednym małym symbolu</b> — tak, jak wiatr czytają żeglarze i synoptycy. Gdy już go rozumiesz, jest szybszy niż jakiekolwiek słowa.">A wind barb shows <b>direction and speed in one small symbol</b> — the way sailors and forecasters read the wind. Once you can read it, it's faster than any words.</p>
 
   <section>
-    <h2>The speed</h2>
+    <h2 data-pl="Prędkość">The speed</h2>
     <div class="fig"><svg viewBox="0 0 560 185" width="100%" role="img" aria-label="Wind barb speed scale"><circle cx="55" cy="120" r="8" fill="none" stroke="#0A1628" stroke-width="2.6"/><text x="55" y="150" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="14" fill="#0A1628">calm</text><text x="55" y="168" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="11" fill="#7A8A7E">0–2 kt</text><line x1="150" y1="120" x2="150" y2="68" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><line x1="150" y1="76" x2="141" y2="71.5" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><circle cx="150" cy="120" r="3" fill="#0A1628"/><text x="150" y="150" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="14" fill="#0A1628">5 kt</text><text x="150" y="168" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="11" fill="#7A8A7E">light</text><line x1="245" y1="120" x2="245" y2="68" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><line x1="245" y1="68" x2="227" y2="59" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><circle cx="245" cy="120" r="3" fill="#0A1628"/><text x="245" y="150" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="14" fill="#0A1628">10 kt</text><text x="245" y="168" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="11" fill="#7A8A7E">gentle</text><line x1="340" y1="120" x2="340" y2="68" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><line x1="340" y1="68" x2="322" y2="59" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><line x1="340" y1="76" x2="331" y2="71.5" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><circle cx="340" cy="120" r="3" fill="#0A1628"/><text x="340" y="150" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="14" fill="#0A1628">15 kt</text><text x="340" y="168" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="11" fill="#7A8A7E">moderate</text><line x1="435" y1="120" x2="435" y2="68" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><line x1="435" y1="68" x2="417" y2="59" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><line x1="435" y1="76" x2="417" y2="67" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><line x1="435" y1="84" x2="426" y2="79.5" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><circle cx="435" cy="120" r="3" fill="#0A1628"/><text x="435" y="150" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="14" fill="#0A1628">25 kt</text><text x="435" y="168" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="11" fill="#7A8A7E">strong</text><line x1="520" y1="120" x2="520" y2="68" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><path d="M520,68 L502,63 L520,58 Z" fill="#0A1628"/><circle cx="520" cy="120" r="3" fill="#0A1628"/><text x="520" y="150" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="14" fill="#0A1628">50 kt</text><text x="520" y="168" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="11" fill="#7A8A7E">gale</text></svg></div>
-    <p>Count the feathers on the staff and add them up: a <b>short feather is 5 knots</b>, a <b>long feather is 10</b>, and a <b>solid flag is 50</b>. A bare <b>ring means calm</b>. So a barb with two long feathers and a short one is 25 knots.</p>
+    <p data-pl="Policz pióra na trzonku i je zsumuj: <b>krótkie pióro to 5 węzłów</b>, <b>długie pióro to 10</b>, a <b>pełna chorągiewka to 50</b>. Samo <b>kółko oznacza ciszę</b>. Zatem znak z dwoma długimi piórami i jednym krótkim to 25 węzłów.">Count the feathers on the staff and add them up: a <b>short feather is 5 knots</b>, a <b>long feather is 10</b>, and a <b>solid flag is 50</b>. A bare <b>ring means calm</b>. So a barb with two long feathers and a short one is 25 knots.</p>
   </section>
 
   <section>
-    <h2>The direction</h2>
+    <h2 data-pl="Kierunek">The direction</h2>
     <div class="fig"><svg viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Wind from the south-west on a compass"><circle cx="100" cy="100" r="88" fill="none" stroke="#E1E6E0" stroke-width="2.4"/><line x1="100.0" y1="12.0" x2="100.0" y2="22.0" stroke="#E1E6E0" stroke-width="1.8"/><line x1="162.2" y1="37.8" x2="155.2" y2="44.8" stroke="#E1E6E0" stroke-width="1.8"/><line x1="188.0" y1="100.0" x2="178.0" y2="100.0" stroke="#E1E6E0" stroke-width="1.8"/><line x1="162.2" y1="162.2" x2="155.2" y2="155.2" stroke="#E1E6E0" stroke-width="1.8"/><line x1="100.0" y1="188.0" x2="100.0" y2="178.0" stroke="#E1E6E0" stroke-width="1.8"/><line x1="37.8" y1="162.2" x2="44.8" y2="155.2" stroke="#E1E6E0" stroke-width="1.8"/><line x1="12.0" y1="100.0" x2="22.0" y2="100.0" stroke="#E1E6E0" stroke-width="1.8"/><line x1="37.8" y1="37.8" x2="44.8" y2="44.8" stroke="#E1E6E0" stroke-width="1.8"/><text x="100" y="30" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="17" fill="#39D455">N</text><text x="176" y="106" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="17" fill="#2E4057">E</text><text x="100" y="182" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="17" fill="#2E4057">S</text><text x="24" y="106" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="17" fill="#2E4057">W</text><g transform="rotate(225 100 100)"><line x1="100" y1="100" x2="100" y2="36" stroke="#0A1628" stroke-width="3" stroke-linecap="round"/><line x1="100" y1="36" x2="74" y2="24" stroke="#0A1628" stroke-width="3" stroke-linecap="round"/><line x1="100" y1="48" x2="87" y2="42" stroke="#0A1628" stroke-width="3" stroke-linecap="round"/></g><circle cx="100" cy="100" r="4" fill="#0A1628"/></svg></div>
-    <p>The staff points <b>into the wind</b> — the direction the wind is blowing <i>from</i>. The barb above points to the south-west, so it's a <b>south-westerly</b>. On the maps the whole barb sits at the station and turns as the wind shifts.</p>
+    <p data-pl="Trzonek wskazuje <b>pod wiatr</b> — kierunek, <i>z</i> którego wieje. Znak powyżej wskazuje na południowy zachód, więc to wiatr <b>południowo-zachodni</b>. Na mapach cały znak stoi przy stacji i obraca się, gdy wiatr się zmienia.">The staff points <b>into the wind</b> — the direction the wind is blowing <i>from</i>. The barb above points to the south-west, so it's a <b>south-westerly</b>. On the maps the whole barb sits at the station and turns as the wind shifts.</p>
   </section>
 
   <section>
-    <h2>Which side are the feathers?</h2>
+    <h2 data-pl="Po której stronie są pióra?">Which side are the feathers?</h2>
     <div class="fig"><svg viewBox="0 0 560 155" width="100%" role="img" aria-label="The same barb for wind from north, east, south and west"><g transform="translate(70,70) rotate(0)"><line x1="0" y1="0" x2="0" y2="-40" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-40" x2="-15" y2="-48" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-32" x2="-7.5" y2="-36" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><circle cx="0" cy="0" r="3" fill="#0A1628"/></g><text x="70" y="140" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="12" fill="#7A8A7E">from N</text><g transform="translate(210,70) rotate(90)"><line x1="0" y1="0" x2="0" y2="-40" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-40" x2="-15" y2="-48" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-32" x2="-7.5" y2="-36" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><circle cx="0" cy="0" r="3" fill="#0A1628"/></g><text x="210" y="140" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="12" fill="#7A8A7E">from E</text><g transform="translate(350,70) rotate(180)"><line x1="0" y1="0" x2="0" y2="-40" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-40" x2="-15" y2="-48" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-32" x2="-7.5" y2="-36" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><circle cx="0" cy="0" r="3" fill="#0A1628"/></g><text x="350" y="140" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="12" fill="#7A8A7E">from S</text><g transform="translate(490,70) rotate(270)"><line x1="0" y1="0" x2="0" y2="-40" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-40" x2="-15" y2="-48" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-32" x2="-7.5" y2="-36" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><circle cx="0" cy="0" r="3" fill="#0A1628"/></g><text x="490" y="140" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="12" fill="#7A8A7E">from W</text></svg></div>
-    <p>The feathers stay on <b>one fixed side of the staff</b> — the <b>left</b>, here in the <b>Northern Hemisphere</b> (down in the south they'd be on the right). The whole symbol turns with the wind, so as it swings from a northerly to a southerly the feathers stay on the same side of the staff — they just come around with it.</p>
+    <p data-pl="Pióra zawsze są po <b>jednej, stałej stronie trzonka</b> — po <b>lewej</b>, tu na <b>półkuli północnej</b> (na południu byłyby po prawej). Cały symbol obraca się z wiatrem, więc gdy przechodzi z północnego w południowy, pióra zostają po tej samej stronie trzonka — po prostu obracają się razem z nim.">The feathers stay on <b>one fixed side of the staff</b> — the <b>left</b>, here in the <b>Northern Hemisphere</b> (down in the south they'd be on the right). The whole symbol turns with the wind, so as it swings from a northerly to a southerly the feathers stay on the same side of the staff — they just come around with it.</p>
   </section>
 
   <section>
-    <h2>On the maps</h2>
-    <p>Each barb is also <b>coloured by strength</b> — grey when it's calm, greens for a good sailing breeze, then amber, orange and red as it builds — and the exact speed is written beside it. Read it at a glance by colour, or feather-by-feather when you want the detail.</p>
+    <h2 data-pl="Na mapach">On the maps</h2>
+    <p data-pl="Każdy znak jest też <b>pokolorowany według siły</b> — szary przy ciszy, zielenie przy dobrym wietrze do żeglowania, potem bursztyn, pomarańcz i czerwień, gdy rośnie — a obok wpisana jest dokładna prędkość. Odczytaj go od razu po kolorze albo pióro po piórze, gdy chcesz szczegółów.">Each barb is also <b>coloured by strength</b> — grey when it's calm, greens for a good sailing breeze, then amber, orange and red as it builds — and the exact speed is written beside it. Read it at a glance by colour, or feather-by-feather when you want the detail.</p>
   </section>
 
-  <p class="back"><a href="#" onclick="history.back();return false">← Back to the wind</a></p>
+  <p class="back"><a href="#" onclick="history.back();return false" data-pl="← Wróć do wiatru">← Back to the wind</a></p>
   <nav class="pagenav" aria-label="Aurora WSJ Wind pages">
-    <a href="index.html">Board</a>
-    <a href="wsj-map.html">River map</a>
-    <a href="sailing-day.html">Is it a sailing day?</a>
-    <a href="jamboree-marina.html">Jamboree Marina</a>
-    <a href="puck.html">What is a Puck?</a>
-    <span class="cur" aria-current="page">Wind barbs</span>
+    <a href="index.html" data-pl="Tablica">Board</a>
+    <a href="wsj-map.html" data-pl="Mapa rzeki">River map</a>
+    <a href="jamboree-marina.html" data-pl="Marina Jamboree — czy to dzień na żeglowanie?">Jamboree Marina — is it a sailing day?</a>
+    <a href="puck.html" data-pl="Czym jest Puck?">What is a Puck?</a>
+    <span class="cur" aria-current="page" data-pl="Znaki wiatru">Wind barbs</span>
   </nav>
 </main>
 <footer>
   <b style="font-weight:700;color:var(--slate)">Aurora Sailing · WSJ2027 Wind.</b> A quick guide to the wind barbs used on our live wind maps.<br><span class="wsj-bravely" style="display:inline-block;margin-top:8px">Sail bravely.</span>
 </footer>
+<script>
+(function(){ function detect(){ try{ var v=localStorage.getItem("aurora-lang"); if(v==="pl"||v==="en") return v; }catch(e){} return ((navigator.language||navigator.userLanguage||"").toLowerCase().indexOf("pl")===0)?"pl":"en"; }
+  var lang=detect(); window.__lang=lang;
+  function apply(l){ window.__lang=l; document.documentElement.setAttribute("lang", l);
+    var els=document.querySelectorAll("[data-pl]"); for(var i=0;i<els.length;i++){ var el=els[i]; if(el.__en==null) el.__en=el.innerHTML; el.innerHTML=(l==="pl")?el.getAttribute("data-pl"):el.__en; }
+    var bs=document.querySelectorAll("#langtog button"); for(var j=0;j<bs.length;j++){ bs[j].classList.toggle("on", bs[j].getAttribute("data-lang")===l); }
+    try{ localStorage.setItem("aurora-lang", l); }catch(e){} if(typeof window.__onlang==="function") window.__onlang(l); }
+  window.setLang=apply;
+  function init(){ var bs=document.querySelectorAll("#langtog button"); for(var i=0;i<bs.length;i++){ (function(b){ b.addEventListener("click", function(){ apply(b.getAttribute("data-lang")); }); })(bs[i]); } apply(lang); }
+  if(document.readyState!=="loading") init(); else document.addEventListener("DOMContentLoaded", init);
+})();
+</script>
 </body>
 </html>

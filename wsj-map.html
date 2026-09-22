@@ -220,7 +220,7 @@
         <text x="608" y="30" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="11" fill="#8AA9C4" style="letter-spacing:1.2px;">GULF OF GDAŃSK</text>
         <text x="500" y="206" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="10" fill="#8A968F">Wyspa Sobieszewska</text>
         <text x="300" y="238" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="10.5" fill="#9AA6A0" transform="rotate(15 300 238)">Martwa Wisła</text>
-        <text x="205" y="150" text-anchor="middle" font-family="Syne,sans-serif" font-weight="500" font-size="9.5" fill="#9AA6A0" transform="rotate(-80 205 150)">Wisła Śmiała</text>
+        <text x="258" y="150" text-anchor="middle" font-family="Syne,sans-serif" font-weight="500" font-size="9.5" fill="#9AA6A0" transform="rotate(-80 258 150)">Wisła Śmiała</text>
         <text x="521" y="248" text-anchor="start" font-family="Syne,sans-serif" font-weight="600" font-size="9.5" fill="#7A8A7E">Przegalina lock</text>
         <text x="470" y="372" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="10" fill="#9AA6A0" transform="rotate(85 470 372)">Basen Błotnik</text>
         <text x="612" y="210" text-anchor="middle" font-family="Syne,sans-serif" font-weight="500" font-size="9.5" fill="#9AA6A0" transform="rotate(-80 612 210)">Przekop Wisły</text>
@@ -242,6 +242,14 @@
           <circle cx="470" cy="505" r="3" fill="none" stroke="#5B7FA6" stroke-width="1.4" stroke-dasharray="2 2"/>
           <text x="470" y="519" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="8.5" fill="#7C93AE">Onshore &#183; B&#322;otnik</text>
         </g>
+        <a href="sobieszewo-bridge.html" aria-label="Sobieszewo bridge (DW501)">
+          <g id="bridge">
+            <line x1="426" y1="232" x2="434" y2="256" stroke="#0A1628" stroke-width="3.4" stroke-linecap="round"/>
+            <circle cx="430" cy="244" r="2.6" fill="#D02C2F"/>
+            <text x="430" y="274" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="9" fill="#A81E21" data-pl="Most w Sobieszewie · DW501">Sobieszewo bridge · DW501</text>
+            <text x="430" y="285" text-anchor="middle" font-family="Syne,sans-serif" font-weight="500" font-size="8" fill="#7A8A7E" data-pl="most zwodzony · prześwit 5 m">drawbridge · 5 m clearance</text>
+          </g>
+        </a>
         <g id="markers"></g>
       </svg>
       <div class="legend" id="legend"></div>
@@ -275,7 +283,7 @@
     — the on-water reading at the sailing centre, read live from its public widget (a current reading, no 24-hour history).
     Automatic data isn’t quality-checked and can carry errors —
     always confirm conditions on the water before you sail.
-    <div style="margin:12px 0 2px">Markers are <b>wind barbs</b> — the staff points into the wind, feathers show the speed, colour shows the strength. <a href="wind-barbs.html">How to read them →</a> The <b>coastal stations</b> sit at the map edge in their real direction, with the distance shown — they are well beyond this local view.</div>
+    <div style="margin:12px 0 2px">Markers are <b>wind barbs</b> — the staff points into the wind, feathers show the speed, colour shows the strength. <a href="wind-barbs.html">How to read them →</a> The <b>coastal stations</b> sit at the map edge in their real direction — a grey arrow points their way, with the distance shown. They are well beyond this local view.</div>
     <p class="fb" style="margin:14px 0 2px"><a href="mailto:wind@aurorasailing.com.au">Spotted something off, or have a suggestion? Tell us →</a></p>
     <script>(function(){var a=document.querySelector('.fb a');if(!a)return;var p=document.querySelector('.place');var spot=p?p.textContent.replace(/\s*·.*$/,'').trim():document.title;a.href='mailto:wind@aurorasailing.com.au?subject='+encodeURIComponent('Aurora wind feedback — '+spot)+'&body='+encodeURIComponent('\n\n\n(About '+spot+' — '+location.href+')');})();</script>
     <nav class="pagenav" aria-label="Aurora WSJ Wind pages">
@@ -284,7 +292,8 @@
       <a href="jamboree-marina.html" data-pl="Marina Jamboree — czy to dzień na żeglowanie?">Jamboree Marina — is it a sailing day?</a>
       <a href="puck.html" data-pl="Czym jest Puck?">What is a Puck?</a>
       <a href="wind-barbs.html" data-pl="Znaki wiatru">Wind barbs</a>
-    </nav>
+        <a href="sobieszewo-bridge.html" data-pl="Most w Sobieszewie">Sobieszewo bridge</a>
+  </nav>
     <div class="wsj-bravely">Sail bravely.</div>
     <div class="ver">wsj-map.html · v0.1</div>
   </footer>
@@ -318,7 +327,7 @@ const STATIONS = [
   // Coastal / offshore IMGW stations sit well beyond this local (~18 km) map — shown at the edge in their true bearing, with distance.
   {wmo:"gdansk",   name:"Gdańsk",          mx:48,  my:170, anchor:"start", dist:"≈17 km WNW",           obrg:300, sample:true},  // IMGW 12155 · 54.35,18.65
   {wmo:"hel",      name:"Hel",             mx:452, my:34,  anchor:"start", dist:"≈37 km N",              obrg:353, sample:true},  // IMGW 12135 · 54.61,18.80
-  {wmo:"elblag",   name:"Elbląg",          mx:672, my:430, anchor:"end",   dist:"≈37 km SE",             obrg:111, sample:true},  // IMGW 12160 · 54.16,19.40
+  {wmo:"elblag",   name:"Elbląg",          mx:672, my:372, anchor:"end",   dist:"≈37 km SE",             obrg:111, sample:true},  // IMGW 12160 · 54.16,19.40
   {wmo:"platforma",name:"Baltic Platform", mx:286, my:34,  anchor:"start", dist:"≈130 km NNW · offshore", obrg:335, offshore:true, sample:true}, // IMGW 12001 Baltic Beta · 55.36,18.03
 ];
 
@@ -436,12 +445,13 @@ function renderMarkers(){
       td.setAttribute("x",s.mx+off); td.setAttribute("y",s.my+28); td.setAttribute("text-anchor",s.anchor); td.textContent=s.dist;
       grp.appendChild(td);
     }
-    if(s.offshore){
+    if(false){
       const ch=document.createElementNS(NS,"g");   // it lies far off the top edge — point that way
       ch.innerHTML='<path d="M'+s.mx+',15 L'+(s.mx-4)+',23 L'+(s.mx+4)+',23 Z" fill="#9AA6A0"/><line x1="'+s.mx+'" y1="23" x2="'+s.mx+'" y2="30" stroke="#9AA6A0" stroke-width="1.3"/>';
       grp.appendChild(ch);
     }
     grp.appendChild(arw); grp.appendChild(dot); grp.appendChild(t1); grp.appendChild(t2);
+    if(s.obrg!=null){ var _r=s.obrg*Math.PI/180,_dx=Math.sin(_r),_dy=-Math.cos(_r),_tx=s.mx+_dx*24,_ty=s.my+_dy*24,_sx=s.mx+_dx*7,_sy=s.my+_dy*7,_px=-_dy,_py=_dx,_ah=6,_hw=4.2,_b1x=_tx-_dx*_ah+_px*_hw,_b1y=_ty-_dy*_ah+_py*_hw,_b2x=_tx-_dx*_ah-_px*_hw,_b2y=_ty-_dy*_ah-_py*_hw; var _p=document.createElementNS(NS,"g"); _p.setAttribute("class","b-off"); _p.innerHTML='<line x1="'+_sx.toFixed(1)+'" y1="'+_sy.toFixed(1)+'" x2="'+_tx.toFixed(1)+'" y2="'+_ty.toFixed(1)+'" stroke="#8A968F" stroke-width="1.6" stroke-linecap="round"/>'+'<path d="M'+_tx.toFixed(1)+','+_ty.toFixed(1)+' L'+_b1x.toFixed(1)+','+_b1y.toFixed(1)+' L'+_b2x.toFixed(1)+','+_b2y.toFixed(1)+' Z" fill="#8A968F"/>'; grp.appendChild(_p); }
     g.appendChild(grp);
   });
 }

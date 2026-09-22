@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!-- Aurora WSJ Wind · sobieszewo-bridge.html · v0.1 · 2026-09-23 -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Sobieszewo Bridge · Aurora WSJ Wind</title>
+<meta name="description" content="The Sobieszewo drawbridge (DW501) over the Martwa Wisła — when it opens for boats, opening times, and how to request a lift, for the 26th World Scout Jamboree.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ4VH5CBXJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BJ4VH5CBXJ');</script>
+<style>
+  :root{--navy:#0A1628; --green:#50E040; --green-b:#39D455; --slate:#2E4057; --muted:#7A8A7E; --line:#E1E6E0; --seafoam:#E8EDE6; --white:#fff;
+        --amber:#B37400; --orange:#C2521A; --red:#C21020}
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:'Lato',-apple-system,system-ui,sans-serif; color:var(--navy); background:var(--white); line-height:1.62}
+  header{display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid var(--line)}
+  .brand .a{font-family:'Syne',sans-serif; font-weight:800; font-size:17px; letter-spacing:.02em; text-transform:uppercase; color:var(--green)}
+  .brand .b{font-family:'Syne',sans-serif; font-weight:600; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-left:6px}
+  header a{font-family:'Syne',sans-serif; font-weight:700; font-size:13px; color:var(--slate); text-decoration:none}
+  main{max-width:660px; margin:0 auto; padding:22px 20px 8px}
+  .eyebrow{font-family:'Syne',sans-serif; font-weight:600; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--green-b)}
+  h1{font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(28px,7vw,40px); line-height:1.1; margin:6px 0 14px; color:var(--navy)}
+  .call{background:var(--seafoam); border-left:4px solid var(--green-b); border-radius:0 12px 12px 0; padding:14px 16px; margin:0 0 6px; font-size:16px}
+  .call b{font-weight:700}
+  section{border-top:1px solid var(--line); padding-top:16px; margin-top:22px}
+  h2{font-family:'Syne',sans-serif; font-weight:700; font-size:19px; margin:0 0 6px; color:var(--navy)}
+  p{margin:8px 0} b{font-weight:700}
+  ul{margin:8px 0; padding-left:20px} li{margin:5px 0}
+  .tbl{width:100%; border-collapse:collapse; margin:12px 0; font-size:14.5px}
+  .tbl th,.tbl td{text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top}
+  .tbl th{font-family:'Syne',sans-serif; font-weight:700; font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--white); background:var(--navy)}
+  .tbl td:first-child{font-weight:700; white-space:nowrap}
+  .tbl .wind{border-left:4px solid var(--line)}
+  .g td:first-child{color:var(--green-b)} .g .wind{border-left-color:var(--green-b)}
+  .a2 td:first-child{color:var(--amber)} .a2 .wind{border-left-color:var(--amber)}
+  .o td:first-child{color:var(--orange)} .o .wind{border-left-color:var(--orange)}
+  .r td:first-child{color:var(--red)} .r .wind{border-left-color:var(--red)}
+  .note{font-size:13.5px; color:var(--muted); font-style:italic; margin-top:6px}
+  .dl{margin:8px 0} .dl b{color:var(--navy)}
+  .refs a{color:var(--slate); text-decoration:none; border-bottom:1px solid var(--line)}
+  .back{margin:26px 0 8px} .back a{font-family:'Syne',sans-serif; font-weight:700; color:var(--green-b); text-decoration:none; font-size:15px}
+  .fbrow{text-align:center; margin:26px 0 4px}
+  .fbbtn{display:inline-block; font-family:'Syne',sans-serif; font-weight:700; font-size:14px; color:#08351a; background:var(--green); padding:10px 20px; border-radius:999px; text-decoration:none}
+  footer{border-top:1px solid var(--line); padding:18px 20px; color:var(--muted); font-size:13px; text-align:center; margin-top:20px}
+  main section a,main p a{color:var(--slate); text-decoration:none; border-bottom:1px solid var(--green-b)}
+  main .schedlink{font-family:'Syne',sans-serif; font-weight:700}
+</style>
+<style id="wsj-skin">
+  /* 26th World Scout Jamboree · Poland 2027 skin — red chrome + wave; the band colours stay semantic */
+  :root{ --wsj:#D02C2F; --wsj-ink:#A81E21; }
+  header{ background:var(--wsj); border-bottom:none; }
+  header *{ color:#fff; }
+  .brand .a{ color:#fff; } .brand .b{ color:rgba(255,255,255,.82); }
+  .eyebrow{ color:var(--wsj-ink); }
+  .call{ border-left-color:var(--wsj); }
+  .back a{ color:var(--wsj-ink); }
+  .fbbtn{ background:var(--wsj); color:#fff; }
+  footer a:hover{ color:var(--wsj-ink); }
+  .pagenav{display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center; margin:18px 0 2px; padding-top:14px; border-top:1px solid var(--line); font-size:13px}
+  .pagenav a{color:var(--slate); text-decoration:none; font-weight:700}
+  .pagenav a:hover{color:var(--wsj)}
+  .pagenav .cur{color:var(--muted); font-weight:700}
+  .wsj-wave{ display:block; width:100%; height:22px; line-height:0;
+    background:#fff url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2795%27%20height%3D%2726%27%20viewBox%3D%270%200%2095%2026%27%3E%3Cpath%20d%3D%27M0%2016%20C16%207%2031%207%2047%2016%20S79%2025%2095%2016%20L95%2026%20L0%2026%20Z%27%20fill%3D%27%23D02C2F%27%2F%3E%3Cpath%20d%3D%27M0%2010%20C16%205%2031%205%2047%2010%20S79%2015%2095%2010%27%20fill%3D%27none%27%20stroke%3D%27%23D02C2F%27%20stroke-opacity%3D%270.4%27%20stroke-width%3D%271.6%27%2F%3E%3C%2Fsvg%3E") repeat-x center / auto 22px; }
+  .langtog{ display:inline-flex; border:1px solid rgba(255,255,255,.55); border-radius:999px; overflow:hidden; margin-right:10px; vertical-align:middle }
+  .langtog button{ font-family:'Syne',sans-serif; font-weight:700; font-size:11px; letter-spacing:.04em; color:#fff; background:transparent; border:none; padding:3px 9px; cursor:pointer; line-height:1 }
+  .langtog button.on{ background:#fff; color:var(--wsj) }
+  .wsj-bravely{ font-family:'Syne',sans-serif; font-weight:700; font-size:12px; letter-spacing:.02em; color:var(--wsj-ink); }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><span class="a">Aurora</span><span class="b">WSJ2027 Wind</span></div>
+  <div class="langtog" id="langtog" role="group" aria-label="Language / Język"><button type="button" data-lang="en">EN</button><button type="button" data-lang="pl">PL</button></div><a href="#" onclick="history.back();return false" data-pl="← Wróć">← Back</a>
+</header>
+<div class="wsj-wave" aria-hidden="true"></div>
+<main>
+  <span class="eyebrow" data-pl="Wjazd i wyjazd z wyspy">On and off the island</span>
+  <h1 data-pl="Most w Sobieszewie">The Sobieszewo bridge</h1>
+
+  <p class="call" data-pl="<b>W skrócie:</b> droga na Wyspę Sobieszewską przekracza Martwą Wisłę <b>mostem zwodzonym</b>. Domyślnie jest opuszczony — samochody przejeżdżają, a pod spodem przepływają tylko jednostki niższe niż <b>5&nbsp;m</b>. Dla wyższych jednostek podnoszony jest wyłącznie <b>na wcześniejsze zgłoszenie</b>, o ustalonych godzinach, od świtu do zmierzchu. Łódź z postawionym masztem jest znacznie wyższa niż 5&nbsp;m, więc jeśli Twoja trasa prowadzi obok mostu, musi zostać on podniesiony — zaplanuj to wcześniej."><b>Bottom line:</b> the road onto Wyspa Sobieszewska crosses the Martwa Wisła on a <b>drawbridge</b>. It sits down by default — cars cross, and only boats under <b>5&nbsp;m</b> tall pass beneath. It is raised for taller vessels only <b>on prior request</b>, at set times, from dawn to dusk. A boat with its mast up is well over 5&nbsp;m, so if your sailing takes you past the bridge, you need it lifted — plan ahead.</p>
+
+  <section>
+    <h2 data-pl="Czy jest teraz otwarty dla łodzi?">Is it open for boats right now?</h2>
+    <p data-pl="<b>Nie ma publicznej strony ze statusem na żywo</b> dla tego mostu — są tylko kamery obsługi. Przyjmij, że jest <b>domyślnie zamknięty dla łodzi</b>: przęsła są opuszczone, droga otwarta, a most podnosi się tylko wtedy, gdy ktoś o to poprosi, w oknach czasowych poniżej. Uczciwa odpowiedź na pytanie „czy jest teraz otwarty?” brzmi więc: <b>tylko jeśli zwiedzenie zostało zamówione na teraz</b>. Aby je umówić, zadzwoń wcześniej do obsługi mostu."><b>There is no public live-status page</b> for the bridge — only the operator's own cameras. Treat it as <b>closed to boats by default</b>: the spans are down, the road is open, and the bridge is raised only when someone asks, within the windows below. So the honest answer to &quot;is it open now?&quot; is: <b>only if a lift has been booked for now</b>. To arrange one, call the bridge operator ahead of time.</p>
+    <p data-pl="<b>Obsługa mostu:</b> <a href=&quot;tel:+48507433264&quot;>507&nbsp;433&nbsp;264</a> &nbsp;·&nbsp; <b>VHF:</b> kanał 09 (156,450&nbsp;MHz), statek–ląd–statek."><b>Bridge operator:</b> <a href="tel:+48507433264">507&nbsp;433&nbsp;264</a> &nbsp;·&nbsp; <b>VHF:</b> channel 09 (156.450&nbsp;MHz), ship–shore–ship.</p>
+  </section>
+
+  <section>
+    <h2 data-pl="Godziny otwierania (na zgłoszenie)">Opening times (on request)</h2>
+    <table class="tbl">
+      <tr><th data-pl="Kiedy">When</th><th data-pl="Godziny otwarcia">Opening times</th></tr>
+      <tr class="g"><td data-pl="Sezon letni · dni robocze">Summer · weekdays</td><td>8:30 · 10:30 · 13:00 · 14:30 · 17:00 · 19:00</td></tr>
+      <tr class="g"><td data-pl="Sezon letni · weekendy i święta">Summer · weekends &amp; holidays</td><td>8:30 · 10:30 · 13:00 · 14:30 · 17:00 · 19:00 · 21:00</td></tr>
+      <tr class="a2"><td data-pl="Poza sezonem">Off-season</td><td>8:30 · 10:30 · 13:00 · 17:00 · 19:00</td></tr>
+    </table>
+    <p class="note" data-pl="Sezon letni trwa od 30 kwietnia do 30 września. Godziny nie obejmują czasu podnoszenia i opuszczania (około 2,5 minuty) i mogą się przesunąć o ~5 minut ze względu na komunikację miejską. Most podnoszony jest tylko od świtu do zmierzchu. Zimą zgłoś <b>z 24-godzinnym wyprzedzeniem</b>, aby można było usunąć z mostu śnieg i lód. Jednostki żeglugi zawodowej podnoszone są na zgłoszenie o dowolnej porze.">Summer season runs 30 April – 30 September. Times exclude the raise-and-lower operation (about 2½ minutes) and can shift by ~5 minutes around city buses. The bridge is raised only from dawn to dusk. In winter, give <b>24 hours' notice</b> so the deck can be cleared of snow and ice. Commercial vessels are lifted on request at any time.</p>
+    <p><a class="schedlink" href="https://gzd.gda.pl/drogi/harmonogram-zwodzenia-mostu-w-sobieszewie,a,5237" target="_blank" rel="noopener" data-pl="Aktualny harmonogram — Gdański Zarząd Dróg →">Live schedule — Gdańsk Roads Authority (GZD) →</a></p>
+    <p class="note" data-pl="To planowane godziny i mogą się zmieniać; strona GZD jest źródłem prawdy — sprawdź ją i potwierdź zwiedzenie telefonicznie.">These are planned times and can change; the GZD page is the source of truth — check it, and confirm your lift by phone.</p>
+  </section>
+
+  <section>
+    <h2 data-pl="Co to za most">What the bridge is</h2>
+    <p data-pl="Przeprawa to <b>Most 100-lecia Odzyskania Niepodległości Polski</b>, otwarty w listopadzie 2018 roku w ciągu drogi wojewódzkiej <b>501</b>. To <b>największy most zwodzony w Polsce</b>, który zastąpił dawny most pontonowy w Sobieszewie. Jest bezpłatny i otwarty dla ruchu drogowego całą dobę.">The crossing is the <b>Bridge of the 100th Anniversary of Polish Independence</b> (Most 100-lecia Odzyskania Niepodległości Polski), opened in November 2018 on voivodeship road <b>501</b>. It is the <b>largest bascule (lifting) bridge in Poland</b>, and replaced the old Sobieszewo pontoon bridge. It is free and open to road traffic around the clock.</p>
+    <ul>
+      <li data-pl="<b>Droga:</b> DW501 (droga wojewódzka nr 501)"><b>Road:</b> DW501 (voivodeship road 501)</li>
+      <li data-pl="<b>Przekracza:</b> Martwą Wisłę, w Sobieszewie"><b>Crosses:</b> the Martwa Wisła, at Sobieszewo</li>
+      <li data-pl="<b>Otwarty:</b> 10 listopada 2018"><b>Opened:</b> 10 November 2018</li>
+      <li data-pl="<b>Długość:</b> 173 m (181,5 m ze skrzydłami zwodzonymi)"><b>Length:</b> 173 m (181.5 m with the lifting spans)</li>
+      <li data-pl="<b>Podniesienie / opuszczenie:</b> około 150 sekund"><b>Raise / lower:</b> about 150 seconds</li>
+      <li data-pl="<b>Prześwit przy zamkniętym:</b> 5 m"><b>Clearance when closed:</b> 5 m</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-pl="Dlaczego to ważne na Jamboree">Why it matters for the Jamboree</h2>
+    <p data-pl="Puck żegluje po Martwej Wiśle — tej samej wodzie, którą przekracza most. Z postawionym masztem Puck jest wyższy niż 5&nbsp;m prześwitu przy zamkniętym moście, więc <b>nie przepłynie pod zamkniętym mostem</b>. Sprawdź, po której stronie mostu jest Twoja marina i Twój akwen: jeśli trasa prowadzi obok, potrzebne będzie zamówione zwiedzenie — albo położenie masztu. W razie wątpliwości zapytaj zespół na wodzie.">The Puck sails on the Martwa Wisła, the same water the bridge crosses. With its mast up a Puck stands taller than the bridge's 5&nbsp;m closed clearance, so it <b>cannot pass under the closed bridge</b>. Check which side of the bridge your marina and your sailing water are on: if a passage takes you past it, you'll need a booked lift — or to lower the mast. When in doubt, ask your on-water team.</p>
+  </section>
+
+  <p class="back"><a href="index.html" data-pl="← Wróć do tablicy">← Back to the board</a></p>
+  <nav class="pagenav" aria-label="Aurora WSJ Wind pages">
+    <a href="index.html" data-pl="Tablica">Board</a>
+    <a href="wsj-map.html" data-pl="Mapa rzeki">River map</a>
+    <a href="jamboree-marina.html" data-pl="Marina Jamboree — czy to dzień na żeglowanie?">Jamboree Marina — is it a sailing day?</a>
+    <a href="puck.html" data-pl="Czym jest Puck?">What is a Puck?</a>
+    <a href="wind-barbs.html" data-pl="Znaki wiatru">Wind barbs</a>
+    <span class="cur" aria-current="page" data-pl="Most w Sobieszewie">Sobieszewo bridge</span>
+  </nav>
+</main>
+<footer><div class="wsj-bravely" data-pl="Żegluj odważnie." style="margin-bottom:4px">Sail bravely.</div><b style="font-weight:700;color:var(--slate)">Aurora · WSJ2027 Wind.</b> <span data-pl="Most zwodzony w Sobieszewie w ciągu drogi 501 — harmonogram i kontakt na 26. Światowe Jamboree Skautowe · Polska 2027.">The Sobieszewo drawbridge on road 501 — schedule and contact for the 26th World Scout Jamboree · Poland 2027.</span></footer>
+<script>
+(function(){ function detect(){ try{ var v=localStorage.getItem("aurora-lang"); if(v==="pl"||v==="en") return v; }catch(e){} return ((navigator.language||navigator.userLanguage||"").toLowerCase().indexOf("pl")===0)?"pl":"en"; }
+  var lang=detect(); window.__lang=lang;
+  function apply(l){ window.__lang=l; document.documentElement.setAttribute("lang", l);
+    var els=document.querySelectorAll("[data-pl]"); for(var i=0;i<els.length;i++){ var el=els[i]; if(el.__en==null) el.__en=el.innerHTML; el.innerHTML=(l==="pl")?el.getAttribute("data-pl"):el.__en; }
+    var bs=document.querySelectorAll("#langtog button"); for(var j=0;j<bs.length;j++){ bs[j].classList.toggle("on", bs[j].getAttribute("data-lang")===l); }
+    try{ localStorage.setItem("aurora-lang", l); }catch(e){} if(typeof window.__onlang==="function") window.__onlang(l); }
+  window.setLang=apply;
+  function init(){ var bs=document.querySelectorAll("#langtog button"); for(var i=0;i<bs.length;i++){ (function(b){ b.addEventListener("click", function(){ apply(b.getAttribute("data-lang")); }); })(bs[i]); } apply(lang); }
+  if(document.readyState!=="loading") init(); else document.addEventListener("DOMContentLoaded", init);
+})();
+</script>
+</body>
+</html>

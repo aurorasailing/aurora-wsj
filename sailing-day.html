@@ -1,0 +1,206 @@
+<!-- Aurora WSJ Wind · sailing-day.html · v0.1 (Cloudflare) · 2026-09-22 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) — Aurora -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ4VH5CBXJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BJ4VH5CBXJ');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Is it a Sailing Day? · Marina Błotnik</title>
+<meta name="description" content="Marina Błotnik river-sailing weather for the Jamboree crews — a big, simple wind picture for the Martwa Wisła.">
+<meta name="theme-color" content="#0A1628">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#50E040; --green-b:#39D455; --navy:#0A1628; --slate:#2E4057;
+    --ink:#1C2B3A; --white:#FFFFFF; --harbour:#F5F7F4; --muted:#7A8A7E; --line:#E1E6E0;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:'Syne','Helvetica Neue',Arial,sans-serif; color:var(--ink);
+    background:var(--harbour); -webkit-font-smoothing:antialiased; line-height:1.5;
+    min-height:100vh; display:flex; flex-direction:column}
+
+  header{display:flex; align-items:center; justify-content:space-between; padding:12px 18px;
+    padding-left:calc(18px + env(safe-area-inset-left,0)); padding-right:calc(18px + env(safe-area-inset-right,0))}
+  .brand{display:flex; align-items:baseline; gap:10px}
+  .brand .a{font-family:'Syne',sans-serif; font-weight:800; font-size:17px; letter-spacing:.02em; text-transform:uppercase; color:var(--green)}
+  .brand .b{font-family:'Syne',sans-serif; font-weight:600; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+  .upd{font-size:12px; color:var(--muted); display:flex; align-items:center; gap:7px}
+  .beta{display:inline-block; font-family:'Syne',sans-serif; font-weight:700; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:#B37400; background:#FFF1D6; border:1px solid #FFCE73; border-radius:999px; padding:1px 7px; vertical-align:middle; margin-left:8px}
+  .live{width:8px; height:8px; border-radius:50%; background:var(--green-b); flex:none;
+    box-shadow:0 0 0 0 rgba(57,212,85,.6); animation:pulse 2.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(57,212,85,.5)}70%{box-shadow:0 0 0 9px rgba(57,212,85,0)}100%{box-shadow:0 0 0 0 rgba(57,212,85,0)}}
+  @media (prefers-reduced-motion:reduce){.live{animation:none}}
+
+  main{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:8px 18px 24px}
+  .place{font-family:'Syne',sans-serif; font-weight:600; font-size:14px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--slate); margin-bottom:14px; text-align:center}
+  .hero{width:100%; max-width:440px; border:2px solid var(--line); border-radius:28px;
+    padding:30px 22px 34px; text-align:center; transition:background .4s ease, border-color .4s ease}
+  .emoji{font-size:clamp(104px,36vw,188px); line-height:1; margin:2px 0 6px}
+  .word{font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(30px,9vw,50px); line-height:1.05; letter-spacing:-.01em}
+  .knots{font-family:'Lato',sans-serif; font-weight:300; font-size:clamp(40px,12vw,64px); line-height:1; margin:16px 0 2px; color:var(--navy)}
+  .knots b{font-family:'Syne',sans-serif; font-weight:600; font-size:.34em; color:var(--muted); margin-left:6px; vertical-align:middle}
+  .bft{font-family:'Syne',sans-serif; font-weight:600; font-size:15px; color:var(--muted); margin-top:4px}
+  .air{font-family:'Syne',sans-serif; font-weight:600; font-size:15px; color:var(--slate); margin-top:10px}
+  .air b{font-weight:700; color:var(--navy)}
+  .wdir{font-family:'Syne',sans-serif; font-weight:400; font-size:17px; color:var(--slate); margin-top:6px}
+  .wdir b{font-weight:700}
+  .hupd{font-size:12.5px; color:var(--muted); margin-top:14px}
+  .banner{max-width:440px; margin:14px auto 0; padding:9px 13px; border-radius:10px; font-size:13px;
+    background:#FFF8E8; color:#7a5b00; border:1px solid #F0DFA8; display:none; text-align:center}
+  .banner.show{display:block}
+
+  footer{border-top:1px solid var(--line); padding:18px; color:var(--muted); font-size:13px; background:var(--white)}
+  .foot-in{max-width:440px; margin:0 auto}
+  .foot-in h2{font-family:'Syne',sans-serif; font-weight:700; font-size:13px; letter-spacing:.02em; color:var(--slate); margin:0 0 10px; text-transform:uppercase}
+  .key{list-style:none; margin:0 0 12px; padding:0}
+  .key li{display:flex; align-items:center; gap:12px; margin:8px 0}
+  .key .e{font-size:26px; width:34px; text-align:center; flex:none}
+  .key b{font-family:'Syne',sans-serif; font-weight:700; color:var(--slate)}
+  .key .rng{font-family:'Syne',sans-serif; font-weight:600; color:var(--muted)}
+  footer a{color:var(--slate)}
+  .ver{margin-top:12px; font-size:10.5px; color:var(--muted); letter-spacing:.04em}
+  .pagenav{display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center; margin:14px 0 2px; padding-top:12px; border-top:1px solid var(--line); font-size:13px}
+  .pagenav a{color:var(--slate); text-decoration:none; font-weight:700}
+  .pagenav a:hover{color:var(--navy)}
+  .pagenav .cur{color:var(--muted); font-weight:700}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand"><span class="a">Aurora</span><span class="b">WSJ Wind</span></div>
+  <div class="upd"><span class="live" id="live"></span></div>
+</header>
+
+<main>
+  <div class="place">Marina Błotnik · Is it a Sailing Day? <span class="beta">beta</span></div>
+  <div class="hero" id="hero"></div>
+  <div class="banner" id="banner"></div>
+</main>
+
+<footer>
+  <div class="foot-in">
+    <h2>What the pictures mean</h2>
+    <ul class="key">
+      <li><span class="e">🚣</span><span><b>Too calm</b> <span class="rng">under 5 kt</span> — not much wind, grab the oars.</span></li>
+      <li><span class="e">⛵️</span><span><b>Sailing weather!</b> <span class="rng">5–15 kt</span> — a great breeze to sail in.</span></li>
+      <li><span class="e">🛟</span><span><b>Getting strong</b> <span class="rng">16–23 kt</span> — be careful out there.</span></li>
+      <li><span class="e">🌪️</span><span><b>Too windy</b> <span class="rng">24–30 kt</span> — best to wait.</span></li>
+      <li><span class="e">☠️</span><span><b>Stay ashore</b> <span class="rng">31+ kt</span> — too wild to sail.</span></li>
+    </ul>
+    <h2>Where’s this from?</h2>
+    This is the wind on the water at the Jamboree sailing venue. When the on-water anemometer at
+    <b>Górki Zachodnie</b> (the National Sailing Centre) is reporting, that's the reading you see —
+    the real breeze where the boats go out. If it's quiet, it falls back to the nearest working
+    reading (the modelled wind at the Marina Błotnik point, then Gdańsk). <b>The name under the
+    picture always tells you which.</b>
+    <p style="margin:12px 0 0">We keep the wind direction simple — one of eight main
+    points: North, North-East, East, South-East, South, South-West, West and
+    North-West.</p>
+    <p style="margin:12px 0 0">The time shows when we last <b>checked</b> the station. Treat it as
+    a live snapshot — and always look at the water too.</p>
+    <p style="margin:12px 0 0">Wind and temperature from
+    <a href="https://holfuy.com/en/weather/1441" target="_blank" rel="noopener">Holfuy #1441</a>,
+    <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a> and
+    <a href="https://www.imgw.pl" target="_blank" rel="noopener">IMGW-PIB</a>.
+    Always ask a leader and check the water before you sail.</p>
+    <nav class="pagenav" aria-label="Aurora WSJ Wind pages">
+      <a href="index.html">Board</a>
+      <a href="wsj-map.html">River map</a>
+      <span class="cur" aria-current="page">Is it a sailing day?</span>
+      <a href="wind-barbs.html">Wind barbs</a>
+    </nav>
+    <div class="ver">sailing-day.html · v0.1</div>
+  </div>
+</footer>
+
+<script>
+const DATA_BASE = "https://aurora-wsj.gregor-fea.workers.dev";  // deploy the WSJ Worker + set this
+// Try the on-water venue first, then the marina point, then the coast. First one reporting wins.
+const CHAIN = ["gorki", "blotnik", "gdansk"];
+const REFRESH_MS = 2 * 60 * 1000;
+
+// wind strength → picture (knots)
+const LEVELS = [
+  {max:4,   emoji:"🚣", word:"Too calm",    c:"#C4C9C5", t:"#586059"},
+  {max:15,  emoji:"⛵️", word:"Sail!",       c:"#7BD877", t:"#3B9743"},
+  {max:23,  emoji:"🛟", word:"Careful",     c:"#FFBB44", t:"#B37400"},
+  {max:30,  emoji:"🌪️", word:"Too windy",   c:"#F0792E", t:"#C2521A"},
+  {max:999, emoji:"☠️", word:"Stay ashore", c:"#F90D24", t:"#C21020"},
+];
+function levelFor(kt){ kt=Math.round(kt); for(const l of LEVELS){ if(kt<=l.max) return l; } return LEVELS[LEVELS.length-1]; }
+
+function beaufort(kt){ const b=[1,4,7,11,17,22,28,34,41,48,56,64]; let f=0; for(let i=0;i<b.length;i++){ if(kt>=b[i]) f=i+1; } return f; }
+const BEAUFORT_NAME=["calm","light air","light breeze","gentle breeze","moderate breeze","fresh breeze","strong breeze","near gale","gale","strong gale","storm","violent storm","hurricane force"];
+
+// collapse the 16-point wind direction to the 8-point compass (N, NE, E … NW)
+const DIR_DEG={N:0,NNE:22.5,NE:45,ENE:67.5,E:90,ESE:112.5,SE:135,SSE:157.5,S:180,SSW:202.5,SW:225,WSW:247.5,W:270,WNW:292.5,NW:315,NNW:337.5};
+const PTS8=["N","NE","E","SE","S","SW","W","NW"];
+const DIR_NAME={N:"North",NE:"North-East",E:"East",SE:"South-East",S:"South",SW:"South-West",W:"West",NW:"North-West"};
+function dir8(wd){ if(!wd || !(wd in DIR_DEG)) return null; return PTS8[Math.round(DIR_DEG[wd]/45)%8]; }
+
+function parseFull(f){ return new Date(+f.slice(0,4),+f.slice(4,6)-1,+f.slice(6,8),+f.slice(8,10),+f.slice(10,12)); }
+
+let rows=null, usingSample=false, newestFull=null, airTemp=null;
+
+async function load(){
+  for(const st of CHAIN){
+    try{
+      const r=await fetch(DATA_BASE+"/"+st+".json?_="+Date.now(),{cache:"no-store"}); if(!r.ok) continue;
+      const j=await r.json(); const d=(j.observations?j.observations.data:j.data)||[];
+      if(!d.length) continue; rows=d; usingSample=false; render(); return;
+    }catch(e){}
+  }
+  rows=sample(); usingSample=true; render();
+}
+function sample(){
+  const out=[], now=new Date(), p=n=>String(n).padStart(2,"0"), dirs=Object.keys(DIR_DEG);
+  for(let i=0;i<12;i++){ const t=new Date(now-i*10*60000);
+    out.push({wind_spd_kt:9+Math.round(Math.sin(i/3)*3), wind_dir:dirs[(9+Math.round(Math.sin(i/6)*2))%16],
+      air_temp:15, name:"sample", local_date_time_full:""+t.getFullYear()+p(t.getMonth()+1)+p(t.getDate())+p(t.getHours())+p(t.getMinutes())+"00"}); }
+  return out;
+}
+
+function render(){
+  const o = rows&&rows.length ? rows[0] : null;
+  const kt = o ? Math.round(o.wind_spd_kt) : null;
+  const L  = kt==null ? LEVELS[0] : levelFor(kt);
+  const f  = kt==null ? null : beaufort(kt);
+  const dir = o ? dir8(o.wind_dir) : null;
+  airTemp = (o && o.air_temp!=null && isFinite(o.air_temp)) ? Math.round(o.air_temp) : null;
+  const hero=document.getElementById("hero");
+  hero.style.background   = L.c + "22";     // soft tint of the band colour
+  hero.style.borderColor  = L.c;
+  hero.innerHTML =
+    '<div class="emoji">'+L.emoji+'</div>'+
+    '<div class="word" style="color:'+L.t+'">'+L.word+'</div>'+
+    '<div class="knots">'+(kt==null?"–":kt)+'<b>knots</b></div>'+
+    '<div class="wdir">'+(dir ? 'from the <b>'+DIR_NAME[dir]+'</b>' : '')+'</div>'+
+    '<div class="bft">'+(f==null?"":"Force "+f+" · "+BEAUFORT_NAME[f])+'</div>'+
+    '<div class="air">'+(airTemp==null?"":'🌡️ <b>'+airTemp+'°</b> in the air')+'</div>'+
+    '<div class="hupd" id="hupd"></div>';
+  newestFull = o ? o.local_date_time_full : null;
+  document.getElementById("banner").classList.toggle("show", usingSample);
+  document.getElementById("banner").textContent = usingSample ? "Showing pretend wind — the live feed isn’t connected yet." : "";
+  document.getElementById("live").style.background = usingSample ? "var(--muted)" : "var(--green-b)";
+  stampAge();
+}
+function stampAge(){
+  const el=document.getElementById("hupd"); if(!el) return;
+  if(usingSample){ el.textContent="Pretend wind"; return; }
+  const nm=(rows&&rows[0]&&rows[0].name)||"the river";
+  if(!newestFull){ el.textContent=nm; return; }
+  const m=Math.round((Date.now()-parseFull(newestFull).getTime())/60000);
+  el.textContent = (m<1 ? "Checked just now" : "Checked "+m+" min ago") + " · " + nm;
+}
+
+load(); setInterval(load, REFRESH_MS); setInterval(stampAge, 30*1000);
+</script>
+</body>
+</html>

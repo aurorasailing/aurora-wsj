@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- Aurora WSJ Wind · wind-barbs.html · v0.1 (Northern Hemisphere) · 2026-09-22 -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to read a wind barb · Aurora WSJ Wind</title>
+<meta name="description" content="A short guide to reading meteorological wind barbs — direction and speed in one symbol — used on the Aurora WSJ Wind maps.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ4VH5CBXJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BJ4VH5CBXJ');</script>
+<style>
+  :root{--navy:#0A1628; --green:#50E040; --green-b:#39D455; --slate:#2E4057; --muted:#7A8A7E; --line:#E1E6E0; --seafoam:#E8EDE6; --white:#fff}
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:'Lato',-apple-system,system-ui,sans-serif; color:var(--navy); background:var(--white); line-height:1.6}
+  header{display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid var(--line)}
+  .brand .a{font-family:'Syne',sans-serif; font-weight:800; font-size:17px; letter-spacing:.02em; text-transform:uppercase; color:var(--green)}
+  .brand .b{font-family:'Syne',sans-serif; font-weight:600; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-left:6px}
+  header a{font-family:'Syne',sans-serif; font-weight:700; font-size:13px; color:var(--slate); text-decoration:none}
+  main{max-width:600px; margin:0 auto; padding:22px 20px 8px}
+  .eyebrow{font-family:'Syne',sans-serif; font-weight:600; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--green-b)}
+  h1{font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(28px,7vw,40px); line-height:1.1; margin:6px 0 10px; color:var(--navy)}
+  .intro{font-size:17px; color:var(--slate); margin:0 0 8px}
+  section{border-top:1px solid var(--line); padding-top:18px; margin-top:22px}
+  h2{font-family:'Syne',sans-serif; font-weight:700; font-size:19px; margin:0 0 6px; color:var(--navy)}
+  p{margin:8px 0}
+  .fig{background:var(--seafoam); border:1px solid var(--line); border-radius:12px; padding:18px 12px; margin:12px 0; text-align:center}
+  b{font-weight:400; color:var(--navy)} .intro b, p b{font-weight:700}
+  .back{margin:26px 0 8px} .back a{font-family:'Syne',sans-serif; font-weight:700; color:var(--green-b); text-decoration:none; font-size:15px}
+  .pagenav{display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center; margin:14px 0 2px; padding-top:14px; border-top:1px solid var(--line); font-size:13px}
+  .pagenav a{color:var(--slate); text-decoration:none; font-weight:700}
+  .pagenav .cur{color:var(--muted); font-weight:700}
+  footer{border-top:1px solid var(--line); padding:18px 20px; color:var(--muted); font-size:13px; text-align:center; margin-top:20px}
+  footer a{color:var(--slate)}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><span class="a">Aurora</span><span class="b">WSJ Wind</span></div>
+  <a href="#" onclick="history.back();return false">← Back</a>
+</header>
+<main>
+  <span class="eyebrow">Reading the wind</span>
+  <h1>How to read a wind barb</h1>
+  <p class="intro">A wind barb shows <b>direction and speed in one small symbol</b> — the way sailors and forecasters read the wind. Once you can read it, it's faster than any words.</p>
+
+  <section>
+    <h2>The speed</h2>
+    <div class="fig"><svg viewBox="0 0 560 185" width="100%" role="img" aria-label="Wind barb speed scale"><circle cx="55" cy="120" r="8" fill="none" stroke="#0A1628" stroke-width="2.6"/><text x="55" y="150" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="14" fill="#0A1628">calm</text><text x="55" y="168" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="11" fill="#7A8A7E">0–2 kt</text><line x1="150" y1="120" x2="150" y2="68" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><line x1="150" y1="76" x2="141" y2="71.5" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><circle cx="150" cy="120" r="3" fill="#0A1628"/><text x="150" y="150" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="14" fill="#0A1628">5 kt</text><text x="150" y="168" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="11" fill="#7A8A7E">light</text><line x1="245" y1="120" x2="245" y2="68" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><line x1="245" y1="68" x2="227" y2="59" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><circle cx="245" cy="120" r="3" fill="#0A1628"/><text x="245" y="150" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="14" fill="#0A1628">10 kt</text><text x="245" y="168" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="11" fill="#7A8A7E">gentle</text><line x1="340" y1="120" x2="340" y2="68" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><line x1="340" y1="68" x2="322" y2="59" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><line x1="340" y1="76" x2="331" y2="71.5" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><circle cx="340" cy="120" r="3" fill="#0A1628"/><text x="340" y="150" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="14" fill="#0A1628">15 kt</text><text x="340" y="168" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="11" fill="#7A8A7E">moderate</text><line x1="435" y1="120" x2="435" y2="68" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><line x1="435" y1="68" x2="417" y2="59" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><line x1="435" y1="76" x2="417" y2="67" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><line x1="435" y1="84" x2="426" y2="79.5" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><circle cx="435" cy="120" r="3" fill="#0A1628"/><text x="435" y="150" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="14" fill="#0A1628">25 kt</text><text x="435" y="168" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="11" fill="#7A8A7E">strong</text><line x1="520" y1="120" x2="520" y2="68" stroke="#0A1628" stroke-width="2.6" stroke-linecap="round"/><path d="M520,68 L502,63 L520,58 Z" fill="#0A1628"/><circle cx="520" cy="120" r="3" fill="#0A1628"/><text x="520" y="150" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="14" fill="#0A1628">50 kt</text><text x="520" y="168" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="11" fill="#7A8A7E">gale</text></svg></div>
+    <p>Count the feathers on the staff and add them up: a <b>short feather is 5 knots</b>, a <b>long feather is 10</b>, and a <b>solid flag is 50</b>. A bare <b>ring means calm</b>. So a barb with two long feathers and a short one is 25 knots.</p>
+  </section>
+
+  <section>
+    <h2>The direction</h2>
+    <div class="fig"><svg viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Wind from the south-west on a compass"><circle cx="100" cy="100" r="88" fill="none" stroke="#E1E6E0" stroke-width="2.4"/><line x1="100.0" y1="12.0" x2="100.0" y2="22.0" stroke="#E1E6E0" stroke-width="1.8"/><line x1="162.2" y1="37.8" x2="155.2" y2="44.8" stroke="#E1E6E0" stroke-width="1.8"/><line x1="188.0" y1="100.0" x2="178.0" y2="100.0" stroke="#E1E6E0" stroke-width="1.8"/><line x1="162.2" y1="162.2" x2="155.2" y2="155.2" stroke="#E1E6E0" stroke-width="1.8"/><line x1="100.0" y1="188.0" x2="100.0" y2="178.0" stroke="#E1E6E0" stroke-width="1.8"/><line x1="37.8" y1="162.2" x2="44.8" y2="155.2" stroke="#E1E6E0" stroke-width="1.8"/><line x1="12.0" y1="100.0" x2="22.0" y2="100.0" stroke="#E1E6E0" stroke-width="1.8"/><line x1="37.8" y1="37.8" x2="44.8" y2="44.8" stroke="#E1E6E0" stroke-width="1.8"/><text x="100" y="30" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="17" fill="#39D455">N</text><text x="176" y="106" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="17" fill="#2E4057">E</text><text x="100" y="182" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="17" fill="#2E4057">S</text><text x="24" y="106" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="17" fill="#2E4057">W</text><g transform="rotate(225 100 100)"><line x1="100" y1="100" x2="100" y2="36" stroke="#0A1628" stroke-width="3" stroke-linecap="round"/><line x1="100" y1="36" x2="74" y2="24" stroke="#0A1628" stroke-width="3" stroke-linecap="round"/><line x1="100" y1="48" x2="87" y2="42" stroke="#0A1628" stroke-width="3" stroke-linecap="round"/></g><circle cx="100" cy="100" r="4" fill="#0A1628"/></svg></div>
+    <p>The staff points <b>into the wind</b> — the direction the wind is blowing <i>from</i>. The barb above points to the south-west, so it's a <b>south-westerly</b>. On the maps the whole barb sits at the station and turns as the wind shifts.</p>
+  </section>
+
+  <section>
+    <h2>Which side are the feathers?</h2>
+    <div class="fig"><svg viewBox="0 0 560 155" width="100%" role="img" aria-label="The same barb for wind from north, east, south and west"><g transform="translate(70,70) rotate(0)"><line x1="0" y1="0" x2="0" y2="-40" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-40" x2="-15" y2="-48" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-32" x2="-7.5" y2="-36" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><circle cx="0" cy="0" r="3" fill="#0A1628"/></g><text x="70" y="140" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="12" fill="#7A8A7E">from N</text><g transform="translate(210,70) rotate(90)"><line x1="0" y1="0" x2="0" y2="-40" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-40" x2="-15" y2="-48" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-32" x2="-7.5" y2="-36" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><circle cx="0" cy="0" r="3" fill="#0A1628"/></g><text x="210" y="140" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="12" fill="#7A8A7E">from E</text><g transform="translate(350,70) rotate(180)"><line x1="0" y1="0" x2="0" y2="-40" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-40" x2="-15" y2="-48" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-32" x2="-7.5" y2="-36" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><circle cx="0" cy="0" r="3" fill="#0A1628"/></g><text x="350" y="140" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="12" fill="#7A8A7E">from S</text><g transform="translate(490,70) rotate(270)"><line x1="0" y1="0" x2="0" y2="-40" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-40" x2="-15" y2="-48" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><line x1="0" y1="-32" x2="-7.5" y2="-36" stroke="#0A1628" stroke-width="2.4" stroke-linecap="round"/><circle cx="0" cy="0" r="3" fill="#0A1628"/></g><text x="490" y="140" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="12" fill="#7A8A7E">from W</text></svg></div>
+    <p>The feathers stay on <b>one fixed side of the staff</b> — the <b>left</b>, here in the <b>Northern Hemisphere</b> (down in the south they'd be on the right). The whole symbol turns with the wind, so as it swings from a northerly to a southerly the feathers stay on the same side of the staff — they just come around with it.</p>
+  </section>
+
+  <section>
+    <h2>On the maps</h2>
+    <p>Each barb is also <b>coloured by strength</b> — grey when it's calm, greens for a good sailing breeze, then amber, orange and red as it builds — and the exact speed is written beside it. Read it at a glance by colour, or feather-by-feather when you want the detail.</p>
+  </section>
+
+  <p class="back"><a href="#" onclick="history.back();return false">← Back to the wind</a></p>
+  <nav class="pagenav" aria-label="Aurora WSJ Wind pages">
+    <a href="index.html">Board</a>
+    <a href="wsj-map.html">River map</a>
+    <a href="sailing-day.html">Is it a sailing day?</a>
+    <span class="cur" aria-current="page">Wind barbs</span>
+  </nav>
+</main>
+<footer>
+  <b style="font-weight:700;color:var(--slate)">Aurora Sailing · WSJ Wind.</b> A quick guide to the wind barbs used on our live wind maps.
+</footer>
+</body>
+</html>

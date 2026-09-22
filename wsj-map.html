@@ -231,12 +231,18 @@
           <rect x="372" y="150" width="118" height="42" rx="10" fill="#5B7FA6" fill-opacity="0.11" stroke="#5B7FA6" stroke-opacity="0.55" stroke-width="1.3" stroke-dasharray="4 3"/>
           <text x="431" y="170" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="10.5" fill="#3F638C">Jamboree</text>
           <text x="431" y="183" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" font-size="10.5" fill="#3F638C">campsite</text>
+          <!-- Jamboree Marina — N bank, at the former Irish spot -->
           <text x="292" y="181" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#5B7FA6">&#9875;</text>
-          <text x="301" y="172" text-anchor="start" font-family="Syne,sans-serif" font-weight="600" font-size="9" font-style="italic" fill="#5B7FA6">Irish Marina</text>
-          <text x="336" y="214" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#5B7FA6">&#9875;</text>
-          <text x="330" y="228" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="9" font-style="italic" fill="#5B7FA6">Czech Marina</text>
-          <text x="392" y="233" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#5B7FA6">&#9875;</text>
-          <text x="401" y="237" text-anchor="start" font-family="Syne,sans-serif" font-weight="600" font-size="9" font-style="italic" fill="#5B7FA6">Kayak Marina</text>
+          <text x="300" y="172" text-anchor="start" font-family="Syne,sans-serif" font-weight="600" font-size="9" font-style="italic" fill="#5B7FA6">Jamboree Marina</text>
+          <!-- Irish Marina — N bank, just west of the bridge -->
+          <text x="351" y="203" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#5B7FA6">&#9875;</text>
+          <text x="345" y="196" text-anchor="end" font-family="Syne,sans-serif" font-weight="600" font-size="9" font-style="italic" fill="#5B7FA6">Irish Marina</text>
+          <!-- Czech Marina — S bank, west of the former Irish spot -->
+          <text x="287" y="207" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#5B7FA6">&#9875;</text>
+          <text x="281" y="221" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="9" font-style="italic" fill="#5B7FA6">Czech Marina</text>
+          <!-- Kayak Marina — N bank, just east of the bridge -->
+          <text x="402" y="208" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#5B7FA6">&#9875;</text>
+          <text x="409" y="211" text-anchor="start" font-family="Syne,sans-serif" font-weight="600" font-size="9" font-style="italic" fill="#5B7FA6">Kayak Marina</text>
           <circle cx="212" cy="300" r="3" fill="none" stroke="#5B7FA6" stroke-width="1.4" stroke-dasharray="2 2"/>
           <text x="212" y="314" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="8.5" fill="#7C93AE">Onshore &#183; Wi&#347;linka</text>
           <circle cx="470" cy="505" r="3" fill="none" stroke="#5B7FA6" stroke-width="1.4" stroke-dasharray="2 2"/>
@@ -297,7 +303,7 @@
   </nav>
     <div class="wsj-bravely">Sail bravely.</div>
     <div class="ver">wsj-map.html · v0.1</div>
-  </footer>
+  <div class="aurora-credit" style="margin-top:12px;padding-top:10px;border-top:1px solid var(--line)"><a href="https://aurorasailing.com.au" target="_blank" rel="noopener" style="color:#50E040;font-family:'Syne',sans-serif;font-weight:700;text-decoration:none;letter-spacing:.02em">Aurora Sailing</a> <span style="color:var(--muted)">· Melbourne, Australia</span></div></footer>
 </div>
 
 <script>
@@ -324,7 +330,7 @@ const BANDS = [
 // "gorki" (Holfuy #1441) has no sample → shows "unavailable" until the API key is connected.
 const STATIONS = [
   {wmo:"blotnik", name:"Marina Błotnik",  mx:503, my:468, anchor:"start", sample:true,   scout:"Dutch Marina", modelled:true},    // Open-Meteo at the marina
-  {wmo:"gorki",   name:"Górki Zachodnie", mx:240, my:120, anchor:"end",   realtime:true, scout:"Jamboree Marina"}, // Holfuy #1441 (NCŻ) widget
+  {wmo:"gorki",   name:"Górki Zachodnie", mx:240, my:120, anchor:"end",   realtime:true}, // Holfuy #1441 (NCŻ) widget
   // Coastal / offshore IMGW stations sit well beyond this local (~18 km) map — shown at the edge in their true bearing, with distance.
   {wmo:"gdansk",   name:"Gdańsk",          mx:48,  my:170, anchor:"start", dist:"≈17 km WNW",           obrg:300, sample:true},  // IMGW 12155 · 54.35,18.65
   {wmo:"hel",      name:"Hel",             mx:452, my:34,  anchor:"start", dist:"≈37 km N",              obrg:353, sample:true},  // IMGW 12135 · 54.61,18.80

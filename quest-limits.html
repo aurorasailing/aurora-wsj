@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- Aurora WSJ Wind · quest-limits.html · v0.1 · 2026-09-22 -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RS Quest — Wind Limits &amp; Reefing · Marina Błotnik</title>
+<meta name="description" content="Wind limits and reefing guide for the RS Quest, based on RS Sailing's own guidance — for the Aurora Explorer fleet.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ4VH5CBXJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BJ4VH5CBXJ');</script>
+<style>
+  :root{--navy:#0A1628; --green:#50E040; --green-b:#39D455; --slate:#2E4057; --muted:#7A8A7E; --line:#E1E6E0; --seafoam:#E8EDE6; --white:#fff;
+        --amber:#B37400; --orange:#C2521A; --red:#C21020}
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:'Lato',-apple-system,system-ui,sans-serif; color:var(--navy); background:var(--white); line-height:1.62}
+  header{display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid var(--line)}
+  .brand .a{font-family:'Syne',sans-serif; font-weight:800; font-size:17px; letter-spacing:.02em; text-transform:uppercase; color:var(--green)}
+  .brand .b{font-family:'Syne',sans-serif; font-weight:600; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-left:6px}
+  header a{font-family:'Syne',sans-serif; font-weight:700; font-size:13px; color:var(--slate); text-decoration:none}
+  main{max-width:660px; margin:0 auto; padding:22px 20px 8px}
+  .eyebrow{font-family:'Syne',sans-serif; font-weight:600; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--green-b)}
+  h1{font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(28px,7vw,40px); line-height:1.1; margin:6px 0 14px; color:var(--navy)}
+  .call{background:var(--seafoam); border-left:4px solid var(--green-b); border-radius:0 12px 12px 0; padding:14px 16px; margin:0 0 6px; font-size:16px}
+  .call b{font-weight:700}
+  section{border-top:1px solid var(--line); padding-top:16px; margin-top:22px}
+  h2{font-family:'Syne',sans-serif; font-weight:700; font-size:19px; margin:0 0 6px; color:var(--navy)}
+  p{margin:8px 0} b{font-weight:700}
+  ul{margin:8px 0; padding-left:20px} li{margin:5px 0}
+  .tbl{width:100%; border-collapse:collapse; margin:12px 0; font-size:14.5px}
+  .tbl th,.tbl td{text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top}
+  .tbl th{font-family:'Syne',sans-serif; font-weight:700; font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--white); background:var(--navy)}
+  .tbl td:first-child{font-weight:700; white-space:nowrap}
+  .tbl .wind{border-left:4px solid var(--line)}
+  .g td:first-child{color:var(--green-b)} .g .wind{border-left-color:var(--green-b)}
+  .a2 td:first-child{color:var(--amber)} .a2 .wind{border-left-color:var(--amber)}
+  .o td:first-child{color:var(--orange)} .o .wind{border-left-color:var(--orange)}
+  .r td:first-child{color:var(--red)} .r .wind{border-left-color:var(--red)}
+  .note{font-size:13.5px; color:var(--muted); font-style:italic; margin-top:6px}
+  .refs a{color:var(--slate); text-decoration:none; border-bottom:1px solid var(--line)}
+  .back{margin:26px 0 8px} .back a{font-family:'Syne',sans-serif; font-weight:700; color:var(--green-b); text-decoration:none; font-size:15px}
+  .fbrow{text-align:center; margin:26px 0 4px}
+  .fbbtn{display:inline-block; font-family:'Syne',sans-serif; font-weight:700; font-size:14px; color:#08351a; background:var(--green); padding:10px 20px; border-radius:999px; text-decoration:none}
+  footer{border-top:1px solid var(--line); padding:18px 20px; color:var(--muted); font-size:13px; text-align:center; margin-top:20px}
+</style>
+<style id="wsj-skin">
+  /* 26th World Scout Jamboree · Poland 2027 skin — red chrome + wave; the band colours stay semantic */
+  :root{ --wsj:#D02C2F; --wsj-ink:#A81E21; }
+  header{ background:var(--wsj); border-bottom:none; }
+  header *{ color:#fff; }
+  .brand .a{ color:#fff; } .brand .b{ color:rgba(255,255,255,.82); }
+  .eyebrow{ color:var(--wsj-ink); }
+  .call{ border-left-color:var(--wsj); }
+  .back a{ color:var(--wsj-ink); }
+  .fbbtn{ background:var(--wsj); color:#fff; }
+  footer a:hover{ color:var(--wsj-ink); }
+  .pagenav{display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center; margin:18px 0 2px; padding-top:14px; border-top:1px solid var(--line); font-size:13px}
+  .pagenav a{color:var(--slate); text-decoration:none; font-weight:700}
+  .pagenav a:hover{color:var(--wsj)}
+  .pagenav .cur{color:var(--muted); font-weight:700}
+  .wsj-wave{ display:block; width:100%; height:22px; line-height:0;
+    background:#fff url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2795%27%20height%3D%2726%27%20viewBox%3D%270%200%2095%2026%27%3E%3Cpath%20d%3D%27M0%2016%20C16%207%2031%207%2047%2016%20S79%2025%2095%2016%20L95%2026%20L0%2026%20Z%27%20fill%3D%27%23D02C2F%27%2F%3E%3Cpath%20d%3D%27M0%2010%20C16%205%2031%205%2047%2010%20S79%2015%2095%2010%27%20fill%3D%27none%27%20stroke%3D%27%23D02C2F%27%20stroke-opacity%3D%270.4%27%20stroke-width%3D%271.6%27%2F%3E%3C%2Fsvg%3E") repeat-x center / auto 22px; }
+  .wsj-bravely{ font-family:'Syne','Helvetica Neue',sans-serif; font-weight:700; font-size:12px; letter-spacing:.02em; color:var(--wsj-ink); margin:0 0 6px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><span class="a">Aurora</span><span class="b">WSJ Wind</span></div>
+  <a href="#" onclick="history.back();return false">← Back</a>
+</header>
+<div class="wsj-wave" aria-hidden="true"></div>
+<main>
+  <span class="eyebrow">RS Quest · Marina Błotnik</span>
+  <h1>Wind limits &amp; reefing</h1>
+
+  <p class="call"><b>Bottom line:</b> full main to about <b>15 knots</b> for a competent crew; <b>reef by 18</b>;
+  furl the jib and sail on reefed main alone above that. Treat <b>Force 6 — roughly 27 knots</b> — as the edge
+  of the boat's designed world, not a target.</p>
+
+  <section>
+    <h2>Quick reference</h2>
+    <table class="tbl">
+      <tr><th>Wind</th><th>Sail plan</th><th>Action</th></tr>
+      <tr class="g"><td class="wind">Up to ~15 kt</td><td>Full main + jib</td><td>Sail flat; weight outboard as it builds; spinnaker only within crew skill.</td></tr>
+      <tr class="a2"><td class="wind">15–18 kt</td><td>Full main, depowered</td><td>Ease the gnav, flatten the sails; <b>light or youth crews reef now.</b></td></tr>
+      <tr class="a2"><td class="wind">18 kt</td><td>Reef the main</td><td>First slab in before launching — the manufacturer's figure.</td></tr>
+      <tr class="o"><td class="wind">18–~22 kt</td><td>Reefed main; jib as needed</td><td>Furl the jib if overpowered; no spinnaker.</td></tr>
+      <tr class="o"><td class="wind">Force 6 (~22–27 kt)</td><td>Reefed main only</td><td>Experienced adult crew only; <b>youth crews ashore.</b></td></tr>
+      <tr class="r"><td class="wind">Above Force 6 (&gt;27 kt)</td><td>—</td><td>Outside the certified envelope; <b>do not launch.</b></td></tr>
+    </table>
+    <p class="note">Bands are indicative and assume open water. Read them <b>down</b> for a light or inexperienced crew.</p>
+  </section>
+
+  <section>
+    <h2>The reef point</h2>
+    <p>RS Sailing's own Sailing Tips give one hard number: <b>reef the mainsail at 18 knots</b> before going to
+    sea. Experienced crews may take a reef in afloat as the breeze builds, but 18 knots is the figure the boat is
+    designed around — below it, full main; at or above it, the first slab goes in before launching.</p>
+  </section>
+
+  <section>
+    <h2>Read it down for youth &amp; light crews</h2>
+    <p>Maximum crew weight is <b>365 kg</b> — about four adults; no minimum is published. A light youth crew reaches
+    the reef threshold <b>well before 18 knots</b> and should reef earlier, because they cannot sit the boat down.
+    Match sail to crew weight rather than to a fixed number.</p>
+  </section>
+
+  <section>
+    <h2>The de-power sequence</h2>
+    <p>RS gives a clear order for rising wind:</p>
+    <ul>
+      <li>Move crew weight outboard and ease the gnav to spill the top of the main.</li>
+      <li>Reef the mainsail at 18 knots.</li>
+      <li>In stronger conditions, furl the jib and progressively ease the gnav while keeping steerage.</li>
+    </ul>
+    <p>RS is blunt about the boat: large, heavy, three sails, a high centre of effort. It wants an experienced
+    skipper, and over-powering it may end in a capsize.</p>
+  </section>
+
+  <section>
+    <h2>Main only — never jib only</h2>
+    <p>Main alone is a proper reduced rig: the forestay is fixed and the jib removable, and the boat sails well
+    balanced under main only. <b style="color:var(--wsj-ink)">Jib alone is not a configuration for this boat</b> — it gives a large lee helm and
+    poor control. In a blow you keep a reefed main and furl the jib, never the reverse.</p>
+  </section>
+
+  <section>
+    <h2>Capsize &amp; recovery</h2>
+    <p>On capsize in strong wind, <b>furl the jib before righting</b> to give the boat weather helm. The foam-filled
+    masthead section resists inversion, and a masthead float kit is available for crews sailing near the limit.
+    Two features help lighter crews recover: handles moulded into the hull, and scuppers under the bench seats that
+    take on water when the boat is over, so it sits lower on its side and the centreboard is easier to reach — the
+    water drains out again once the boat is upright.</p>
+  </section>
+
+  <section>
+    <h2>The fragile end is the rudder</h2>
+    <p>The one repeated field warning: <b>do not load the tiller sideways</b> — it damages the lift-and-lock
+    mechanism. The blade kicks up on grounding (which protects it at the slipway); the strain to watch is sailing
+    overpowered with heavy weather helm, which loads the stock and tiller. Keep the boat flat and the load stays off
+    it. The hull itself — rotomoulded Comptec PE3 — outlasts the crew's ability to keep it upright.</p>
+  </section>
+
+  <section>
+    <h2>The certified envelope</h2>
+    <p>The RS Quest is <b>CE design Category C</b>: <b style="color:var(--wsj-ink)">winds up to Force 6 (22–27 kt) and significant wave height up to
+    2 m</b>. That is the extent of what "tested" means. No structural-failure-by-windspeed data is published for the
+    Quest — or for training dinghies generally — because the limiting factor is capsize and crew capability, not the
+    hull. Treat any claim of a specific windspeed at which a fitting fails as plausible caution, not a documented
+    figure.</p>
+  </section>
+
+  <section>
+    <h2>From experience — the real-world edge</h2>
+    <p>The certified ~27 knots is a <b>launch and design</b> limit, not a breaking point. In practice a
+    reefed Quest carrying weight — a heavy crew and gear — has held together in gusts past <b>30 knots</b>,
+    keeping the boat flat, the gnav eased and steerage on. That is <b>surviving a blow you're caught in,
+    not a reason to launch.</b> The launch call stays conservative — we wouldn't have gone out in it — but
+    if you're already out and it builds: reef, ease the gnav, keep the boat flat, and head in.</p>
+  </section>
+
+  <section class="refs">
+    <h2>References</h2>
+    <ul>
+      <li><a href="https://www.rssailing.com/wp-content/uploads/guides/RS_QUEST_RIGGING_MANUAL.pdf" target="_blank" rel="noopener">RS Quest Rigging Manual</a> — rig setup, sailing hints</li>
+      <li><a href="https://www.rssailing.com/top-10-features-of-the-rs-quest/" target="_blank" rel="noopener">RS Sailing — "Top 10 Features of the RS Quest"</a> — scupper ballast, kick-up rudder, masthead float</li>
+      <li><a href="https://www.boat-specs.com/sailing/sailboats/rs-sailing/rs-quest" target="_blank" rel="noopener">Boat-Specs.com</a> — CE Category C, dimensions, sail areas</li>
+      <li><a href="https://sailboatdata.com/sailboat/rs-quest/" target="_blank" rel="noopener">Sailboatdata.com</a> — CE definitions, max crew weight, sail plan</li>
+      <li><a href="https://ubcsailing.org/fleet/sail/rs_quest_rigging_guide" target="_blank" rel="noopener">UBC Sailing rigging guide</a> — rudder sideload warning, jib-furl-before-righting</li>
+      <li><a href="https://www.rssailing.com/project/rs-quest/" target="_blank" rel="noopener">RS Sailing product page</a> — design intent, three-sail handling</li>
+    </ul>
+    <p class="note">Certification and manufacturer figures as published at September 2026. Verify against current RS
+    documentation before relying on them, and against your own fleet incident log for real-world limits.</p>
+  </section>
+
+  <p class="back"><a href="#" onclick="history.back();return false">← Back to the Quest</a></p>
+  <p class="fbrow"><a class="fbbtn" href="mailto:wind@aurorasailing.com.au">Suggest a change, or share your experience →</a></p>
+  <script>(function(){var a=document.querySelector('.fbbtn');if(!a)return;a.href='mailto:wind@aurorasailing.com.au?subject='+encodeURIComponent('RS Quest wind limits — feedback')+'&body='+encodeURIComponent('\n\n— My correction, question, or real-world experience:\n\n\n(Aurora RS Quest wind-limits page — '+location.href+')');})();</script>
+  <nav class="pagenav" aria-label="Aurora WSJ Wind pages">
+    <a href="index.html">Board</a>
+    <a href="wsj-map.html">River map</a>
+    <a href="sailing-day.html">Is it a sailing day?</a>
+    <a href="blotnik-sailing.html">Błotnik sailing</a>
+    <a href="wind-barbs.html">Wind barbs</a>
+  </nav>
+</main>
+<footer><div class="wsj-bravely" style="margin-bottom:4px">Whatever you do, do it bravely.</div><b style="font-weight:700;color:var(--slate)">Aurora · WSJ Wind.</b> Wind limits for the RS Quest at Marina Błotnik, from RS Sailing's guidance.</footer>
+</body>
+</html>

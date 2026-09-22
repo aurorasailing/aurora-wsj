@@ -97,6 +97,37 @@
   .pc-d{font-size:12.5px; color:var(--muted); margin-top:3px; line-height:1.4}
   .pc-x{font-family:'Syne',sans-serif; font-weight:700; font-size:22px; color:var(--green-b); flex:none; line-height:1}
 </style>
+<style id="wsj-skin">
+  /* ── 26th World Scout Jamboree · Poland 2027 skin ─────────────────────────
+     Red chrome + zigzag over the Aurora layout. The wind-strength band colours
+     are deliberately left alone — there red means "too strong", not brand. */
+  :root{ --wsj:#D02C2F; --wsj-ink:#A81E21; }
+  header{ background:var(--wsj); border-bottom:none; }
+  header *{ color:#fff; }
+  .brand .a{ color:#fff; }
+  .brand .b{ color:rgba(255,255,255,.82); }
+  .upd{ color:rgba(255,255,255,.9); }
+  .live{ background:#fff; box-shadow:0 0 0 0 rgba(255,255,255,.6); animation:pulseW 2.6s infinite; }
+  @keyframes pulseW{0%{box-shadow:0 0 0 0 rgba(255,255,255,.5)}70%{box-shadow:0 0 0 9px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+  @media (prefers-reduced-motion:reduce){.live{animation:none}}
+  .eyebrow{ color:var(--wsj-ink); }
+  .eyebrow::before{ background:var(--wsj); }
+  h1 .accent{ color:var(--wsj); }
+  .pcard{ border-left-color:var(--wsj); }
+  .pc-x{ color:var(--wsj); }
+  .pagenav a:hover{ color:var(--wsj); }
+  .back a{ color:var(--wsj-ink); }
+  footer a:hover{ color:var(--wsj-ink); }
+  .fb a{ color:var(--wsj-ink) !important; }
+  footer .notes li::before{ background:var(--wsj); }
+  .scard:focus-visible{ outline-color:var(--wsj); }
+  /* WSJ water divider — a red sea band with a ripple line (evokes the river) */
+  .wsj-wave{ display:block; width:100%; height:22px; line-height:0;
+    background:#fff url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2795%27%20height%3D%2726%27%20viewBox%3D%270%200%2095%2026%27%3E%3Cpath%20d%3D%27M0%2016%20C16%207%2031%207%2047%2016%20S79%2025%2095%2016%20L95%2026%20L0%2026%20Z%27%20fill%3D%27%23D02C2F%27%2F%3E%3Cpath%20d%3D%27M0%2010%20C16%205%2031%205%2047%2010%20S79%2015%2095%2010%27%20fill%3D%27none%27%20stroke%3D%27%23D02C2F%27%20stroke-opacity%3D%270.4%27%20stroke-width%3D%271.6%27%2F%3E%3C%2Fsvg%3E") repeat-x center / auto 22px; }
+  /* Bravely — the Jamboree theme line */
+  .wsj-bravely{ font-family:'Syne','Helvetica Neue',sans-serif; font-weight:700;
+    font-size:12px; letter-spacing:.02em; color:var(--wsj-ink); margin:0 0 6px; }
+</style>
 </head>
 <body>
 
@@ -104,6 +135,8 @@
   <div class="brand"><span class="a">Aurora</span><span class="b">WSJ Wind</span></div>
   <div class="upd"><span class="live" id="live"></span><span id="upd">Loading…</span></div>
 </header>
+<div class="wsj-wave" aria-hidden="true"></div>
+
 
 <div class="intro">
   <span class="eyebrow">Live from the river</span>
@@ -124,6 +157,11 @@
   <a class="pcard" href="sailing-day.html">
     <div class="pc-b"><div class="pc-t">Is it a sailing day? <span class="beta">beta</span></div>
       <div class="pc-d">One big, simple wind picture for the crews — the breeze on the water at the sailing venue.</div></div>
+    <span class="pc-x" aria-hidden="true">›</span>
+  </a>
+  <a class="pcard" href="blotnik-sailing.html">
+    <div class="pc-b"><div class="pc-t">Błotnik sailing <span class="beta">beta</span></div>
+      <div class="pc-d">Live Błotnik wind in today’s sailing conditions, with Easy / Standard / Pro crew limits.</div></div>
     <span class="pc-x" aria-hidden="true">›</span>
   </a>
   <a class="pcard" href="wind-barbs.html">
@@ -156,7 +194,8 @@
   </ul>
   Observations are automatic and not quality-checked — always confirm conditions
   on the water before you sail.
-  <div class="ver">index.html · v0.1</div>
+  <div class="wsj-bravely">Whatever you do, do it bravely.</div>
+    <div class="ver">index.html · v0.1</div>
     <p class="fb" style="margin:14px 0 2px"><a href="mailto:wind@aurorasailing.com.au">Spotted something off, or have a suggestion? Tell us →</a></p>
     <script>(function(){var a=document.querySelector('.fb a');if(!a)return;var spot=document.title.replace(/\s*·.*$/,'').trim();a.href='mailto:wind@aurorasailing.com.au?subject='+encodeURIComponent('Aurora WSJ wind feedback — '+spot)+'&body='+encodeURIComponent('\n\n\n(About '+spot+' — '+location.href+')');})();</script>
 </footer>
@@ -293,7 +332,7 @@ function render(){
   renderLegend(); renderBanner();
   newestFull = STATIONS.map(s=>latest(s.wmo)).filter(Boolean).map(o=>o.local_date_time_full).filter(Boolean).sort().slice(-1)[0] || null;
   stampAge();
-  document.getElementById("live").style.background = usingSample?"var(--muted)":"var(--green-b)";
+  document.getElementById("live").style.background = usingSample?"rgba(255,255,255,.5)":"#fff";
 }
 
 // "Updated N min ago", from the newest reading time — ticks between fetches

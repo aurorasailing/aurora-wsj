@@ -1,0 +1,284 @@
+<!-- Aurora WSJ Wind · blotnik-sailing.html · v0.2 (Cloudflare) · 2026-09-22 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) — Aurora -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ4VH5CBXJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BJ4VH5CBXJ');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Błotnik sailing · Marina Błotnik</title>
+<meta name="description" content="Is it a sailing day at Marina Błotnik? Live Martwa Wisła wind for the Jamboree river-sailing.">
+<meta name="theme-color" content="#D02C2F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#50E040; --green-b:#39D455; --navy:#0A1628; --slate:#2E4057;
+    --ink:#1C2B3A; --white:#FFFFFF; --harbour:#F5F7F4; --muted:#7A8A7E; --line:#E1E6E0;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:'Syne','Helvetica Neue',Arial,sans-serif; color:var(--ink);
+    background:var(--harbour); -webkit-font-smoothing:antialiased; line-height:1.5;
+    min-height:100vh; display:flex; flex-direction:column}
+
+  header{display:flex; align-items:center; justify-content:space-between; padding:12px 18px;
+    padding-left:calc(18px + env(safe-area-inset-left,0)); padding-right:calc(18px + env(safe-area-inset-right,0))}
+  .brand{display:flex; align-items:baseline; gap:10px}
+  .brand .a{font-family:'Syne',sans-serif; font-weight:800; font-size:17px; letter-spacing:.02em; text-transform:uppercase; color:var(--green)}
+  .brand .b{font-family:'Syne',sans-serif; font-weight:600; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+  .upd{font-size:12px; color:var(--muted); display:flex; align-items:center; gap:7px}
+  .live{width:8px; height:8px; border-radius:50%; background:var(--green-b); flex:none;
+    box-shadow:0 0 0 0 rgba(57,212,85,.6); animation:pulse 2.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(57,212,85,.5)}70%{box-shadow:0 0 0 9px rgba(57,212,85,0)}100%{box-shadow:0 0 0 0 rgba(57,212,85,0)}}
+  @media (prefers-reduced-motion:reduce){.live{animation:none}}
+
+  main{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:8px 18px 24px}
+  .place{font-family:'Syne',sans-serif; font-weight:600; font-size:14px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--slate); margin-bottom:12px; text-align:center}
+  .beta{display:inline-block; font-family:'Syne',sans-serif; font-weight:700; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:#B37400; background:#FFF1D6; border:1px solid #FFCE73; border-radius:999px; padding:1px 7px; vertical-align:middle; margin-left:6px}
+  .modeToggle{display:inline-flex; border:1px solid var(--line); border-radius:999px; padding:2px; margin:0 auto 4px; background:var(--white)}
+  .modeToggle button{font-family:'Syne',sans-serif; font-weight:700; font-size:13px; letter-spacing:.01em; color:var(--muted); background:none; border:none; padding:5px 16px; border-radius:999px; cursor:pointer}
+  .modeToggle button.on{background:var(--green); color:#08351a}
+  .modehelp{font-size:12px; color:var(--muted); text-align:center; max-width:440px; margin:0 auto 12px}
+  .modehelp b{color:var(--slate); font-weight:700}
+  .qalerts{width:100%; max-width:440px; display:flex; flex-direction:column; gap:10px; margin-bottom:14px}
+  .qalert{border-radius:16px; padding:14px 16px; text-align:left; border:2px solid}
+  .qalert.amber{background:#FFF6E6; border-color:#FFBB44}
+  .qalert.red{background:#FDECEC; border-color:#F0792E}
+  .qa-t{font-family:'Syne',sans-serif; font-weight:800; font-size:16px; margin-bottom:4px}
+  .qalert.amber .qa-t{color:#B37400}
+  .qalert.red .qa-t{color:#C2521A}
+  .qa-b{font-size:14px; color:var(--slate); line-height:1.45}
+  .qa-r{font-family:'Syne',sans-serif; font-weight:700; font-size:13px; margin-top:8px; color:var(--slate)}
+  .hero{width:100%; max-width:440px; border:2px solid var(--line); border-radius:28px;
+    padding:24px 22px 30px; text-align:center; transition:background .4s ease, border-color .4s ease}
+  .qpic{margin:2px 0 6px}
+  .qpic img{width:100%; max-width:300px; height:auto; border-radius:16px; display:block; margin:0 auto; box-shadow:0 6px 20px rgba(10,22,40,.14)}
+  .word{font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(30px,9vw,50px); line-height:1.05; letter-spacing:-.01em}
+  .qsub{font-family:'Syne',sans-serif; font-weight:600; font-size:14px; margin:0 0 2px; opacity:.92}
+  .readrow{display:flex; align-items:baseline; justify-content:center; gap:28px; margin:14px 0 2px}
+  .knots{font-family:'Lato',sans-serif; font-weight:300; font-size:clamp(40px,12vw,64px); line-height:1; margin:0; color:var(--navy)}
+  .knots b{font-family:'Syne',sans-serif; font-weight:600; font-size:.34em; color:var(--muted); margin-left:6px; vertical-align:middle}
+  .otemp{font-family:'Lato',sans-serif; font-weight:300; font-size:clamp(40px,12vw,64px); line-height:1; color:var(--navy)}
+  .otemp b{font-family:'Syne',sans-serif; font-weight:600; font-size:.34em; color:var(--muted); margin-left:6px; vertical-align:middle}
+  .wdir{font-family:'Syne',sans-serif; font-weight:400; font-size:17px; color:var(--slate); margin-top:6px}
+  .wdir b{font-weight:700}
+  .bft{font-family:'Syne',sans-serif; font-weight:600; font-size:15px; color:var(--muted); margin-top:4px}
+  .src{font-family:'Syne',sans-serif; font-weight:600; font-size:13px; color:var(--slate); margin-top:6px}
+  .hupd{font-size:12.5px; color:var(--muted); margin-top:12px}
+  .banner{max-width:440px; margin:14px auto 0; padding:9px 13px; border-radius:10px; font-size:13px;
+    background:#FFF8E8; color:#7a5b00; border:1px solid #F0DFA8; display:none; text-align:center}
+  .banner.show{display:block}
+
+  footer{border-top:1px solid var(--line); padding:18px; color:var(--muted); font-size:13px; background:var(--white)}
+  .foot-in{max-width:440px; margin:0 auto}
+  .foot-in h2{font-family:'Syne',sans-serif; font-weight:700; font-size:13px; letter-spacing:.02em; color:var(--slate); margin:0 0 10px; text-transform:uppercase}
+  .key{list-style:none; margin:0 0 12px; padding:0}
+  .key li{display:flex; align-items:center; gap:12px; margin:8px 0}
+  .key b{font-family:'Syne',sans-serif; font-weight:700; color:var(--slate)}
+  .key .rng{font-family:'Syne',sans-serif; font-weight:600; color:var(--muted)}
+  .key .qthumb{flex:0 0 auto} .key .qthumb img{width:46px; height:46px; object-fit:cover; border-radius:8px; display:block}
+  footer a{color:var(--slate)}
+  .ver{margin-top:12px; font-size:10.5px; color:var(--muted); letter-spacing:.04em}
+  .pagenav{display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center; margin:14px 0 2px; padding-top:12px; border-top:1px solid var(--line); font-size:13px}
+  .pagenav a{color:var(--slate); text-decoration:none; font-weight:700}
+  .pagenav a:hover{color:var(--navy)}
+  .pagenav .cur{color:var(--muted); font-weight:700}
+</style>
+<style id="wsj-skin">
+  /* 26th World Scout Jamboree · Poland 2027 skin — red chrome + wave; wind colours stay semantic */
+  :root{ --wsj:#D02C2F; --wsj-ink:#A81E21; }
+  header{ background:var(--wsj); border-bottom:none; }
+  header *{ color:#fff; }
+  .brand .a{ color:#fff; }
+  .brand .b{ color:rgba(255,255,255,.82); }
+  .upd{ color:rgba(255,255,255,.9); }
+  .live{ background:#fff; box-shadow:0 0 0 0 rgba(255,255,255,.6); animation:pulseW 2.6s infinite; }
+  @keyframes pulseW{0%{box-shadow:0 0 0 0 rgba(255,255,255,.5)}70%{box-shadow:0 0 0 9px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+  @media (prefers-reduced-motion:reduce){.live{animation:none}}
+  .modeToggle button.on{ background:var(--wsj); color:#fff; }
+  .pagenav a:hover{ color:var(--wsj); }
+  footer a:hover{ color:var(--wsj-ink); }
+  .fb a{ color:var(--wsj-ink) !important; }
+  .wsj-wave{ display:block; width:100%; height:22px; line-height:0;
+    background:#fff url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2795%27%20height%3D%2726%27%20viewBox%3D%270%200%2095%2026%27%3E%3Cpath%20d%3D%27M0%2016%20C16%207%2031%207%2047%2016%20S79%2025%2095%2016%20L95%2026%20L0%2026%20Z%27%20fill%3D%27%23D02C2F%27%2F%3E%3Cpath%20d%3D%27M0%2010%20C16%205%2031%205%2047%2010%20S79%2015%2095%2010%27%20fill%3D%27none%27%20stroke%3D%27%23D02C2F%27%20stroke-opacity%3D%270.4%27%20stroke-width%3D%271.6%27%2F%3E%3C%2Fsvg%3E") repeat-x center / auto 22px; }
+  .wsj-bravely{ font-family:'Syne','Helvetica Neue',sans-serif; font-weight:700; font-size:12px; letter-spacing:.02em; color:var(--wsj-ink); margin:0 0 6px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand"><span class="a">Aurora</span><span class="b">WSJ Wind</span></div>
+  <div class="upd"><span class="live" id="live"></span></div>
+</header>
+<div class="wsj-wave" aria-hidden="true"></div>
+
+<main>
+  <div class="place">Marina Błotnik · Sailing <span class="beta">beta</span></div>
+  <div class="modeToggle" id="modeToggle" role="group" aria-label="Crew profile">
+    <button type="button" data-mode="easy">Easy</button>
+    <button type="button" data-mode="standard">Standard</button>
+    <button type="button" data-mode="pro">Pro</button>
+  </div>
+  <div class="modehelp"><b>Easy</b> — youth &amp; light crew, reef early &nbsp;·&nbsp; <b>Standard</b> — the boat’s own guidance &nbsp;·&nbsp; <b>Pro</b> — experienced crew</div>
+  <div class="qalerts" id="qalerts" style="display:none"></div>
+  <div class="hero" id="hero"></div>
+  <div class="banner" id="banner"></div>
+</main>
+
+<footer>
+  <div class="foot-in">
+    <div class="wsj-bravely">Whatever you do, do it bravely.</div>
+    <h2>What the pictures mean</h2>
+    <ul class="key" id="key"></ul>
+    <p style="margin:2px 0 0;font-size:12.5px;color:var(--muted)">Ranges shift with the crew profile above — <b>Easy</b> reefs earliest, <b>Pro</b> latest;
+    read them down for a light or young crew. <a href="quest-limits.html">Full wind limits &amp; reefing →</a></p>
+
+    <h2 style="margin-top:16px">Where’s this from?</h2>
+    This is the modelled wind at the <b>Marina Błotnik</b> point on the <b>Martwa Wisła</b>, with the air
+    temperature that comes with it. It’s a single-station start: we’ll add the on-water and coastal stations
+    once the local winds — and where each station really sits — are better understood. The levels suit a stable
+    training dinghy that carries a breeze well, so “sporty” runs higher than you’d set for a small single-hander.
+    <p style="margin:10px 0 0"><b>From experience:</b> you might launch in 10 knots and cop 30+ in a gust — you
+    wouldn’t have launched in that, but a reefed boat with weight aboard stays stable if you keep the sail flat,
+    ease the gnav, and head in. Know your reef point before you go.</p>
+    <p style="margin:12px 0 0">We keep the wind direction simple — one of eight main points: North, North-East,
+    East, South-East, South, South-West, West and North-West.</p>
+    <p style="margin:12px 0 0">Wind for the marina point from
+    <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a>.
+    Always check conditions on the water before you sail.</p>
+
+
+    <p class="fb" style="margin:14px 0 2px"><a href="mailto:wind@aurorasailing.com.au">Spotted something off, or have a suggestion? Tell us →</a></p>
+    <script>(function(){var a=document.querySelector('.fb a');if(!a)return;var spot=document.title.replace(/\s*·.*$/,'').trim();a.href='mailto:wind@aurorasailing.com.au?subject='+encodeURIComponent('Aurora WSJ Błotnik feedback — '+spot)+'&body='+encodeURIComponent('\n\n\n(About '+spot+' — '+location.href+')');})();</script>
+    <nav class="pagenav" aria-label="Aurora WSJ Wind pages">
+      <a href="index.html">Board</a>
+      <a href="wsj-map.html">River map</a>
+      <a href="sailing-day.html">Is it a sailing day?</a>
+      <span class="cur" aria-current="page">Błotnik sailing</span>
+      <a href="wind-barbs.html">Wind barbs</a>
+    </nav>
+    <div class="ver">blotnik-sailing.html · v0.2</div>
+  </div>
+</footer>
+
+<script>
+const DATA_BASE = "https://aurora-wsj.gregor-fea.workers.dev";  // deploy the WSJ Worker + set this
+const STATION = "blotnik";   // single station for now — the modelled wind at the Marina Błotnik point
+const REFRESH_MS = 2 * 60 * 1000;
+
+// The seven pictures + advice, shared across crew profiles. (Placeholder boat art — swap when ready.)
+const BANDS = [
+  {img:"quest-calm.jpg",     word:"Calm",             sub:"not enough to sail",                          c:"#C4C9C5", t:"#586059"},
+  {img:"quest-smooth.jpg",   word:"Smooth",           sub:"full main and jib — gentle",                  c:"#7BD877", t:"#3B9743"},
+  {img:"quest-cruisy.jpg",   word:"Cruisy",           sub:"a lovely working breeze — full sail",         c:"#5BC94A", t:"#227A2E"},
+  {img:"quest-sporty.jpg",   word:"Sporty",           sub:"fun and exciting — ease the gnav as it builds", c:"#2E9E3D", t:"#1B7A29"},
+  {img:"quest-reef.jpg",     word:"Reef!",            sub:"reef in and depower — ease the gnav",         c:"#FFBB44", t:"#B37400"},
+  {img:"quest-mainonly.jpg", word:"Reefed main only", sub:"caught out? reefed, sail flat, hold on — get in", c:"#F0792E", t:"#C2521A"},
+  {img:"quest-shore.jpg",    word:"Stay on shore",    sub:"don\u2019t launch — stay in port",             c:"#F90D24", t:"#C21020"},
+];
+// Upper knot bound per band, by crew profile. Pro delays the reef but never runs the top end
+// hotter than Standard — the "stay ashore" call is the same for everyone.
+const MAXES = {
+  easy:     [4, 6,  9, 12, 16, 22, 999],
+  standard: [4, 7, 12, 17, 25, 35, 999],
+  pro:      [4, 8, 14, 20, 27, 35, 999],
+};
+let mode = (function(){ try{ const m=localStorage.getItem("aurora-blotnik-profile"); return (m==="easy"||m==="pro")?m:"standard"; }catch(e){ return "standard"; } })();
+function levelFor(kt, m){ const mx=MAXES[m]||MAXES.standard; kt=Math.round(kt);
+  for(let i=0;i<BANDS.length;i++){ if(kt<=mx[i]) return Object.assign({max:mx[i]}, BANDS[i]); } return Object.assign({max:999}, BANDS[BANDS.length-1]); }
+function rangeText(i){ const mx=MAXES[mode]; const lo=i?mx[i-1]+1:0; return mx[i]===999?lo+"+ kt":(i===0?"under "+(mx[0]+1)+" kt":lo+"\u2013"+mx[i]+" kt"); }
+
+function beaufort(kt){ const b=[1,4,7,11,17,22,28,34,41,48,56,64]; let f=0; for(let i=0;i<b.length;i++){ if(kt>=b[i]) f=i+1; } return f; }
+const BEAUFORT_NAME=["calm","light air","light breeze","gentle breeze","moderate breeze","fresh breeze","strong breeze","near gale","gale","strong gale","storm","violent storm","hurricane force"];
+
+const DIR_DEG={N:0,NNE:22.5,NE:45,ENE:67.5,E:90,ESE:112.5,SE:135,SSE:157.5,S:180,SSW:202.5,SW:225,WSW:247.5,W:270,WNW:292.5,NW:315,NNW:337.5};
+const PTS8=["N","NE","E","SE","S","SW","W","NW"];
+const DIR_NAME={N:"North",NE:"North-East",E:"East",SE:"South-East",S:"South",SW:"South-West",W:"West",NW:"North-West"};
+function dir8(wd){ if(!wd || !(wd in DIR_DEG)) return null; return PTS8[Math.round(DIR_DEG[wd]/45)%8]; }
+function parseFull(f){ return new Date(+f.slice(0,4),+f.slice(4,6)-1,+f.slice(6,8),+f.slice(8,10),+f.slice(10,12)); }
+
+let venueRow=null, usingSample=false, newestFull=null, outTemp=null, venueName="Marina Błotnik";
+function pickReading(j){ const d=(j&&(j.observations?j.observations.data:j.data))||[]; return d.length?d[0]:null; }
+async function fetchOne(id){
+  try{ const r=await fetch(DATA_BASE+"/"+id+".json?_="+Date.now(),{cache:"no-store"}); if(!r.ok) return null; return pickReading(await r.json()); }
+  catch(e){ return null; }
+}
+async function load(){
+  const o = await fetchOne(STATION);
+  const tOf = x => (x && x.air_temp!=null && isFinite(x.air_temp)) ? Math.round(x.air_temp) : null;
+  if(o){ venueRow=o; usingSample=false; venueName=o.name||"Marina Błotnik"; outTemp=tOf(o); }
+  else { venueRow=sample(); usingSample=true; venueName="Marina Błotnik"; outTemp=tOf(venueRow); }
+  render();
+}
+function sample(){
+  const now=new Date(), p=n=>String(n).padStart(2,"0"), dirs=Object.keys(DIR_DEG);
+  return { wind_spd_kt:9+Math.round(Math.sin(now.getMinutes()/5)*3), gust_kt:13, wind_dir:dirs[9], air_temp:15,
+    local_date_time_full:""+now.getFullYear()+p(now.getMonth()+1)+p(now.getDate())+p(now.getHours())+p(now.getMinutes())+"00", name:"sample" };
+}
+
+function ktOf(o){ return o&&o.wind_spd_kt!=null&&isFinite(o.wind_spd_kt)?Math.round(o.wind_spd_kt):null; }
+function gustOf(o){ return o&&o.gust_kt!=null&&isFinite(o.gust_kt)?Math.round(o.gust_kt):null; }
+
+// Single-station gustiness flag — the lull-then-hit pattern that's hard to hold.
+function buildAlerts(){
+  if(usingSample || !venueRow) return "";
+  const iM=ktOf(venueRow), iG=gustOf(venueRow);
+  if(iM!=null && iG!=null && (iG-iM>=10 || (iM>=6 && iG>=1.5*iM))){
+    const cls=iG>=30?"qalert red":"qalert amber";
+    return '<div class="'+cls+'"><div class="qa-t">Very gusty</div><div class="qa-b">Mean <b>'+iM+' kt</b>, gusting <b>'+iG+' kt</b> — sudden hits between the lulls. Keep the sail flat, ease early, and be ready to dump the mainsheet in the hits.</div></div>';
+  }
+  return "";
+}
+
+function renderKey(){
+  const el=document.getElementById("key"); if(!el) return;
+  el.innerHTML = BANDS.map((b,i)=>'<li><span class="qthumb"><img src="'+b.img+'" alt=""></span><span><b>'+b.word+'</b> <span class="rng">'+rangeText(i)+'</span> — '+b.sub+'.</span></li>').join("");
+}
+function render(){
+  const o = venueRow;
+  const kt = o ? Math.round(o.wind_spd_kt) : null;
+  const L  = kt==null ? Object.assign({max:MAXES[mode][0]}, BANDS[0]) : levelFor(kt, mode);
+  const f  = kt==null ? null : beaufort(kt);
+  const dir = o ? dir8(o.wind_dir) : null;
+  const hero=document.getElementById("hero");
+  const wdirSimple = dir ? 'from the <b>'+DIR_NAME[dir]+'</b>' : '';
+  const readrow = '<div class="readrow">'+(outTemp==null?'':'<div class="otemp">'+outTemp+'<b>\u00B0C</b></div>')+'<div class="knots">'+(kt==null?"\u2013":kt)+'<b>knots</b></div></div>';
+  hero.style.background  = L.c + "22";
+  hero.style.borderColor = L.c;
+  hero.innerHTML =
+    '<div class="qpic"><img src="'+L.img+'" alt="Sailing conditions: '+L.word+'"></div>'+
+    '<div class="word" style="color:'+L.t+'">'+L.word+'</div>'+
+    '<div class="qsub" style="color:'+L.t+'">'+(L.sub||'')+'</div>'+
+    readrow+
+    '<div class="wdir">'+wdirSimple+'</div>'+
+    '<div class="bft">'+(f==null?"":"Force "+f+" \u00B7 "+BEAUFORT_NAME[f])+'</div>'+
+    '<div class="src">reading <b>'+venueName+'</b></div>'+
+    '<div class="hupd" id="hupd"></div>';
+  const al=document.getElementById("qalerts"); if(al){ const ah=buildAlerts(); al.innerHTML=ah; al.style.display=ah?"flex":"none"; }
+  renderKey();
+  newestFull = o ? o.local_date_time_full : null;
+  document.getElementById("banner").classList.toggle("show", usingSample);
+  document.getElementById("banner").textContent = usingSample ? "Showing pretend wind — the WSJ Worker isn\u2019t connected yet." : "";
+  document.getElementById("live").style.background = usingSample ? "rgba(255,255,255,.5)" : "#fff";
+  stampAge();
+}
+function stampAge(){
+  const el=document.getElementById("hupd"); if(!el) return;
+  if(usingSample){ el.textContent="Pretend wind"; return; }
+  if(!newestFull){ el.textContent="\u2014"; return; }
+  const m=Math.round((Date.now()-parseFull(newestFull).getTime())/60000);
+  el.textContent = m<1 ? "Updated just now" : "Updated "+m+" min ago";
+}
+function setMode(m){ mode=m; try{ localStorage.setItem("aurora-blotnik-profile",m); }catch(e){}
+  document.querySelectorAll("#modeToggle button").forEach(b=>b.classList.toggle("on", b.dataset.mode===m));
+  render(); }
+
+document.querySelectorAll("#modeToggle button").forEach(b=>{ b.classList.toggle("on", b.dataset.mode===mode); b.addEventListener("click",()=>setMode(b.dataset.mode)); });
+load(); setInterval(load, REFRESH_MS); setInterval(stampAge, 30*1000);
+</script>
+</body>
+</html>

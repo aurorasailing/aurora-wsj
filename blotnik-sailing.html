@@ -87,6 +87,12 @@
   .pagenav a{color:var(--slate); text-decoration:none; font-weight:700}
   .pagenav a:hover{color:var(--navy)}
   .pagenav .cur{color:var(--muted); font-weight:700}
+  .emoji{font-size:clamp(104px,34vw,176px); line-height:1; margin:2px 0 6px}
+  .qcompass{margin:4px auto 8px; max-width:230px}
+  .qcompass svg{width:100%; height:auto; display:block}
+  .cr-lab{font-family:'Syne',sans-serif; font-weight:700; font-size:12px; fill:var(--slate)}
+  .cr-n{fill:var(--wsj-ink)}
+  .key .e{font-size:26px; width:34px; text-align:center; flex:none}
 </style>
 <style id="wsj-skin">
   /* 26th World Scout Jamboree · Poland 2027 skin — red chrome + wave; wind colours stay semantic */
@@ -123,7 +129,7 @@
     <button type="button" data-mode="standard">Standard</button>
     <button type="button" data-mode="pro">Pro</button>
   </div>
-  <div class="modehelp"><b>Easy</b> — youth &amp; light crew, reef early &nbsp;·&nbsp; <b>Standard</b> — the boat’s own guidance &nbsp;·&nbsp; <b>Pro</b> — experienced crew</div>
+  <div class="modehelp"><b>Easy</b> — a simple picture &nbsp;·&nbsp; <b>Standard</b> — the boat in today’s wind &nbsp;·&nbsp; <b>Pro</b> — direction &amp; speed on a compass</div>
   <div class="qalerts" id="qalerts" style="display:none"></div>
   <div class="hero" id="hero"></div>
   <div class="banner" id="banner"></div>
@@ -170,36 +176,55 @@ const DATA_BASE = "https://aurora-wsj.gregor-fea.workers.dev";  // deploy the WS
 const STATION = "blotnik";   // single station for now — the modelled wind at the Marina Błotnik point
 const REFRESH_MS = 2 * 60 * 1000;
 
-// The seven pictures + advice, shared across crew profiles. (Placeholder boat art — swap when ready.)
+// One shared set of wind bands. The toggle changes only how the current band is DRAWN:
+//   easy → emoji · standard → boat photo · pro → compass + wind barb.  (Boat art is placeholder.)
 const BANDS = [
-  {img:"quest-calm.jpg",     word:"Calm",             sub:"not enough to sail",                          c:"#C4C9C5", t:"#586059"},
-  {img:"quest-smooth.jpg",   word:"Smooth",           sub:"full main and jib — gentle",                  c:"#7BD877", t:"#3B9743"},
-  {img:"quest-cruisy.jpg",   word:"Cruisy",           sub:"a lovely working breeze — full sail",         c:"#5BC94A", t:"#227A2E"},
-  {img:"quest-sporty.jpg",   word:"Sporty",           sub:"fun and exciting — ease the gnav as it builds", c:"#2E9E3D", t:"#1B7A29"},
-  {img:"quest-reef.jpg",     word:"Reef!",            sub:"reef in and depower — ease the gnav",         c:"#FFBB44", t:"#B37400"},
-  {img:"quest-mainonly.jpg", word:"Reefed main only", sub:"caught out? reefed, sail flat, hold on — get in", c:"#F0792E", t:"#C2521A"},
-  {img:"quest-shore.jpg",    word:"Stay on shore",    sub:"don\u2019t launch — stay in port",             c:"#F90D24", t:"#C21020"},
+  {max:4,   e:"😴", img:"quest-calm.jpg",     word:"Calm",             sub:"not enough to sail",                          c:"#C4C9C5", t:"#586059"},
+  {max:7,   e:"🌤️", img:"quest-smooth.jpg",   word:"Smooth",           sub:"full main and jib — gentle",                  c:"#7BD877", t:"#3B9743"},
+  {max:12,  e:"⛵", img:"quest-cruisy.jpg",   word:"Cruisy",           sub:"a lovely working breeze — full sail",         c:"#5BC94A", t:"#227A2E"},
+  {max:17,  e:"💨", img:"quest-sporty.jpg",   word:"Sporty",           sub:"fun and exciting — ease the gnav as it builds", c:"#2E9E3D", t:"#1B7A29"},
+  {max:25,  e:"⚠️", img:"quest-reef.jpg",     word:"Reef!",            sub:"reef in and depower — ease the gnav",         c:"#FFBB44", t:"#B37400"},
+  {max:35,  e:"🌪️", img:"quest-mainonly.jpg", word:"Reefed main only", sub:"caught out? reefed, sail flat, hold on — get in", c:"#F0792E", t:"#C2521A"},
+  {max:999, e:"🛑", img:"quest-shore.jpg",    word:"Stay on shore",    sub:"don\u2019t launch — stay in port",             c:"#F90D24", t:"#C21020"},
 ];
-// Upper knot bound per band, by crew profile. Pro delays the reef but never runs the top end
-// hotter than Standard — the "stay ashore" call is the same for everyone.
-const MAXES = {
-  easy:     [4, 6,  9, 12, 16, 22, 999],
-  standard: [4, 7, 12, 17, 25, 35, 999],
-  pro:      [4, 8, 14, 20, 27, 35, 999],
-};
-let mode = (function(){ try{ const m=localStorage.getItem("aurora-blotnik-profile"); return (m==="easy"||m==="pro")?m:"standard"; }catch(e){ return "standard"; } })();
-function levelFor(kt, m){ const mx=MAXES[m]||MAXES.standard; kt=Math.round(kt);
-  for(let i=0;i<BANDS.length;i++){ if(kt<=mx[i]) return Object.assign({max:mx[i]}, BANDS[i]); } return Object.assign({max:999}, BANDS[BANDS.length-1]); }
-function rangeText(i){ const mx=MAXES[mode]; const lo=i?mx[i-1]+1:0; return mx[i]===999?lo+"+ kt":(i===0?"under "+(mx[0]+1)+" kt":lo+"\u2013"+mx[i]+" kt"); }
+function levelFor(kt){ kt=Math.round(kt); for(const b of BANDS){ if(kt<=b.max) return b; } return BANDS[BANDS.length-1]; }
+function rangeText(i){ const lo=i?BANDS[i-1].max+1:0; return BANDS[i].max===999?lo+"+ kt":(i===0?"under "+(BANDS[0].max+1)+" kt":lo+"\u2013"+BANDS[i].max+" kt"); }
+let mode = (function(){ try{ const m=localStorage.getItem("aurora-blotnik-view"); return (m==="easy"||m==="pro")?m:"standard"; }catch(e){ return "standard"; } })();
 
 function beaufort(kt){ const b=[1,4,7,11,17,22,28,34,41,48,56,64]; let f=0; for(let i=0;i<b.length;i++){ if(kt>=b[i]) f=i+1; } return f; }
 const BEAUFORT_NAME=["calm","light air","light breeze","gentle breeze","moderate breeze","fresh breeze","strong breeze","near gale","gale","strong gale","storm","violent storm","hurricane force"];
-
 const DIR_DEG={N:0,NNE:22.5,NE:45,ENE:67.5,E:90,ESE:112.5,SE:135,SSE:157.5,S:180,SSW:202.5,SW:225,WSW:247.5,W:270,WNW:292.5,NW:315,NNW:337.5};
 const PTS8=["N","NE","E","SE","S","SW","W","NW"];
 const DIR_NAME={N:"North",NE:"North-East",E:"East",SE:"South-East",S:"South",SW:"South-West",W:"West",NW:"North-West"};
 function dir8(wd){ if(!wd || !(wd in DIR_DEG)) return null; return PTS8[Math.round(DIR_DEG[wd]/45)%8]; }
+function degOf(o){ if(!o) return null; if(o.wind_dir_deg!=null && isFinite(o.wind_dir_deg)) return +o.wind_dir_deg; return (o.wind_dir in DIR_DEG)?DIR_DEG[o.wind_dir]:null; }
 function parseFull(f){ return new Date(+f.slice(0,4),+f.slice(4,6)-1,+f.slice(6,8),+f.slice(8,10),+f.slice(10,12)); }
+
+// Northern-Hemisphere wind barb, staff up, feathers on the LEFT (pre-rotation), in a 100×100 box.
+function barb100(kt,color){
+  const tipY=18,STEP=6,FL=13,HL=6.5;
+  let s='<line x1="50" y1="50" x2="50" y2="'+tipY+'" stroke="'+color+'" stroke-width="2.4" stroke-linecap="round"/>';
+  let v=Math.round(kt/5)*5, pen=Math.floor(v/50); v-=pen*50;
+  let full=Math.floor(v/10); v-=full*10; let half=Math.floor(v/5), y=tipY;
+  if(pen===0&&full===0&&half===1) y=tipY+STEP;
+  for(let i=0;i<pen;i++){ s+='<path d="M50,'+y+' L'+(50-FL)+','+(y-4)+' L50,'+(y-8)+' Z" fill="'+color+'"/>'; y+=STEP+3; }
+  for(let i=0;i<full;i++){ s+='<line x1="50" y1="'+y+'" x2="'+(50-FL)+'" y2="'+(y-6.5)+'" stroke="'+color+'" stroke-width="2.4" stroke-linecap="round"/>'; y+=STEP; }
+  for(let i=0;i<half;i++){ s+='<line x1="50" y1="'+y+'" x2="'+(50-HL)+'" y2="'+(y-3.3)+'" stroke="'+color+'" stroke-width="2.4" stroke-linecap="round"/>'; y+=STEP; }
+  return s;
+}
+function compassRose(deg,kt,color){
+  let s='<circle cx="50" cy="50" r="46" fill="none" stroke="var(--line)" stroke-width="1.4"/>';
+  for(const a of [0,45,90,135,180,225,270,315]){ const r=a*Math.PI/180, si=Math.sin(r), co=Math.cos(r);
+    s+='<line x1="'+(50+46*si).toFixed(1)+'" y1="'+(50-46*co).toFixed(1)+'" x2="'+(50+40*si).toFixed(1)+'" y2="'+(50-40*co).toFixed(1)+'" stroke="var(--line)" stroke-width="1"/>'; }
+  s+='<text x="50" y="13.5" text-anchor="middle" class="cr-lab cr-n">N</text>';
+  s+='<text x="90" y="54" text-anchor="middle" class="cr-lab">E</text>';
+  s+='<text x="50" y="97" text-anchor="middle" class="cr-lab">S</text>';
+  s+='<text x="10" y="54" text-anchor="middle" class="cr-lab">W</text>';
+  if(kt!=null && kt<3){ s+='<circle cx="50" cy="50" r="7" fill="none" stroke="'+color+'" stroke-width="2.6"/>'; }
+  else if(kt!=null && deg!=null){ s+='<g transform="rotate('+deg+' 50 50)">'+barb100(kt,color)+'</g>'; }
+  s+='<circle cx="50" cy="50" r="2.4" fill="'+color+'"/>';
+  return '<svg viewBox="0 0 100 100" role="img" aria-label="Wind direction and strength on a compass">'+s+'</svg>';
+}
 
 let venueRow=null, usingSample=false, newestFull=null, outTemp=null, venueName="Marina Błotnik";
 function pickReading(j){ const d=(j&&(j.observations?j.observations.data:j.data))||[]; return d.length?d[0]:null; }
@@ -216,10 +241,9 @@ async function load(){
 }
 function sample(){
   const now=new Date(), p=n=>String(n).padStart(2,"0"), dirs=Object.keys(DIR_DEG);
-  return { wind_spd_kt:9+Math.round(Math.sin(now.getMinutes()/5)*3), gust_kt:13, wind_dir:dirs[9], air_temp:15,
+  return { wind_spd_kt:9+Math.round(Math.sin(now.getMinutes()/5)*3), gust_kt:13, wind_dir:"SW", wind_dir_deg:225, air_temp:15,
     local_date_time_full:""+now.getFullYear()+p(now.getMonth()+1)+p(now.getDate())+p(now.getHours())+p(now.getMinutes())+"00", name:"sample" };
 }
-
 function ktOf(o){ return o&&o.wind_spd_kt!=null&&isFinite(o.wind_spd_kt)?Math.round(o.wind_spd_kt):null; }
 function gustOf(o){ return o&&o.gust_kt!=null&&isFinite(o.gust_kt)?Math.round(o.gust_kt):null; }
 
@@ -233,24 +257,28 @@ function buildAlerts(){
   }
   return "";
 }
-
 function renderKey(){
   const el=document.getElementById("key"); if(!el) return;
-  el.innerHTML = BANDS.map((b,i)=>'<li><span class="qthumb"><img src="'+b.img+'" alt=""></span><span><b>'+b.word+'</b> <span class="rng">'+rangeText(i)+'</span> — '+b.sub+'.</span></li>').join("");
+  el.innerHTML = BANDS.map(function(b,i){
+    const icon = mode==="easy" ? '<span class="e">'+b.e+'</span>' : '<span class="qthumb"><img src="'+b.img+'" alt=""></span>';
+    return '<li>'+icon+'<span><b>'+b.word+'</b> <span class="rng">'+rangeText(i)+'</span> — '+b.sub+'.</span></li>';
+  }).join("");
 }
 function render(){
-  const o = venueRow;
-  const kt = o ? Math.round(o.wind_spd_kt) : null;
-  const L  = kt==null ? Object.assign({max:MAXES[mode][0]}, BANDS[0]) : levelFor(kt, mode);
-  const f  = kt==null ? null : beaufort(kt);
-  const dir = o ? dir8(o.wind_dir) : null;
+  const o=venueRow, kt=o?Math.round(o.wind_spd_kt):null;
+  const L=kt==null?BANDS[0]:levelFor(kt);
+  const f=kt==null?null:beaufort(kt), dir=o?dir8(o.wind_dir):null, deg=degOf(o);
   const hero=document.getElementById("hero");
   const wdirSimple = dir ? 'from the <b>'+DIR_NAME[dir]+'</b>' : '';
   const readrow = '<div class="readrow">'+(outTemp==null?'':'<div class="otemp">'+outTemp+'<b>\u00B0C</b></div>')+'<div class="knots">'+(kt==null?"\u2013":kt)+'<b>knots</b></div></div>';
+  let visual;
+  if(mode==="easy")      visual='<div class="emoji">'+L.e+'</div>';
+  else if(mode==="pro")  visual='<div class="qcompass">'+compassRose(deg,kt,L.t)+'</div>';
+  else                   visual='<div class="qpic"><img src="'+L.img+'" alt="Sailing conditions: '+L.word+'"></div>';
   hero.style.background  = L.c + "22";
   hero.style.borderColor = L.c;
   hero.innerHTML =
-    '<div class="qpic"><img src="'+L.img+'" alt="Sailing conditions: '+L.word+'"></div>'+
+    visual+
     '<div class="word" style="color:'+L.t+'">'+L.word+'</div>'+
     '<div class="qsub" style="color:'+L.t+'">'+(L.sub||'')+'</div>'+
     readrow+
@@ -273,7 +301,7 @@ function stampAge(){
   const m=Math.round((Date.now()-parseFull(newestFull).getTime())/60000);
   el.textContent = m<1 ? "Updated just now" : "Updated "+m+" min ago";
 }
-function setMode(m){ mode=m; try{ localStorage.setItem("aurora-blotnik-profile",m); }catch(e){}
+function setMode(m){ mode=m; try{ localStorage.setItem("aurora-blotnik-view",m); }catch(e){}
   document.querySelectorAll("#modeToggle button").forEach(b=>b.classList.toggle("on", b.dataset.mode===m));
   render(); }
 

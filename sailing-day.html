@@ -105,7 +105,7 @@
 <body>
 
 <header>
-  <div class="brand"><span class="a">Aurora</span><span class="b">WSJ Wind</span></div>
+  <div class="brand"><span class="a">Aurora</span><span class="b">WSJ2027 Wind</span></div>
   <div class="upd"><span class="live" id="live"></span></div>
 </header>
 <div class="wsj-wave" aria-hidden="true"></div>
@@ -147,10 +147,11 @@
       <a href="index.html">Board</a>
       <a href="wsj-map.html">River map</a>
       <span class="cur" aria-current="page">Is it a sailing day?</span>
-      <a href="blotnik-sailing.html">Błotnik sailing</a>
+      <a href="jamboree-marina.html">Jamboree Marina</a>
+      <a href="puck.html">What is a Puck?</a>
       <a href="wind-barbs.html">Wind barbs</a>
     </nav>
-    <div class="wsj-bravely">Whatever you do, do it bravely.</div>
+    <div class="wsj-bravely">Sail bravely.</div>
     <div class="ver">sailing-day.html · v0.1</div>
   </div>
 </footer>
@@ -180,7 +181,10 @@ const PTS8=["N","NE","E","SE","S","SW","W","NW"];
 const DIR_NAME={N:"North",NE:"North-East",E:"East",SE:"South-East",S:"South",SW:"South-West",W:"West",NW:"North-West"};
 function dir8(wd){ if(!wd || !(wd in DIR_DEG)) return null; return PTS8[Math.round(DIR_DEG[wd]/45)%8]; }
 
-function parseFull(f){ return new Date(+f.slice(0,4),+f.slice(4,6)-1,+f.slice(6,8),+f.slice(8,10),+f.slice(10,12)); }
+const VENUE_TZ = "Europe/Warsaw";
+function tzOffsetMs(ts, tz){ const p=new Intl.DateTimeFormat("en-US",{timeZone:tz,hour12:false,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit"}).formatToParts(new Date(ts)); const o={}; for(const x of p) o[x.type]=x.value; return Date.UTC(+o.year,+o.month-1,+o.day,(+o.hour)%24,+o.minute,+o.second) - ts; }
+// Stamps are Europe/Warsaw wall-clock; resolve to a true instant so "min ago" is right from any viewer timezone.
+function parseFull(f){ const y=+f.slice(0,4),mo=+f.slice(4,6)-1,d=+f.slice(6,8),h=+f.slice(8,10),mi=+f.slice(10,12),s=+(f.slice(12,14)||0); const guess=Date.UTC(y,mo,d,h,mi,s); return new Date(guess - tzOffsetMs(guess, VENUE_TZ)); }
 
 let rows=null, usingSample=false, newestFull=null, airTemp=null;
 

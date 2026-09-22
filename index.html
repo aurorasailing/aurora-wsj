@@ -7,7 +7,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ4VH5CBXJ"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BJ4VH5CBXJ');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Aurora · WSJ Wind — Marina Błotnik</title>
+<title>Aurora · WSJ2027 Wind — Jamboree River</title>
 <meta name="description" content="Live wind for the Jamboree river-sailing at Marina Błotnik on the Martwa Wisła — every station at a glance.">
 <meta name="theme-color" content="#0A1628">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,6 +97,11 @@
   .pc-d{font-size:12.5px; color:var(--muted); margin-top:3px; line-height:1.4}
   .pc-x{font-family:'Syne',sans-serif; font-weight:700; font-size:22px; color:var(--green-b); flex:none; line-height:1}
 </style>
+  .src{font-family:'Syne',sans-serif; font-weight:700; font-size:8.5px; letter-spacing:.05em; text-transform:uppercase; padding:1px 6px; border-radius:999px; margin-left:6px; vertical-align:middle; white-space:nowrap}
+  .src.live{background:#E4F5E6; color:#227A2E; border:1px solid #B6E3BD}
+  .src.modelled{background:#FFF1D6; color:#B37400; border:1px solid #FFCE73}
+  .srcnote{max-width:640px; margin:2px auto 0; font-size:12px; color:var(--muted); text-align:center; line-height:1.9}
+</style>
 <style id="wsj-skin">
   /* ── 26th World Scout Jamboree · Poland 2027 skin ─────────────────────────
      Red chrome + zigzag over the Aurora layout. The wind-strength band colours
@@ -132,20 +137,21 @@
 <body>
 
 <header>
-  <div class="brand"><span class="a">Aurora</span><span class="b">WSJ Wind</span></div>
+  <div class="brand"><span class="a">Aurora</span><span class="b">WSJ2027 Wind</span></div>
   <div class="upd"><span class="live" id="live"></span><span id="upd">Loading…</span></div>
 </header>
 <div class="wsj-wave" aria-hidden="true"></div>
 
 
 <div class="intro">
-  <span class="eyebrow">Live from the river</span>
-  <p class="subhead">Wind for the Jamboree river-sailing at <b>Marina Błotnik</b> on the Martwa Wisła — the marina point, the IMGW coastal backbone, and the on-water anemometer at Górki Zachodnie.</p>
+  <span class="eyebrow">Jamboree River, right now</span>
+  <p class="subhead">Live wind for the Jamboree river-sailing on the <b>Martwa Wisła</b> at Marina Błotnik — the marina point, the IMGW coastal backbone, and the on-water anemometer at Górki Zachodnie.</p>
   <div class="banner" id="banner"></div>
 </div>
 
 <div class="boxes" id="boxes"></div>
 <div class="legend" id="legend"></div>
+<p class="srcnote"><span class="src live">live</span> a real station reading &nbsp;·&nbsp; <span class="src modelled">modelled</span> computed for the marina point — no sensor there yet</p>
 
 <section class="pages">
   <div class="pages-h">More from WSJ Wind</div>
@@ -159,9 +165,14 @@
       <div class="pc-d">One big, simple wind picture for the crews — the breeze on the water at the sailing venue.</div></div>
     <span class="pc-x" aria-hidden="true">›</span>
   </a>
-  <a class="pcard" href="blotnik-sailing.html">
-    <div class="pc-b"><div class="pc-t">Błotnik sailing <span class="beta">beta</span></div>
+  <a class="pcard" href="jamboree-marina.html">
+    <div class="pc-b"><div class="pc-t">Jamboree Marina <span class="beta">beta</span></div>
       <div class="pc-d">Live Błotnik wind in today’s sailing conditions, with Easy / Standard / Pro crew limits.</div></div>
+    <span class="pc-x" aria-hidden="true">›</span>
+  </a>
+  <a class="pcard" href="puck.html">
+    <div class="pc-b"><div class="pc-t">What is a Puck?</div>
+      <div class="pc-d">Never heard of a Puck? Meet the little Polish scouting boat the Jamboree sails.</div></div>
     <span class="pc-x" aria-hidden="true">›</span>
   </a>
   <a class="pcard" href="wind-barbs.html">
@@ -172,7 +183,7 @@
 </section>
 
 <footer>
-  <b>Aurora Sailing · WSJ Wind.</b>
+  <b>Aurora Sailing · WSJ2027 Wind.</b>
   Live wind for the river-sailing at the <b>26th World Scout Jamboree</b> (Poland 2027), Marina Błotnik.
   Automatic observations from
   <a href="https://www.imgw.pl" target="_blank" rel="noopener">IMGW-PIB</a> (the Polish met service —
@@ -194,7 +205,7 @@
   </ul>
   Observations are automatic and not quality-checked — always confirm conditions
   on the water before you sail.
-  <div class="wsj-bravely">Whatever you do, do it bravely.</div>
+  <div class="wsj-bravely">Sail bravely.</div>
     <div class="ver">index.html · v0.1</div>
     <p class="fb" style="margin:14px 0 2px"><a href="mailto:wind@aurorasailing.com.au">Spotted something off, or have a suggestion? Tell us →</a></p>
     <script>(function(){var a=document.querySelector('.fb a');if(!a)return;var spot=document.title.replace(/\s*·.*$/,'').trim();a.href='mailto:wind@aurorasailing.com.au?subject='+encodeURIComponent('Aurora WSJ wind feedback — '+spot)+'&body='+encodeURIComponent('\n\n\n(About '+spot+' — '+location.href+')');})();</script>
@@ -224,7 +235,7 @@ const BANDS = [
 // shows a dash rather than demo data. The IMGW synop stations are a single hourly reading (no
 // gust, no trend); the marina point carries a short history.
 const STATIONS = [
-  {wmo:"blotnik", name:"Marina Błotnik",  scout:"Dutch Marina",   sample:true},
+  {wmo:"blotnik", name:"Marina Błotnik",  scout:"Dutch Marina",   sample:true, modelled:true},
   {wmo:"gorki",   name:"Górki Zachodnie", scout:"Jamboree Marina", realtime:true},
   {wmo:"gdansk",  name:"Gdańsk",          sample:true},
   {wmo:"hel",     name:"Hel",             sample:true},
@@ -242,7 +253,10 @@ function beaufort(kt){ const b=[1,4,7,11,17,22,28,34,41,48,56,64]; let f=0; for(
 const BEAUFORT_NAME=["calm","light air","light breeze","gentle breeze","moderate breeze","fresh breeze","strong breeze","near gale","gale","strong gale","storm","violent storm","hurricane force"];
 function fmtTime(f){ if(!f) return ""; let h=+f.slice(8,10); const m=f.slice(10,12);
   const ap=h>=12?"pm":"am"; h=((h+11)%12)+1; return h+":"+m+ap; }
-function parseFull(f){ return new Date(+f.slice(0,4),+f.slice(4,6)-1,+f.slice(6,8),+f.slice(8,10),+f.slice(10,12)); }
+const VENUE_TZ = "Europe/Warsaw";
+function tzOffsetMs(ts, tz){ const p=new Intl.DateTimeFormat("en-US",{timeZone:tz,hour12:false,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit"}).formatToParts(new Date(ts)); const o={}; for(const x of p) o[x.type]=x.value; return Date.UTC(+o.year,+o.month-1,+o.day,(+o.hour)%24,+o.minute,+o.second) - ts; }
+// Stamps are Europe/Warsaw wall-clock; resolve to a true instant so "min ago" is right from any viewer timezone.
+function parseFull(f){ const y=+f.slice(0,4),mo=+f.slice(4,6)-1,d=+f.slice(6,8),h=+f.slice(8,10),mi=+f.slice(10,12),s=+(f.slice(12,14)||0); const guess=Date.UTC(y,mo,d,h,mi,s); return new Date(guess - tzOffsetMs(guess, VENUE_TZ)); }
 function latest(w){ const a=store[w]; return a&&a.length?a[0]:null; }
 function strseed(s){ let h=0; for(let i=0;i<s.length;i++){ h=(h*31+s.charCodeAt(i))>>>0; } return h; }
 
@@ -319,11 +333,12 @@ function render(){
     const bf = kt==null ? null : beaufort(kt);
     const bft = bf==null ? "" : ' <span class="bft">F'+bf+' '+BEAUFORT_NAME[bf]+'</span>';
     const scout = s.scout ? '<span class="scout">'+s.scout+'</span>' : '';
+    const srcb = s.modelled ? '<span class="src modelled">modelled</span>' : '<span class="src live">live</span>';
     const box=document.createElement("div");
     box.className="box"; box.style.borderLeftColor=band.c;
     box.innerHTML=
       vane(brg, band.c)+
-      '<div class="bd"><div class="nm">'+s.name+scout+'</div>'+
+      '<div class="bd"><div class="nm">'+s.name+srcb+scout+'</div>'+
       '<div class="val"><span class="kt" style="color:'+band.t+'">'+(kt==null?"–":kt)+'</span>'+
         '<span class="u">kt</span><span class="dir">'+dir+'</span></div>'+
       '<div class="gst"><b style="color:'+band.t+'">'+band.name+'</b>'+bft+(g!=null?' · <span class="gval">Gust '+g+' kt</span>':'')+(o&&o.air_temp!=null?' · '+o.air_temp+'°':'')+trLbl+'</div></div>';

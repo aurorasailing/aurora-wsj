@@ -7,7 +7,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ4VH5CBXJ"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BJ4VH5CBXJ');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Marina Błotnik · Martwa Wisła — live wind</title>
+<title>Jamboree River · Martwa Wisła — live wind</title>
 <meta name="description" content="Live Port Phillip Bay wind for Aurora Sailing, read from the Bureau of Meteorology.">
 <meta name="theme-color" content="#0A1628">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,19 +66,23 @@
   .banner.show{display:block}
 
   /* Main grid */
-  .grid{display:flex; flex-wrap:wrap; gap:34px; align-items:flex-start; margin:26px 0 6px}
-  .mapcard{flex:1.05 1 380px; background:var(--white); border:1px solid var(--line); border-radius:4px; padding:14px}
+  .grid{display:block; margin:22px 0 6px}
+  .mapcard{width:100%; background:var(--white); border:1px solid var(--line); border-radius:4px; padding:14px}
   .beta{display:inline-block; font-family:'Syne',sans-serif; font-weight:700; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:#B37400; background:#FFF1D6; border:1px solid #FFCE73; border-radius:999px; padding:1px 7px; vertical-align:middle; margin-left:8px}
-  svg.bay{display:block; width:100%; height:auto}
+  /* mobile: scale to the width (natural height) */
+  svg.bay{display:block; width:100%; height:auto; margin:0 auto}
+  /* desktop: scale to the height, centred */
+  @media (min-width:760px){ svg.bay{ width:auto; max-width:100%; height:clamp(480px,80vh,940px) } }
   .b-name{font-family:'Syne',sans-serif; font-weight:700; font-size:14px; fill:var(--navy)}
   .b-val{font-family:'Syne',sans-serif; font-weight:600; font-size:13px; fill:var(--slate)}
   .b-edge{font-family:'Syne',sans-serif; font-weight:600; font-size:11px; letter-spacing:.12em; fill:var(--muted)}
   .b-scout{font-family:'Syne',sans-serif; font-weight:600; font-size:10px; font-style:italic; fill:#5B7FA6}
+  .b-dist{font-family:'Syne',sans-serif; font-weight:600; font-size:9px; font-style:italic; fill:#9AA6A0}
   .b-hit{cursor:pointer}
   .b-arrow{transition:transform .5s ease}
 
   /* Station cards */
-  .stations{flex:0.95 1 320px; display:flex; flex-direction:column; gap:11px}
+  .stations{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:11px; margin-top:16px}
   .scard{display:flex; align-items:center; justify-content:space-between; gap:14px;
     background:var(--white); border:1px solid var(--line); border-left:3px solid var(--line);
     border-radius:3px; padding:13px 16px; cursor:pointer;
@@ -136,6 +140,11 @@
   .spots-list a span{font-size:12px; color:var(--muted)}
   .spots-list a.here{cursor:default} .spots-list a.here b{color:var(--navy)}
 </style>
+  .src{font-family:'Syne',sans-serif; font-weight:700; font-size:8.5px; letter-spacing:.05em; text-transform:uppercase; padding:1px 6px; border-radius:999px; margin-left:6px; vertical-align:middle; white-space:nowrap}
+  .src.live{background:#E4F5E6; color:#227A2E; border:1px solid #B6E3BD}
+  .src.modelled{background:#FFF1D6; color:#B37400; border:1px solid #FFCE73}
+  .scard .dist{color:var(--slate); font-weight:600}
+</style>
 <style id="wsj-skin">
   /* ── 26th World Scout Jamboree · Poland 2027 skin ─────────────────────────
      Red chrome + zigzag over the Aurora layout. The wind-strength band colours
@@ -172,7 +181,7 @@
 
 <header>
   <div class="navi">
-    <div class="brand"><span class="a">Aurora</span><span class="b">WSJ Wind</span></div>
+    <div class="brand"><span class="a">Aurora</span><span class="b">WSJ2027 Wind</span></div>
     <div class="upd"><span class="live" id="live"></span><span id="upd">Loading…</span></div>
   </div>
 </header>
@@ -182,7 +191,7 @@
 <div class="wrap">
   <div class="top">
     <span class="eyebrow">Live from the river</span>
-    <h1>Marina Błotnik, <span class="accent">right now</span> <span class="beta">beta</span></h1>
+    <h1>Jamboree River, <span class="accent">right now</span> <span class="beta">beta</span></h1>
     <p class="lead">Live wind for the Jamboree river-sailing on the <b>Martwa Wisła</b> at Marina Błotnik — a modelled reading at the marina, the IMGW coastal backbone (Gdańsk, Hel, Elbląg and the offshore Baltic Platform), and the on-water anemometer at <b>Górki Zachodnie</b> (NCŻ). Tap a station for its 24-hour graph.</p>
     <div class="banner" id="banner"></div>
   </div>
@@ -206,8 +215,7 @@
         <!-- Przegalina lock -->
         <g transform="rotate(11 507 258)"><rect x="500" y="253" width="14" height="10" rx="2" fill="#fff" stroke="#2E4057" stroke-width="1.4"/></g>
         <!-- labels -->
-        <text x="360" y="30" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="11" fill="#8AA9C4" style="letter-spacing:1.2px;">GULF OF GDAŃSK · ZATOKA GDAŃSKA</text>
-        <text x="50" y="140" text-anchor="start" font-family="Syne,sans-serif" font-weight="700" font-size="12" fill="#2E4057">Gdańsk</text>
+        <text x="608" y="30" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="11" fill="#8AA9C4" style="letter-spacing:1.2px;">GULF OF GDAŃSK</text>
         <text x="500" y="206" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="10" fill="#8A968F">Wyspa Sobieszewska</text>
         <text x="300" y="238" text-anchor="middle" font-family="Syne,sans-serif" font-weight="600" font-size="10.5" fill="#9AA6A0" transform="rotate(15 300 238)">Martwa Wisła</text>
         <text x="205" y="150" text-anchor="middle" font-family="Syne,sans-serif" font-weight="500" font-size="9.5" fill="#9AA6A0" transform="rotate(-80 205 150)">Wisła Śmiała</text>
@@ -255,7 +263,7 @@
   </div>
 
   <footer>
-    <b>Aurora Sailing · WSJ Wind.</b>
+    <b>Aurora Sailing · WSJ2027 Wind.</b>
     Automatic wind from
     <a href="https://www.imgw.pl" target="_blank" rel="noopener">IMGW-PIB</a> (the Polish met service —
     Gdańsk, Hel, Elbląg and the offshore Baltic Platform), a modelled reading at the marina point from
@@ -265,17 +273,18 @@
     — the on-water reading at the sailing centre, read live from its public widget (a current reading, no 24-hour history).
     Automatic data isn’t quality-checked and can carry errors —
     always confirm conditions on the water before you sail.
-    <div style="margin:12px 0 2px">Markers are <b>wind barbs</b> — the staff points into the wind, feathers show the speed, colour shows the strength. <a href="wind-barbs.html">How to read them →</a></div>
+    <div style="margin:12px 0 2px">Markers are <b>wind barbs</b> — the staff points into the wind, feathers show the speed, colour shows the strength. <a href="wind-barbs.html">How to read them →</a> The <b>coastal stations</b> sit at the map edge in their real direction, with the distance shown — they are well beyond this local view.</div>
     <p class="fb" style="margin:14px 0 2px"><a href="mailto:wind@aurorasailing.com.au">Spotted something off, or have a suggestion? Tell us →</a></p>
     <script>(function(){var a=document.querySelector('.fb a');if(!a)return;var p=document.querySelector('.place');var spot=p?p.textContent.replace(/\s*·.*$/,'').trim():document.title;a.href='mailto:wind@aurorasailing.com.au?subject='+encodeURIComponent('Aurora wind feedback — '+spot)+'&body='+encodeURIComponent('\n\n\n(About '+spot+' — '+location.href+')');})();</script>
     <nav class="pagenav" aria-label="Aurora WSJ Wind pages">
       <a href="index.html">Board</a>
       <span class="cur" aria-current="page">River map</span>
       <a href="sailing-day.html">Is it a sailing day?</a>
-      <a href="blotnik-sailing.html">Błotnik sailing</a>
+      <a href="jamboree-marina.html">Jamboree Marina</a>
+      <a href="puck.html">What is a Puck?</a>
       <a href="wind-barbs.html">Wind barbs</a>
     </nav>
-    <div class="wsj-bravely">Whatever you do, do it bravely.</div>
+    <div class="wsj-bravely">Sail bravely.</div>
     <div class="ver">wsj-map.html · v0.1</div>
   </footer>
 </div>
@@ -303,12 +312,13 @@ const BANDS = [
 // PortWeather-style ids; sample:true = free backbone (shows demo data until the Worker is live).
 // "gorki" (Holfuy #1441) has no sample → shows "unavailable" until the API key is connected.
 const STATIONS = [
-  {wmo:"blotnik", name:"Marina Błotnik",  mx:503, my:468, anchor:"start", sample:true,   scout:"Dutch Marina"},    // Open-Meteo at the marina
+  {wmo:"blotnik", name:"Marina Błotnik",  mx:503, my:468, anchor:"start", sample:true,   scout:"Dutch Marina", modelled:true},    // Open-Meteo at the marina
   {wmo:"gorki",   name:"Górki Zachodnie", mx:240, my:120, anchor:"end",   realtime:true, scout:"Jamboree Marina"}, // Holfuy #1441 (NCŻ) widget
-  {wmo:"gdansk",   name:"Gdańsk",          mx:44,  my:196, anchor:"start", sample:true},  // IMGW (inner bay)
-  {wmo:"hel",      name:"Hel",             mx:360, my:38,  anchor:"start", sample:true},  // IMGW (peninsula)
-  {wmo:"elblag",   name:"Elbląg",          mx:588, my:122, anchor:"end",   sample:true},  // IMGW (SE bay)
-  {wmo:"platforma",name:"Baltic Platform", mx:96,  my:44,  anchor:"start", sample:true},  // IMGW (offshore)
+  // Coastal / offshore IMGW stations sit well beyond this local (~18 km) map — shown at the edge in their true bearing, with distance.
+  {wmo:"gdansk",   name:"Gdańsk",          mx:48,  my:170, anchor:"start", dist:"≈17 km WNW",           obrg:300, sample:true},  // IMGW 12155 · 54.35,18.65
+  {wmo:"hel",      name:"Hel",             mx:452, my:34,  anchor:"start", dist:"≈37 km N",              obrg:353, sample:true},  // IMGW 12135 · 54.61,18.80
+  {wmo:"elblag",   name:"Elbląg",          mx:672, my:430, anchor:"end",   dist:"≈37 km SE",             obrg:111, sample:true},  // IMGW 12160 · 54.16,19.40
+  {wmo:"platforma",name:"Baltic Platform", mx:286, my:34,  anchor:"start", dist:"≈130 km NNW · offshore", obrg:335, offshore:true, sample:true}, // IMGW 12001 Baltic Beta · 55.36,18.03
 ];
 
 const COMPASS = {N:0,NNE:22.5,NE:45,ENE:67.5,E:90,ESE:112.5,SE:135,SSE:157.5,
@@ -334,7 +344,10 @@ function windBarb(mx,my,kt,color){
 }
 function fmtTime(f){ if(!f) return ""; let h=+f.slice(8,10); const m=f.slice(10,12);
   const ap=h>=12?"pm":"am"; h=((h+11)%12)+1; return h+":"+m+ap; }
-function parseFull(f){ return new Date(+f.slice(0,4),+f.slice(4,6)-1,+f.slice(6,8),+f.slice(8,10),+f.slice(10,12)); }
+const VENUE_TZ = "Europe/Warsaw";
+function tzOffsetMs(ts, tz){ const p=new Intl.DateTimeFormat("en-US",{timeZone:tz,hour12:false,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit"}).formatToParts(new Date(ts)); const o={}; for(const x of p) o[x.type]=x.value; return Date.UTC(+o.year,+o.month-1,+o.day,(+o.hour)%24,+o.minute,+o.second) - ts; }
+// Stamps are Europe/Warsaw wall-clock; resolve to a true instant so "min ago" is right from any viewer timezone.
+function parseFull(f){ const y=+f.slice(0,4),mo=+f.slice(4,6)-1,d=+f.slice(6,8),h=+f.slice(8,10),mi=+f.slice(10,12),s=+(f.slice(12,14)||0); const guess=Date.UTC(y,mo,d,h,mi,s); return new Date(guess - tzOffsetMs(guess, VENUE_TZ)); }
 function latest(w){ const a=store[w]; return a&&a.length?a[0]:null; }
 function strseed(s){ s=String(s); let h=0; for(let i=0;i<s.length;i++){ h=(h*31+s.charCodeAt(i))>>>0; } return h; }
 
@@ -414,6 +427,16 @@ function renderMarkers(){
       t3.setAttribute("x",s.mx+off); t3.setAttribute("y",s.my+28); t3.setAttribute("text-anchor",s.anchor); t3.textContent=s.scout;
       grp.appendChild(t3);
     }
+    if(s.dist){
+      const td=document.createElementNS(NS,"text"); td.setAttribute("class","b-dist");
+      td.setAttribute("x",s.mx+off); td.setAttribute("y",s.my+28); td.setAttribute("text-anchor",s.anchor); td.textContent=s.dist;
+      grp.appendChild(td);
+    }
+    if(s.offshore){
+      const ch=document.createElementNS(NS,"g");   // it lies far off the top edge — point that way
+      ch.innerHTML='<path d="M'+s.mx+',15 L'+(s.mx-4)+',23 L'+(s.mx+4)+',23 Z" fill="#9AA6A0"/><line x1="'+s.mx+'" y1="23" x2="'+s.mx+'" y2="30" stroke="#9AA6A0" stroke-width="1.3"/>';
+      grp.appendChild(ch);
+    }
     grp.appendChild(arw); grp.appendChild(dot); grp.appendChild(t1); grp.appendChild(t2);
     g.appendChild(grp);
   });
@@ -425,13 +448,14 @@ function renderCards(){
     const o=latest(s.wmo), kt=o?Math.round(o.wind_spd_kt):null;
     const band=kt!=null?bandFor(kt):BANDS[0], g=o&&o.gust_kt!=null?Math.round(o.gust_kt):null;
     const dir=o&&o.wind_dir&&(o.wind_dir in COMPASS)?o.wind_dir:"–";
+    const srcb=s.modelled?'<span class="src modelled">modelled</span>':'<span class="src live">live</span>';
     const c=document.createElement("div"); c.className="scard"+(s.wmo===selected?" active":"");
     c.style.borderLeftColor=band.c; c.tabIndex=0; c.setAttribute("role","button");
     c.onclick=()=>select(s.wmo);
     c.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();select(s.wmo);}};
     c.innerHTML=
-      '<div><div class="nm">'+s.name+'</div>'+
-      '<div class="sub"><span style="color:'+band.t+';font-weight:700">'+band.name+'</span>'+(kt==null?"":' <span class="bft">F'+beaufort(kt)+' '+BEAUFORT_NAME[beaufort(kt)]+'</span>')+''+(g!=null?' · <span class="gval">Gust '+g+' kt</span>':'')+(o&&o.air_temp!=null?' · '+o.air_temp+'°':'')+'</div></div>'+
+      '<div><div class="nm">'+s.name+srcb+'</div>'+
+      '<div class="sub"><span style="color:'+band.t+';font-weight:700">'+band.name+'</span>'+(kt==null?"":' <span class="bft">F'+beaufort(kt)+' '+BEAUFORT_NAME[beaufort(kt)]+'</span>')+''+(g!=null?' · <span class="gval">Gust '+g+' kt</span>':'')+(o&&o.air_temp!=null?' · '+o.air_temp+'°':'')+(s.dist?' · <span class="dist">'+s.dist+'</span>':'')+'</div></div>'+
       '<div class="rt"><span class="kt" style="color:'+band.t+'">'+(kt==null?"–":kt)+'</span><span class="u">kt</span><span class="dir">'+dir+'</span></div>';
     el.appendChild(c);
   });

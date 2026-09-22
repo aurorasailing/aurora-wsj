@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!-- Aurora WSJ Wind · puck-limits.html · v0.2 · 2026-09-22 -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Puck class — Wind Limits &amp; Reefing · Jamboree Marina</title>
+<meta name="description" content="Wind limits and reefing guide for the Puck-class training boat, for the 26th World Scout Jamboree river-sailing at the Martwa Wisła.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ4VH5CBXJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BJ4VH5CBXJ');</script>
+<style>
+  :root{--navy:#0A1628; --green:#50E040; --green-b:#39D455; --slate:#2E4057; --muted:#7A8A7E; --line:#E1E6E0; --seafoam:#E8EDE6; --white:#fff;
+        --amber:#B37400; --orange:#C2521A; --red:#C21020}
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:'Lato',-apple-system,system-ui,sans-serif; color:var(--navy); background:var(--white); line-height:1.62}
+  header{display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid var(--line)}
+  .brand .a{font-family:'Syne',sans-serif; font-weight:800; font-size:17px; letter-spacing:.02em; text-transform:uppercase; color:var(--green)}
+  .brand .b{font-family:'Syne',sans-serif; font-weight:600; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-left:6px}
+  header a{font-family:'Syne',sans-serif; font-weight:700; font-size:13px; color:var(--slate); text-decoration:none}
+  main{max-width:660px; margin:0 auto; padding:22px 20px 8px}
+  .eyebrow{font-family:'Syne',sans-serif; font-weight:600; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--green-b)}
+  h1{font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(28px,7vw,40px); line-height:1.1; margin:6px 0 14px; color:var(--navy)}
+  .call{background:var(--seafoam); border-left:4px solid var(--green-b); border-radius:0 12px 12px 0; padding:14px 16px; margin:0 0 6px; font-size:16px}
+  .call b{font-weight:700}
+  section{border-top:1px solid var(--line); padding-top:16px; margin-top:22px}
+  h2{font-family:'Syne',sans-serif; font-weight:700; font-size:19px; margin:0 0 6px; color:var(--navy)}
+  p{margin:8px 0} b{font-weight:700}
+  ul{margin:8px 0; padding-left:20px} li{margin:5px 0}
+  .tbl{width:100%; border-collapse:collapse; margin:12px 0; font-size:14.5px}
+  .tbl th,.tbl td{text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top}
+  .tbl th{font-family:'Syne',sans-serif; font-weight:700; font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--white); background:var(--navy)}
+  .tbl td:first-child{font-weight:700; white-space:nowrap}
+  .tbl .wind{border-left:4px solid var(--line)}
+  .g td:first-child{color:var(--green-b)} .g .wind{border-left-color:var(--green-b)}
+  .a2 td:first-child{color:var(--amber)} .a2 .wind{border-left-color:var(--amber)}
+  .o td:first-child{color:var(--orange)} .o .wind{border-left-color:var(--orange)}
+  .r td:first-child{color:var(--red)} .r .wind{border-left-color:var(--red)}
+  .note{font-size:13.5px; color:var(--muted); font-style:italic; margin-top:6px}
+  .dl{margin:8px 0} .dl b{color:var(--navy)}
+  .refs a{color:var(--slate); text-decoration:none; border-bottom:1px solid var(--line)}
+  .back{margin:26px 0 8px} .back a{font-family:'Syne',sans-serif; font-weight:700; color:var(--green-b); text-decoration:none; font-size:15px}
+  .fbrow{text-align:center; margin:26px 0 4px}
+  .fbbtn{display:inline-block; font-family:'Syne',sans-serif; font-weight:700; font-size:14px; color:#08351a; background:var(--green); padding:10px 20px; border-radius:999px; text-decoration:none}
+  footer{border-top:1px solid var(--line); padding:18px 20px; color:var(--muted); font-size:13px; text-align:center; margin-top:20px}
+</style>
+<style id="wsj-skin">
+  /* 26th World Scout Jamboree · Poland 2027 skin — red chrome + wave; the band colours stay semantic */
+  :root{ --wsj:#D02C2F; --wsj-ink:#A81E21; }
+  header{ background:var(--wsj); border-bottom:none; }
+  header *{ color:#fff; }
+  .brand .a{ color:#fff; } .brand .b{ color:rgba(255,255,255,.82); }
+  .eyebrow{ color:var(--wsj-ink); }
+  .call{ border-left-color:var(--wsj); }
+  .back a{ color:var(--wsj-ink); }
+  .fbbtn{ background:var(--wsj); color:#fff; }
+  footer a:hover{ color:var(--wsj-ink); }
+  .pagenav{display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center; margin:18px 0 2px; padding-top:14px; border-top:1px solid var(--line); font-size:13px}
+  .pagenav a{color:var(--slate); text-decoration:none; font-weight:700}
+  .pagenav a:hover{color:var(--wsj)}
+  .pagenav .cur{color:var(--muted); font-weight:700}
+  .wsj-wave{ display:block; width:100%; height:22px; line-height:0;
+    background:#fff url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2795%27%20height%3D%2726%27%20viewBox%3D%270%200%2095%2026%27%3E%3Cpath%20d%3D%27M0%2016%20C16%207%2031%207%2047%2016%20S79%2025%2095%2016%20L95%2026%20L0%2026%20Z%27%20fill%3D%27%23D02C2F%27%2F%3E%3Cpath%20d%3D%27M0%2010%20C16%205%2031%205%2047%2010%20S79%2015%2095%2010%27%20fill%3D%27none%27%20stroke%3D%27%23D02C2F%27%20stroke-opacity%3D%270.4%27%20stroke-width%3D%271.6%27%2F%3E%3C%2Fsvg%3E") repeat-x center / auto 22px; }
+  .wsj-bravely{ font-family:'Syne',sans-serif; font-weight:700; font-size:12px; letter-spacing:.02em; color:var(--wsj-ink); }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><span class="a">Aurora</span><span class="b">WSJ2027 Wind</span></div>
+  <a href="#" onclick="history.back();return false">← Back</a>
+</header>
+<div class="wsj-wave" aria-hidden="true"></div>
+<main>
+  <span class="eyebrow">Puck class · Jamboree Marina</span>
+  <h1>Wind limits &amp; reefing</h1>
+
+  <p class="call"><b>Bottom line:</b> the Puck is a sheltered-waters trainer, certified <b>CE Category D</b> —
+  designed for wind up to <b>Force 4</b> (~16 knots) and waves up to 0.3&nbsp;m. Full rig through Force 4; if it
+  builds into <b>Force 5</b>, put the single reef in and keep youth crews ashore; don't launch above <b>Force 6
+  (~27 knots)</b>. It has been sailed harder in experienced hands, but Force 4 is the certified design limit and a
+  sensible ceiling for the day. For a young or light crew, play it safer — reef earlier and come ashore sooner.</p>
+
+  <section>
+    <h2>Quick reference</h2>
+    <table class="tbl">
+      <tr><th>Wind</th><th>Sail plan</th><th>Action</th></tr>
+      <tr class="g"><td class="wind">Up to ~10 kt · F1–3</td><td>Full main + jib</td><td>Ideal for learning. Sail flat, weight to windward as it fills.</td></tr>
+      <tr class="g"><td class="wind">~11–16 kt · F4</td><td>Full main + jib</td><td>Top of the certified (Category&nbsp;D) envelope — the boat's happy zone; be ready to reef.</td></tr>
+      <tr class="a2"><td class="wind">~16–21 kt · F5</td><td>Single reef in the main</td><td>Beyond Category&nbsp;D. Experienced, supervised crews; <b>youth crews ashore.</b></td></tr>
+      <tr class="o"><td class="wind">~21–27 kt · F6</td><td>Reefed, experienced only</td><td>The edge of the boat's demonstrated capability, well beyond its category.</td></tr>
+      <tr class="r"><td class="wind">Above ~27 kt · &gt;F6</td><td>—</td><td><b>Do not launch.</b></td></tr>
+    </table>
+    <p class="note">Bands are indicative and assume the sheltered river. For a light or inexperienced crew, play it safer — reef earlier and come in sooner.</p>
+  </section>
+
+  <section>
+    <h2>The reef point</h2>
+    <p>The Puck carries <b>one reef in the mainsail</b> — a single reef is mandatory in the class rules, set at
+    least 1&nbsp;metre up the luff — and that reef is the boat's main tool for rising wind. There is no manufacturer
+    knot figure of the kind RS gives for the Quest (reef at 18 knots); what is certified is the <b>Category&nbsp;D</b>
+    envelope (Force 4), and what the class documents is the handling — the boat heels very little even at Force 5 and
+    has been sailed across Force 1–6. A sensible working rule for youth sailing: full rig to Force 4, and the reef
+    <b>in by Force 5</b> (roughly 18–21 knots). The reef is cheap insurance and goes in before launching, not
+    after.</p>
+  </section>
+
+  <section>
+    <h2>Built for this water</h2>
+    <p>The Puck was designed in 1996 at the Scout Maritime Centre (Harcerski Ośrodek Morski) in Puck, on Puck Bay —
+    a bay that is <b>not an easy stretch of water</b>, with a periodically changing state. It was made to take those
+    conditions where the club's old Omegas could not. Trials ran in <b>Force 1–6</b>, with the prevailing N–NW wind
+    around Force 4 and waves of 40–60&nbsp;cm. The adjustable centreboard (0.20–1.05&nbsp;m) lets it work shallow
+    water, and the rudder and centreboard are built solid for reliability. In short: it is a boat that expects a
+    working breeze and a training crew, and forgives both.</p>
+  </section>
+
+  <section>
+    <h2>Extra caution for youth &amp; light crews</h2>
+    <p>The Puck is certified for a maximum of <b>6 persons</b> and <b>480&nbsp;kg</b> total load. A light or young
+    crew reaches the point of being overpowered <b>before</b> a heavier crew does, because they cannot sit the boat
+    down as hard — so they should reef earlier and come ashore sooner as it builds. Match the sail to the crew's
+    weight and confidence, not to a fixed number, and keep an instructor's eye on the gusts.</p>
+  </section>
+
+  <section>
+    <h2>Stability &amp; the unsinkable hull</h2>
+    <p>Two things make the Puck a safe training boat. First, <b>stiffness</b>: it heels very little even in Force 5,
+    which is what makes it forgiving when a novice freezes or lets a sheet fly — "even if someone lets go of the
+    sheets, nothing bad happens and the Puck copes," as the class puts it. Second, it is <b>unsinkable</b>: the
+    polyester-glass hull has built-in buoyancy and closable fore and aft peaks, so a swamped or capsized boat floats
+    and can be recovered. Keep the boat flat, ease early, and the boat's own design does the rest.</p>
+  </section>
+
+  <section>
+    <h2>The certified envelope</h2>
+    <p>The Puck is certified <b>CE design Category D — sheltered waters</b>: wind <b>up to Force 4</b> and
+    significant wave height <b>up to 0.3&nbsp;m</b> (occasionally to 0.5&nbsp;m). That is the formal envelope,
+    certified by Poland's PRS (Polski Rejestr Statków, notified body 1463) to <b>EN&nbsp;ISO&nbsp;12217-3:2017</b> —
+    the small-craft stability and buoyancy standard — under report CW/RCD/3350/2020 (August 2020). The certificate
+    also fixes the load: maximum <b>6 persons</b> and <b>480&nbsp;kg</b> total, on a 230&nbsp;kg glass-reinforced-
+    polyester hull. The Martwa Wisła at the Jamboree Marina sits well inside Category&nbsp;D — sheltered, flat water.
+    As with any training dinghy, the limit in practice is <b>crew capability and capsize</b>, not the hull.</p>
+  </section>
+
+  <section>
+    <h2>About the class</h2>
+    <p>The Puck is the Polish scouting movement's own training boat — designed by shipwright Franciszek Lewiński,
+    owned by ZHP (Polish Scouting), and sailed in the hundreds across Poland. New to it? There's a plain-English
+    introduction on the <a href="puck.html">What is a Puck?</a> page.</p>
+  </section>
+
+  <section class="refs">
+    <h2>References</h2>
+    <ul>
+      <li><a href="https://www.klasapuck.org/opis-lodzi-klasy-puck/" target="_blank" rel="noopener">Polish Puck Class Association — boat description &amp; technical data</a> — dimensions, sail areas, handling notes (A. Mizgier trials, AWF Gdańsk 1997)</li>
+      <li><a href="https://www.klasapuck.org/stowarzyszenie/historia-stowarzyszenia/" target="_blank" rel="noopener">Puck Class Association — history</a> — prototype, trials, class origin</li>
+      <li><a href="https://klasapuck.org/files/download/376/przepisy-klasowe-do-jachtu-puck.pdf" target="_blank" rel="noopener">Puck class rules (PDF)</a> — measurement, rig and equipment</li>
+      <li><a href="https://klasapuck.org/files/download/376/Raport-z-badan-modul-A1.pdf" target="_blank" rel="noopener">Module A1 test report (PDF)</a> — CE assessment</li>
+    </ul>
+    <p class="note">Design category, load and standard are from the PRS module-A1 examination report
+    (CW/RCD/3350/2020, EN&nbsp;ISO&nbsp;12217-3:2017); handling notes are from the class association's description and
+    trials. The Puck has no manufacturer knot reef figure — the knot bands above are a conservative youth-sailing
+    guide, not a certified limit. The certified envelope is Category&nbsp;D (Force 4). For a light or inexperienced crew, treat the limits as
+    lower — reef earlier — and let on-water judgement override the table.</p>
+  </section>
+
+  <p class="back"><a href="#" onclick="history.back();return false">← Back to the wind</a></p>
+  <p class="fbrow"><a class="fbbtn" href="mailto:wind@aurorasailing.com.au">Suggest a change, or share your experience →</a></p>
+  <script>(function(){var a=document.querySelector('.fbbtn');if(!a)return;a.href='mailto:wind@aurorasailing.com.au?subject='+encodeURIComponent('Puck wind limits — feedback')+'&body='+encodeURIComponent('\n\n— My correction, question, or real-world experience:\n\n\n(Aurora WSJ Puck wind-limits page — '+location.href+')');})();</script>
+  <nav class="pagenav" aria-label="Aurora WSJ Wind pages">
+    <a href="index.html">Board</a>
+    <a href="wsj-map.html">River map</a>
+    <a href="sailing-day.html">Is it a sailing day?</a>
+    <a href="jamboree-marina.html">Jamboree Marina</a>
+    <a href="puck.html">What is a Puck?</a>
+    <a href="wind-barbs.html">Wind barbs</a>
+  </nav>
+</main>
+<footer><div class="wsj-bravely" style="margin-bottom:4px">Sail bravely.</div><b style="font-weight:700;color:var(--slate)">Aurora · WSJ2027 Wind.</b> Wind limits for the Puck class at the Jamboree Marina, from the Polish Puck Class Association's guidance.</footer>
+</body>
+</html>
